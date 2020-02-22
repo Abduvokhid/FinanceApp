@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum Finding {
+enum CompoundFinding {
     case Empty
     case FutureValue
     case InitialAmount
@@ -23,8 +23,7 @@ class CompoundViewController: UIViewController {
     @IBOutlet weak var interestRateTF: UITextField!
     @IBOutlet weak var numberOfYearsTF: UITextField!
     
-    var finding = Finding.Empty
-
+    var finding = CompoundFinding.Empty
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -35,29 +34,29 @@ class CompoundViewController: UIViewController {
         let futureValue: Double! = Double(futureValueTF.text!)
         if (futureValue == nil) {
             counter += 1
-            finding = Finding.FutureValue
+            finding = CompoundFinding.FutureValue
         }
         
         let initialAmount: Double! = Double(initialAmountTF.text!)
         if (initialAmount == nil) {
             counter += 1
-            finding = Finding.InitialAmount
+            finding = CompoundFinding.InitialAmount
         }
         
         let numberOfYears: Double! = Double(numberOfYearsTF.text!)
         if (numberOfYears == nil) {
             counter += 1
-            finding = Finding.NumberOfYears
+            finding = CompoundFinding.NumberOfYears
         }
         
         let interestRate: Double! = Double(interestRateTF.text!)
         if (interestRate == nil) {
             counter += 1
-            finding = Finding.InterestRate
+            finding = CompoundFinding.InterestRate
         }
         
-        if ((counter == 0 && finding == Finding.Empty) || counter > 1) {
-            finding = Finding.Empty
+        if ((counter == 0 && finding == CompoundFinding.Empty) || counter > 1) {
+            finding = CompoundFinding.Empty
             return
         }
         
