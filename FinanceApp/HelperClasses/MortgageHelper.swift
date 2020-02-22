@@ -9,19 +9,19 @@
 import Foundation
 
 class MortgageHelper {
-    static func monthlyPayment(initialValue: Double, interestRate: Double, numberOfYears: Double) -> Double{
+    static func paymentAmount(initialAmount: Double, interestRate: Double, numberOfYears: Double) -> Double{
         let part = interestRate / 100 / 12
         var top = pow(1 + part, 12 * numberOfYears)
-        top = initialValue * part * top
+        top = initialAmount * part * top
         var bottom = pow(1 + part, 12 * numberOfYears)
         bottom = bottom - 1
         let calculation = top / bottom
         return calculation
     }
     
-    static func numberOfYears(initialValue: Double, interestRate: Double, paymentAmount: Double) -> Double{
+    static func numberOfYears(initialAmount: Double, interestRate: Double, paymentAmount: Double) -> Double{
         let part = interestRate / 100
-        var top = initialValue * part
+        var top = initialAmount * part
         top = top - (12 * paymentAmount)
         top = (-12 * paymentAmount) / top
         top = log(top)

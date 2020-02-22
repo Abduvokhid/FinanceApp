@@ -59,7 +59,26 @@ class MortgageViewController: UIViewController {
             return
         }
         
+        switch finding {
+        case .initialAmount:
+            let result = MortgageHelper.initialValue(paymentAmount: paymentAmount, interestRate: interestRate, numberOfYears: numberOfYears)
+            initialAmountTF.text = String(format: "%.2f", result)
+        case .numberOfYears:
+            let result = MortgageHelper.numberOfYears(initialAmount: initialAmount, interestRate: interestRate, paymentAmount: paymentAmount)
+            numberOfYearsTF.text = String(format: "%.2f", result)
+        case .paymentAmount:
+            let result = MortgageHelper.paymentAmount(initialAmount: initialAmount, interestRate: interestRate, numberOfYears: numberOfYears)
+            paymentAmountTF.text = String(format: "%.2f", result)
+            
+            /*let formatter = NumberFormatter()
+            formatter.usesGroupingSeparator = true
+            formatter.numberStyle = .currency
+            formatter.currencyGroupingSeparator = " "
+            formatter.currencyDecimalSeparator = "."
+            formatter.currencySymbol = "£"
+            paymentAmountTF.text = formatter.string(for: result)*/
+        default:
+            return
+        }
     }
-    
-    
 }
