@@ -16,18 +16,29 @@ enum CompoundFinding {
     case InterestRate
 }
 
-class CompoundViewController: UIViewController {
+class CompoundViewController: UIViewController, KeyboardViewDelegate {
 
     @IBOutlet weak var futureValueTF: UITextField!
     @IBOutlet weak var initialAmountTF: UITextField!
     @IBOutlet weak var interestRateTF: UITextField!
     @IBOutlet weak var numberOfYearsTF: UITextField!
+    @IBOutlet weak var customKeyboardView: KeyboardView!
+    var currentTextField: UITextField!
     
     var finding = CompoundFinding.Empty
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
+    @IBAction func textFieldPressed(_ sender: UITextField) {
+        currentTextField = sender
+    }
+    
+    func keyboardButtonPressed(value: Int) {
+        currentTextField.text = String(value)
+    }
+    
     @IBAction func calculatePressed(_ sender: Any) {
         var counter = 0
         

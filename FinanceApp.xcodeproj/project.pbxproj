@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		DE0545E22401939C008F824F /* MortgageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0545E12401939C008F824F /* MortgageViewController.swift */; };
 		DE0545E42401A03E008F824F /* MortgageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0545E32401A03E008F824F /* MortgageHelper.swift */; };
+		DE81E17E2402925300D27D04 /* KeyboardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE81E17D2402925300D27D04 /* KeyboardView.xib */; };
+		DE81E180240292C100D27D04 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE81E17F240292C100D27D04 /* KeyboardView.swift */; };
+		DE81E182240294C700D27D04 /* CustomTabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE81E181240294C700D27D04 /* CustomTabBarControllerViewController.swift */; };
 		DED2535A23FC4AE10066F48A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED2535923FC4AE10066F48A /* AppDelegate.swift */; };
 		DED2535C23FC4AE10066F48A /* SavingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED2535B23FC4AE10066F48A /* SavingsViewController.swift */; };
 		DED2535E23FC4AE10066F48A /* CompoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED2535D23FC4AE10066F48A /* CompoundViewController.swift */; };
@@ -21,6 +24,9 @@
 /* Begin PBXFileReference section */
 		DE0545E12401939C008F824F /* MortgageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MortgageViewController.swift; sourceTree = "<group>"; };
 		DE0545E32401A03E008F824F /* MortgageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MortgageHelper.swift; sourceTree = "<group>"; };
+		DE81E17D2402925300D27D04 /* KeyboardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyboardView.xib; sourceTree = "<group>"; };
+		DE81E17F240292C100D27D04 /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
+		DE81E181240294C700D27D04 /* CustomTabBarControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarControllerViewController.swift; sourceTree = "<group>"; };
 		DED2535623FC4AE10066F48A /* FinanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DED2535923FC4AE10066F48A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DED2535B23FC4AE10066F48A /* SavingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +77,9 @@
 				DED2536223FC4AE20066F48A /* Assets.xcassets */,
 				DED2536423FC4AE20066F48A /* LaunchScreen.storyboard */,
 				DED2536723FC4AE20066F48A /* Info.plist */,
+				DE81E17D2402925300D27D04 /* KeyboardView.xib */,
+				DE81E17F240292C100D27D04 /* KeyboardView.swift */,
+				DE81E181240294C700D27D04 /* CustomTabBarControllerViewController.swift */,
 			);
 			path = FinanceApp;
 			sourceTree = "<group>";
@@ -143,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DED2536623FC4AE20066F48A /* LaunchScreen.storyboard in Resources */,
+				DE81E17E2402925300D27D04 /* KeyboardView.xib in Resources */,
 				DED2536323FC4AE20066F48A /* Assets.xcassets in Resources */,
 				DED2536123FC4AE10066F48A /* Main.storyboard in Resources */,
 			);
@@ -157,10 +167,12 @@
 			files = (
 				DED2536F23FC57150066F48A /* CompoundHelper.swift in Sources */,
 				DED2535E23FC4AE10066F48A /* CompoundViewController.swift in Sources */,
+				DE81E180240292C100D27D04 /* KeyboardView.swift in Sources */,
 				DED2535A23FC4AE10066F48A /* AppDelegate.swift in Sources */,
 				DED2535C23FC4AE10066F48A /* SavingsViewController.swift in Sources */,
 				DE0545E22401939C008F824F /* MortgageViewController.swift in Sources */,
 				DE0545E42401A03E008F824F /* MortgageHelper.swift in Sources */,
+				DE81E182240294C700D27D04 /* CustomTabBarControllerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,15 +318,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = FinanceApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = UoW.FinanceApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.westminster.w1590340;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -324,15 +338,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = FinanceApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = UoW.FinanceApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.westminster.w1590340;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -15,88 +15,31 @@ enum MortgageFinding {
     case numberOfYears
 }
 
-class MortgageViewController: UIViewController {
+class MortgageViewController: UIViewController, KeyboardViewDelegate {
 
     @IBOutlet weak var initialAmountTF: UITextField!
     @IBOutlet weak var paymentAmountTF: UITextField!
     @IBOutlet weak var numberOfYearsTF: UITextField!
     @IBOutlet weak var interestRateTF: UITextField!
+    var currentTextField: UITextField!
     
-    @IBOutlet weak var dummyView: UIView!
-    
-    @IBOutlet weak var keyboardView: UIView!
-    
-    var current = 0
-    
-    var open = false
-    
-    @IBAction func TextFieldFocused(_ sender: UITextField) {
-        switch sender.tag {
-        case 1:
-            current = 1
-        case 2:
-            current = 2
-        case 3:
-            current = 3
-        case 4:
-            current = 4
-        default:
-            return
-        }
-        if (!open){
-            keyboardView.isHidden = false
-            open = true
-        }
-    }
-    
-    @objc func hideKeyboard(){
-        keyboardView.isHidden = true
-        open = false
-    }
-    
-    @IBAction func KeyboardButtonPressed(_ sender: UIButton) {
-        let now: String
-        let pressed: String = sender.titleLabel!.text ?? ""
-        switch pressed {
-        case "1":
-            now = "1"
-        case "2":
-            now = "2"
-        case "3":
-            now = "3"
-        case "4":
-            now = "4"
-        case "-1":
-            now = "-1"
-        default:
-            return
-        }
-        switch current {
-        case 1:
-            initialAmountTF.text = (initialAmountTF.text ?? "") + now
-        case 2:
-            paymentAmountTF.text = (paymentAmountTF.text ?? "") + now
-        case 3:
-            numberOfYearsTF.text = (numberOfYearsTF.text ?? "") + now
-        case 4:
-            interestRateTF.text = (interestRateTF.text ?? "") + now
-        default:
-            return
-        }
-    }
-    
-    @IBOutlet var mainView: UIView!
+    @IBOutlet weak var customKeyboardView: UIView!
     
     var finding = MortgageFinding.empty
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        let hideKeyboardSelector = #selector(self.hideKeyboard)
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: hideKeyboardSelector)
-        mainView.addGestureRecognizer(tap)
+    @IBAction func TextFieldFocused(_ sender: UITextField) {
+        currentTextField = sender
     }
     
-    @IBAction func calculateButtonPressed(_ sender: Any) {
+    func keyboardButtonPressed(value: Int) {
+        currentTextField.text = String(value)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    @IBAction func calculateButtonPressed(_ sender: UITextField) {
         var counter = 0
         
         let interestRate: Double! = Double(interestRateTF.text!)

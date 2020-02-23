@@ -61,67 +61,10 @@
                                     <action selector="calculatePressed:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="LFF-JP-z0V"/>
                                 </connections>
                             </button>
-                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p6E-C9-Bm9">
-                                <rect key="frame" x="0.0" y="542" width="414" height="271"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="She-IW-EVE" customClass="KeyboardView" customModule="FinanceApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="263" width="414" height="550"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RDm-If-Kei">
-                                        <rect key="frame" x="20" y="24" width="50" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="1">
-                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="KeyboardButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="64p-BV-eyJ"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4pW-kZ-mIV">
-                                        <rect key="frame" x="90" y="24" width="50" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="2">
-                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="KeyboardButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="64e-Uy-Uy2"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hu8-75-wjk">
-                                        <rect key="frame" x="196" y="24" width="50" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="3">
-                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="KeyboardButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="36L-eG-A4a"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3v7-zf-GkU">
-                                        <rect key="frame" x="40" y="72" width="50" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="4">
-                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="KeyboardButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="S60-mH-0OW"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VJW-Ty-btC">
-                                        <rect key="frame" x="299" y="173" width="50" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="-1">
-                                            <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="KeyboardButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="V5z-V8-VOK"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.91525267360816909" green="0.90611515044496083" blue="0.95834682642487046" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -145,9 +88,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Mortgage" image="first" id="acW-dT-cKf"/>
                     <connections>
+                        <outlet property="customKeyboardView" destination="She-IW-EVE" id="egO-W2-HrJ"/>
                         <outlet property="initialAmountTF" destination="yDE-zL-Xea" id="teK-jB-col"/>
                         <outlet property="interestRateTF" destination="G7J-Zi-sgE" id="M3S-8V-uDQ"/>
-                        <outlet property="keyboardView" destination="p6E-C9-Bm9" id="bYB-NE-oJk"/>
                         <outlet property="mainView" destination="tsR-hK-woN" id="awg-Pn-00R"/>
                         <outlet property="numberOfYearsTF" destination="6Vl-EG-aaf" id="xLT-bw-QIM"/>
                         <outlet property="paymentAmountTF" destination="mGB-DB-WsY" id="Xsh-1t-Bod"/>
@@ -170,24 +113,36 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldPressed:" destination="8rJ-Kc-sve" eventType="touchDown" id="RbU-Uw-Eic"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Initial amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8eW-cv-waP">
                                 <rect key="frame" x="20" y="128" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldPressed:" destination="8rJ-Kc-sve" eventType="touchDown" id="4NX-Z7-hB7"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Interest rate" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zbr-xU-iIa">
                                 <rect key="frame" x="20" y="166" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldPressed:" destination="8rJ-Kc-sve" eventType="touchDown" id="rBy-6Y-M0h"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number of years" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u4w-Ap-SSR">
                                 <rect key="frame" x="20" y="204" width="374" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldPressed:" destination="8rJ-Kc-sve" eventType="touchDown" id="qPk-nf-BWa"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v6G-ro-Ehp">
                                 <rect key="frame" x="175" y="248" width="64" height="30"/>
@@ -196,6 +151,11 @@
                                     <action selector="calculatePressed:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="KAw-KB-3ST"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IaD-w4-3Bt" customClass="KeyboardView" customModule="FinanceApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="263" width="414" height="550"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -218,9 +178,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Compound" image="first" id="cPa-gy-q4n"/>
                     <connections>
+                        <outlet property="customKeyboardView" destination="IaD-w4-3Bt" id="5du-kK-gCA"/>
                         <outlet property="futureValueTF" destination="hVq-WX-MJz" id="2Qm-o1-uRD"/>
                         <outlet property="initialAmountTF" destination="8eW-cv-waP" id="LTO-JB-EgB"/>
                         <outlet property="interestRateTF" destination="zbr-xU-iIa" id="oGG-zs-zGQ"/>
+                        <outlet property="keyboardView" destination="IaD-w4-3Bt" id="fPl-ht-0f0"/>
                         <outlet property="numberOfYearsTF" destination="u4w-Ap-SSR" id="h1K-oF-pd3"/>
                     </connections>
                 </viewController>
@@ -273,6 +235,11 @@
                                     <action selector="calculatePressed:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="sXm-Nv-PYI"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nhk-Fv-XmE" customClass="KeyboardView" customModule="FinanceApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="263" width="414" height="550"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -318,10 +285,10 @@
             </objects>
             <point key="canvasLocation" x="1800" y="473"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Custom Tab Bar Controller View Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController id="49e-Tb-3d3" customClass="CustomTabBarControllerViewController" customModule="FinanceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
