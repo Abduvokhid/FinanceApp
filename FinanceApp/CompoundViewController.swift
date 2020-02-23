@@ -32,7 +32,10 @@ class CompoundViewController: UIViewController, KeyboardViewDelegate {
     }
     
     @IBAction func textFieldPressed(_ sender: UITextField) {
+        if (currentTextField != nil) {currentTextField.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)}
         currentTextField = sender
+        sender.resignFirstResponder()
+        currentTextField.backgroundColor = #colorLiteral(red: 0.9465146661, green: 0.946672976, blue: 0.9464938045, alpha: 1)
     }
     
     func keyboardButtonPressed(value: Int) {

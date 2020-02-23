@@ -28,7 +28,10 @@ class MortgageViewController: UIViewController, KeyboardViewDelegate {
     var finding = MortgageFinding.empty
     
     @IBAction func TextFieldFocused(_ sender: UITextField) {
+        if (currentTextField != nil) {currentTextField.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)}
         currentTextField = sender
+        sender.resignFirstResponder()
+        currentTextField.backgroundColor = #colorLiteral(red: 0.9465146661, green: 0.946672976, blue: 0.9464938045, alpha: 1)
     }
     
     func keyboardButtonPressed(value: Int) {
@@ -37,9 +40,15 @@ class MortgageViewController: UIViewController, KeyboardViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let margineGuide = customKeyboardView {
+            initialAmountTF.text = String(Int(margineGuide.frame.height))
+            interestRateTF.text = String(Int(margineGuide.frame.width))
+        }
+        
     }
     
-    @IBAction func calculateButtonPressed(_ sender: UITextField) {
+    @IBAction func calculateButtonPressed(_ sender: UIButton) {
         var counter = 0
         
         let interestRate: Double! = Double(interestRateTF.text!)

@@ -24,7 +24,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="TextFieldFocused:" destination="9pv-A4-QxB" eventType="touchDown" id="Jy2-ga-vl3"/>
+                                    <action selector="TextFieldFocused:" destination="9pv-A4-QxB" eventType="editingDidBegin" id="gJg-4b-wpw"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Interest rate" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G7J-Zi-sgE">
@@ -33,7 +33,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="TextFieldFocused:" destination="9pv-A4-QxB" eventType="touchDown" id="bjN-SD-klP"/>
+                                    <action selector="TextFieldFocused:" destination="9pv-A4-QxB" eventType="editingDidBegin" id="G2K-04-f5A"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number of years" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Vl-EG-aaf">
@@ -42,7 +42,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="TextFieldFocused:" destination="9pv-A4-QxB" eventType="touchDown" id="FRj-wr-vov"/>
+                                    <action selector="TextFieldFocused:" destination="9pv-A4-QxB" eventType="editingDidBegin" id="S5I-4y-Ewt"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Monthly payment amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mGB-DB-WsY">
@@ -51,38 +51,41 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="TextFieldFocused:" destination="9pv-A4-QxB" eventType="touchDown" id="QL8-e2-XJA"/>
+                                    <action selector="TextFieldFocused:" destination="9pv-A4-QxB" eventType="editingDidBegin" id="Wcx-zL-bnG"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bs6-YL-2hU">
                                 <rect key="frame" x="175" y="247" width="64" height="30"/>
                                 <state key="normal" title="Calculate"/>
                                 <connections>
-                                    <action selector="calculatePressed:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="LFF-JP-z0V"/>
+                                    <action selector="calculateButtonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="OlE-HK-QC8"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="She-IW-EVE" customClass="KeyboardView" customModule="FinanceApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="263" width="414" height="550"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="She-IW-EVE" customClass="KeyboardView" customModule="FinanceApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="473" width="414" height="340"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="yDE-zL-Xea" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="44" id="16S-mh-DKa"/>
-                            <constraint firstItem="mGB-DB-WsY" firstAttribute="top" secondItem="yDE-zL-Xea" secondAttribute="bottom" constant="8" symbolic="YES" id="6Fv-ei-qAs"/>
-                            <constraint firstItem="G7J-Zi-sgE" firstAttribute="centerX" secondItem="bs6-YL-2hU" secondAttribute="centerX" id="Asg-dN-WXc"/>
-                            <constraint firstItem="yDE-zL-Xea" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="G7g-hv-41q"/>
-                            <constraint firstItem="mGB-DB-WsY" firstAttribute="leading" secondItem="6Vl-EG-aaf" secondAttribute="leading" id="TWG-Xs-nfz"/>
-                            <constraint firstItem="yDE-zL-Xea" firstAttribute="leading" secondItem="mGB-DB-WsY" secondAttribute="leading" id="V2Z-4b-DRJ"/>
-                            <constraint firstItem="6Vl-EG-aaf" firstAttribute="leading" secondItem="G7J-Zi-sgE" secondAttribute="leading" id="WW6-HJ-xMU"/>
-                            <constraint firstItem="bs6-YL-2hU" firstAttribute="top" secondItem="G7J-Zi-sgE" secondAttribute="bottom" constant="15" id="aQg-Gq-2FE"/>
-                            <constraint firstItem="mGB-DB-WsY" firstAttribute="trailing" secondItem="6Vl-EG-aaf" secondAttribute="trailing" id="cBj-Qu-NhU"/>
-                            <constraint firstItem="yDE-zL-Xea" firstAttribute="trailing" secondItem="mGB-DB-WsY" secondAttribute="trailing" id="dFp-qq-Dud"/>
-                            <constraint firstItem="yDE-zL-Xea" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailingMargin" id="oDE-9y-FdC"/>
-                            <constraint firstItem="6Vl-EG-aaf" firstAttribute="trailing" secondItem="G7J-Zi-sgE" secondAttribute="trailing" id="tCg-Jx-COV"/>
-                            <constraint firstItem="6Vl-EG-aaf" firstAttribute="top" secondItem="mGB-DB-WsY" secondAttribute="bottom" constant="8" symbolic="YES" id="xi5-Cc-Pat"/>
-                            <constraint firstItem="G7J-Zi-sgE" firstAttribute="top" secondItem="6Vl-EG-aaf" secondAttribute="bottom" constant="8" symbolic="YES" id="y1l-Jb-vch"/>
+                            <constraint firstItem="yDE-zL-Xea" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" constant="44" id="8Xc-Nw-0OE"/>
+                            <constraint firstAttribute="trailing" secondItem="She-IW-EVE" secondAttribute="trailing" id="8hb-NU-HYU"/>
+                            <constraint firstItem="bs6-YL-2hU" firstAttribute="top" secondItem="G7J-Zi-sgE" secondAttribute="bottom" constant="15" id="IkU-6u-iEg"/>
+                            <constraint firstItem="yDE-zL-Xea" firstAttribute="trailing" secondItem="mGB-DB-WsY" secondAttribute="trailing" id="LVo-nK-HZr"/>
+                            <constraint firstItem="G7J-Zi-sgE" firstAttribute="centerX" secondItem="bs6-YL-2hU" secondAttribute="centerX" id="NBN-uo-7A5"/>
+                            <constraint firstItem="She-IW-EVE" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="Oe5-ur-xh0"/>
+                            <constraint firstItem="yDE-zL-Xea" firstAttribute="leading" secondItem="mGB-DB-WsY" secondAttribute="leading" id="Qur-pU-1pq"/>
+                            <constraint firstItem="bs6-YL-2hU" firstAttribute="centerX" secondItem="She-IW-EVE" secondAttribute="centerX" priority="750" id="Teo-3z-GeS"/>
+                            <constraint firstItem="She-IW-EVE" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" id="UqH-QB-rt5"/>
+                            <constraint firstItem="6Vl-EG-aaf" firstAttribute="leading" secondItem="G7J-Zi-sgE" secondAttribute="leading" id="ZgB-C6-8Cu"/>
+                            <constraint firstItem="mGB-DB-WsY" firstAttribute="trailing" secondItem="6Vl-EG-aaf" secondAttribute="trailing" id="gvW-LJ-bTn"/>
+                            <constraint firstItem="yDE-zL-Xea" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="hWZ-Qi-Vnc"/>
+                            <constraint firstItem="G7J-Zi-sgE" firstAttribute="top" secondItem="6Vl-EG-aaf" secondAttribute="bottom" constant="8" symbolic="YES" id="jGa-2g-hlH"/>
+                            <constraint firstItem="6Vl-EG-aaf" firstAttribute="top" secondItem="mGB-DB-WsY" secondAttribute="bottom" constant="8" symbolic="YES" id="lHv-DL-MVI"/>
+                            <constraint firstItem="6Vl-EG-aaf" firstAttribute="trailing" secondItem="G7J-Zi-sgE" secondAttribute="trailing" id="mbh-8F-hcY"/>
+                            <constraint firstItem="mGB-DB-WsY" firstAttribute="leading" secondItem="6Vl-EG-aaf" secondAttribute="leading" id="su7-4L-aTz"/>
+                            <constraint firstItem="She-IW-EVE" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" priority="750" constant="473" id="t1e-NG-gZx"/>
+                            <constraint firstItem="mGB-DB-WsY" firstAttribute="top" secondItem="yDE-zL-Xea" secondAttribute="bottom" constant="8" symbolic="YES" id="v94-oP-nWV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
@@ -91,7 +94,6 @@
                         <outlet property="customKeyboardView" destination="She-IW-EVE" id="egO-W2-HrJ"/>
                         <outlet property="initialAmountTF" destination="yDE-zL-Xea" id="teK-jB-col"/>
                         <outlet property="interestRateTF" destination="G7J-Zi-sgE" id="M3S-8V-uDQ"/>
-                        <outlet property="mainView" destination="tsR-hK-woN" id="awg-Pn-00R"/>
                         <outlet property="numberOfYearsTF" destination="6Vl-EG-aaf" id="xLT-bw-QIM"/>
                         <outlet property="paymentAmountTF" destination="mGB-DB-WsY" id="Xsh-1t-Bod"/>
                     </connections>
@@ -114,7 +116,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="textFieldPressed:" destination="8rJ-Kc-sve" eventType="touchDown" id="RbU-Uw-Eic"/>
+                                    <action selector="textFieldPressed:" destination="8rJ-Kc-sve" eventType="editingDidBegin" id="aKv-qP-Ksw"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Initial amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8eW-cv-waP">
@@ -123,7 +125,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="textFieldPressed:" destination="8rJ-Kc-sve" eventType="touchDown" id="4NX-Z7-hB7"/>
+                                    <action selector="textFieldPressed:" destination="8rJ-Kc-sve" eventType="editingDidBegin" id="XvP-Qs-fzS"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Interest rate" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zbr-xU-iIa">
@@ -132,7 +134,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="textFieldPressed:" destination="8rJ-Kc-sve" eventType="touchDown" id="rBy-6Y-M0h"/>
+                                    <action selector="textFieldPressed:" destination="8rJ-Kc-sve" eventType="editingDidBegin" id="WkG-U2-Vkj"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number of years" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u4w-Ap-SSR">
@@ -141,7 +143,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="textFieldPressed:" destination="8rJ-Kc-sve" eventType="touchDown" id="qPk-nf-BWa"/>
+                                    <action selector="textFieldPressed:" destination="8rJ-Kc-sve" eventType="editingDidBegin" id="GZV-kF-xyG"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v6G-ro-Ehp">
@@ -151,28 +153,31 @@
                                     <action selector="calculatePressed:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="KAw-KB-3ST"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IaD-w4-3Bt" customClass="KeyboardView" customModule="FinanceApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="263" width="414" height="550"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IaD-w4-3Bt" customClass="KeyboardView" customModule="FinanceApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="473" width="414" height="340"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="hVq-WX-MJz" firstAttribute="trailing" secondItem="8eW-cv-waP" secondAttribute="trailing" id="2vD-b8-F63"/>
-                            <constraint firstItem="u4w-Ap-SSR" firstAttribute="centerX" secondItem="v6G-ro-Ehp" secondAttribute="centerX" id="A2E-Vb-WMT"/>
-                            <constraint firstItem="zbr-xU-iIa" firstAttribute="leading" secondItem="u4w-Ap-SSR" secondAttribute="leading" id="Aj1-Ev-4rR"/>
-                            <constraint firstItem="8eW-cv-waP" firstAttribute="trailing" secondItem="zbr-xU-iIa" secondAttribute="trailing" id="Ay3-0y-Ury"/>
-                            <constraint firstItem="u4w-Ap-SSR" firstAttribute="top" secondItem="zbr-xU-iIa" secondAttribute="bottom" constant="8" symbolic="YES" id="DB3-3S-TcZ"/>
-                            <constraint firstItem="8eW-cv-waP" firstAttribute="top" secondItem="hVq-WX-MJz" secondAttribute="bottom" constant="8" symbolic="YES" id="MwH-ZN-EFn"/>
-                            <constraint firstItem="zbr-xU-iIa" firstAttribute="trailing" secondItem="u4w-Ap-SSR" secondAttribute="trailing" id="PDB-1A-KIN"/>
-                            <constraint firstItem="hVq-WX-MJz" firstAttribute="leading" secondItem="8eW-cv-waP" secondAttribute="leading" id="Szk-UE-7kY"/>
-                            <constraint firstItem="hVq-WX-MJz" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" id="V7i-rk-ATE"/>
-                            <constraint firstItem="hVq-WX-MJz" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" constant="46" id="X4y-dO-oSn"/>
-                            <constraint firstItem="v6G-ro-Ehp" firstAttribute="top" secondItem="u4w-Ap-SSR" secondAttribute="bottom" constant="14" id="Y2m-7O-zYl"/>
-                            <constraint firstItem="8eW-cv-waP" firstAttribute="leading" secondItem="zbr-xU-iIa" secondAttribute="leading" id="YeX-6G-kMu"/>
-                            <constraint firstItem="hVq-WX-MJz" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="fyC-o9-LDz"/>
-                            <constraint firstItem="zbr-xU-iIa" firstAttribute="top" secondItem="8eW-cv-waP" secondAttribute="bottom" constant="8" symbolic="YES" id="l8c-Ur-y6k"/>
+                            <constraint firstItem="8eW-cv-waP" firstAttribute="trailing" secondItem="zbr-xU-iIa" secondAttribute="trailing" id="3mT-ye-i6o"/>
+                            <constraint firstItem="8eW-cv-waP" firstAttribute="top" secondItem="hVq-WX-MJz" secondAttribute="bottom" constant="8" symbolic="YES" id="Bms-G0-BXt"/>
+                            <constraint firstItem="u4w-Ap-SSR" firstAttribute="top" secondItem="zbr-xU-iIa" secondAttribute="bottom" constant="8" symbolic="YES" id="Cme-mK-wj9"/>
+                            <constraint firstItem="hVq-WX-MJz" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" id="DBg-TS-PGt"/>
+                            <constraint firstItem="v6G-ro-Ehp" firstAttribute="top" secondItem="u4w-Ap-SSR" secondAttribute="bottom" constant="14" id="GXb-QU-Aoq"/>
+                            <constraint firstItem="8eW-cv-waP" firstAttribute="leading" secondItem="zbr-xU-iIa" secondAttribute="leading" id="JQN-SY-2ZE"/>
+                            <constraint firstItem="v6G-ro-Ehp" firstAttribute="centerX" secondItem="IaD-w4-3Bt" secondAttribute="centerX" id="KBn-d3-Xf4"/>
+                            <constraint firstItem="zbr-xU-iIa" firstAttribute="top" secondItem="8eW-cv-waP" secondAttribute="bottom" constant="8" symbolic="YES" id="Q8V-h8-t2e"/>
+                            <constraint firstItem="hVq-WX-MJz" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" constant="46" id="RZv-hm-ciC"/>
+                            <constraint firstAttribute="trailing" secondItem="IaD-w4-3Bt" secondAttribute="trailing" id="S7L-tR-6jg"/>
+                            <constraint firstItem="IaD-w4-3Bt" firstAttribute="bottom" secondItem="O1u-W8-tvY" secondAttribute="bottom" id="VTD-eV-h4m"/>
+                            <constraint firstItem="hVq-WX-MJz" firstAttribute="trailing" secondItem="8eW-cv-waP" secondAttribute="trailing" id="XTc-1V-j4y"/>
+                            <constraint firstItem="IaD-w4-3Bt" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="top" constant="474" id="Z0R-uO-CWC"/>
+                            <constraint firstItem="zbr-xU-iIa" firstAttribute="trailing" secondItem="u4w-Ap-SSR" secondAttribute="trailing" id="bR4-dX-bSy"/>
+                            <constraint firstItem="zbr-xU-iIa" firstAttribute="leading" secondItem="u4w-Ap-SSR" secondAttribute="leading" id="mA9-29-Rnf"/>
+                            <constraint firstItem="u4w-Ap-SSR" firstAttribute="centerX" secondItem="v6G-ro-Ehp" secondAttribute="centerX" id="urx-vZ-bUH"/>
+                            <constraint firstItem="IaD-w4-3Bt" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="uwa-mq-VhW"/>
+                            <constraint firstItem="hVq-WX-MJz" firstAttribute="leading" secondItem="8eW-cv-waP" secondAttribute="leading" id="zzZ-Gh-xLg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                     </view>
@@ -182,7 +187,6 @@
                         <outlet property="futureValueTF" destination="hVq-WX-MJz" id="2Qm-o1-uRD"/>
                         <outlet property="initialAmountTF" destination="8eW-cv-waP" id="LTO-JB-EgB"/>
                         <outlet property="interestRateTF" destination="zbr-xU-iIa" id="oGG-zs-zGQ"/>
-                        <outlet property="keyboardView" destination="IaD-w4-3Bt" id="fPl-ht-0f0"/>
                         <outlet property="numberOfYearsTF" destination="u4w-Ap-SSR" id="h1K-oF-pd3"/>
                     </connections>
                 </viewController>
@@ -235,31 +239,34 @@
                                     <action selector="calculatePressed:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="sXm-Nv-PYI"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nhk-Fv-XmE" customClass="KeyboardView" customModule="FinanceApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="263" width="414" height="550"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nhk-Fv-XmE" customClass="KeyboardView" customModule="FinanceApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="473" width="414" height="340"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="qkn-AT-YUX" firstAttribute="top" secondItem="og9-9u-PQH" secondAttribute="top" constant="49" id="0B9-Yg-eLL"/>
-                            <constraint firstItem="gnG-dL-2gC" firstAttribute="top" secondItem="OGp-yY-kku" secondAttribute="bottom" constant="8" symbolic="YES" id="0vj-m2-nhx"/>
-                            <constraint firstItem="tni-xS-aDK" firstAttribute="leading" secondItem="ZgA-wJ-TU1" secondAttribute="leading" id="2oS-kj-DaF"/>
-                            <constraint firstItem="OGp-yY-kku" firstAttribute="top" secondItem="qkn-AT-YUX" secondAttribute="bottom" constant="8" symbolic="YES" id="6IU-8V-r4X"/>
-                            <constraint firstItem="ZgA-wJ-TU1" firstAttribute="centerX" secondItem="PjZ-95-It9" secondAttribute="centerX" id="Dic-42-bP0"/>
-                            <constraint firstItem="tni-xS-aDK" firstAttribute="trailing" secondItem="ZgA-wJ-TU1" secondAttribute="trailing" id="PCM-Hr-goV"/>
-                            <constraint firstItem="qkn-AT-YUX" firstAttribute="trailing" secondItem="qi3-8p-7yZ" secondAttribute="trailingMargin" id="UCO-ds-6xe"/>
-                            <constraint firstItem="OGp-yY-kku" firstAttribute="trailing" secondItem="gnG-dL-2gC" secondAttribute="trailing" id="Vbk-B1-XXK"/>
-                            <constraint firstItem="ZgA-wJ-TU1" firstAttribute="top" secondItem="tni-xS-aDK" secondAttribute="bottom" constant="8" symbolic="YES" id="a5b-de-eGk"/>
-                            <constraint firstItem="gnG-dL-2gC" firstAttribute="trailing" secondItem="tni-xS-aDK" secondAttribute="trailing" id="deC-Jl-Yxt"/>
-                            <constraint firstItem="qkn-AT-YUX" firstAttribute="leading" secondItem="qi3-8p-7yZ" secondAttribute="leadingMargin" id="gE5-gw-MYZ"/>
-                            <constraint firstItem="tni-xS-aDK" firstAttribute="top" secondItem="gnG-dL-2gC" secondAttribute="bottom" constant="8" symbolic="YES" id="gan-ln-6KB"/>
-                            <constraint firstItem="OGp-yY-kku" firstAttribute="leading" secondItem="gnG-dL-2gC" secondAttribute="leading" id="hdh-UC-d9r"/>
-                            <constraint firstItem="gnG-dL-2gC" firstAttribute="leading" secondItem="tni-xS-aDK" secondAttribute="leading" id="l0Q-af-D80"/>
-                            <constraint firstItem="PjZ-95-It9" firstAttribute="top" secondItem="ZgA-wJ-TU1" secondAttribute="bottom" constant="16" id="nKX-4U-dhO"/>
-                            <constraint firstItem="qkn-AT-YUX" firstAttribute="trailing" secondItem="OGp-yY-kku" secondAttribute="trailing" id="rqh-6d-hLc"/>
-                            <constraint firstItem="qkn-AT-YUX" firstAttribute="leading" secondItem="OGp-yY-kku" secondAttribute="leading" id="yks-8X-dAb"/>
+                            <constraint firstItem="tni-xS-aDK" firstAttribute="trailing" secondItem="ZgA-wJ-TU1" secondAttribute="trailing" id="1VK-9Y-9Av"/>
+                            <constraint firstItem="ZgA-wJ-TU1" firstAttribute="centerX" secondItem="PjZ-95-It9" secondAttribute="centerX" id="2Bc-7D-224"/>
+                            <constraint firstItem="gnG-dL-2gC" firstAttribute="top" secondItem="OGp-yY-kku" secondAttribute="bottom" constant="8" symbolic="YES" id="BUj-Ps-lnI"/>
+                            <constraint firstAttribute="trailing" secondItem="nhk-Fv-XmE" secondAttribute="trailing" id="EO2-OE-Tpb"/>
+                            <constraint firstItem="qkn-AT-YUX" firstAttribute="leading" secondItem="OGp-yY-kku" secondAttribute="leading" id="Ihc-SC-hrp"/>
+                            <constraint firstItem="gnG-dL-2gC" firstAttribute="trailing" secondItem="tni-xS-aDK" secondAttribute="trailing" id="NFB-ka-f1e"/>
+                            <constraint firstItem="nhk-Fv-XmE" firstAttribute="leading" secondItem="qi3-8p-7yZ" secondAttribute="leading" id="RxZ-NH-hce"/>
+                            <constraint firstItem="ZgA-wJ-TU1" firstAttribute="top" secondItem="tni-xS-aDK" secondAttribute="bottom" constant="8" symbolic="YES" id="Tar-Ih-Ya2"/>
+                            <constraint firstItem="nhk-Fv-XmE" firstAttribute="top" secondItem="qi3-8p-7yZ" secondAttribute="top" constant="474" id="UYc-EE-Vuo"/>
+                            <constraint firstItem="nhk-Fv-XmE" firstAttribute="bottom" secondItem="og9-9u-PQH" secondAttribute="bottom" id="UdN-Vy-dKQ"/>
+                            <constraint firstItem="tni-xS-aDK" firstAttribute="top" secondItem="gnG-dL-2gC" secondAttribute="bottom" constant="8" symbolic="YES" id="ZUi-7l-0w5"/>
+                            <constraint firstItem="OGp-yY-kku" firstAttribute="trailing" secondItem="gnG-dL-2gC" secondAttribute="trailing" id="a5K-zs-fOA"/>
+                            <constraint firstItem="qkn-AT-YUX" firstAttribute="top" secondItem="og9-9u-PQH" secondAttribute="top" constant="49" id="buk-JE-Tl0"/>
+                            <constraint firstItem="gnG-dL-2gC" firstAttribute="leading" secondItem="tni-xS-aDK" secondAttribute="leading" id="dEK-ZM-XD6"/>
+                            <constraint firstItem="OGp-yY-kku" firstAttribute="top" secondItem="qkn-AT-YUX" secondAttribute="bottom" constant="8" symbolic="YES" id="dQh-1d-P7I"/>
+                            <constraint firstItem="qkn-AT-YUX" firstAttribute="leading" secondItem="qi3-8p-7yZ" secondAttribute="leadingMargin" id="gdc-2E-lye"/>
+                            <constraint firstItem="PjZ-95-It9" firstAttribute="top" secondItem="ZgA-wJ-TU1" secondAttribute="bottom" constant="16" id="hc4-4l-jfa"/>
+                            <constraint firstItem="OGp-yY-kku" firstAttribute="leading" secondItem="gnG-dL-2gC" secondAttribute="leading" id="hpb-z8-kPN"/>
+                            <constraint firstItem="PjZ-95-It9" firstAttribute="centerX" secondItem="nhk-Fv-XmE" secondAttribute="centerX" id="lYo-wj-5bb"/>
+                            <constraint firstItem="qkn-AT-YUX" firstAttribute="trailing" secondItem="OGp-yY-kku" secondAttribute="trailing" id="op2-OE-u9a"/>
+                            <constraint firstItem="tni-xS-aDK" firstAttribute="leading" secondItem="ZgA-wJ-TU1" secondAttribute="leading" id="yts-4Q-85v"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="og9-9u-PQH"/>
                     </view>
@@ -289,7 +296,7 @@
         <scene sceneID="yl2-sM-qoP">
             <objects>
                 <tabBarController id="49e-Tb-3d3" customClass="CustomTabBarControllerViewController" customModule="FinanceApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                    <tabBar key="tabBar" alpha="0.5" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
