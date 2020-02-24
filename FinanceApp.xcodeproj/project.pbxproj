@@ -10,6 +10,7 @@
 		DE0545E22401939C008F824F /* MortgageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0545E12401939C008F824F /* MortgageViewController.swift */; };
 		DE0545E42401A03E008F824F /* MortgageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0545E32401A03E008F824F /* MortgageHelper.swift */; };
 		DE3F8DB42404415900DF2525 /* LoanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3F8DB32404415900DF2525 /* LoanViewController.swift */; };
+		DE3F8DB624045D5F00DF2525 /* SavingsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3F8DB524045D5F00DF2525 /* SavingsHelper.swift */; };
 		DED2535A23FC4AE10066F48A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED2535923FC4AE10066F48A /* AppDelegate.swift */; };
 		DED2535C23FC4AE10066F48A /* SavingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED2535B23FC4AE10066F48A /* SavingsViewController.swift */; };
 		DED2535E23FC4AE10066F48A /* CompoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED2535D23FC4AE10066F48A /* CompoundViewController.swift */; };
@@ -23,6 +24,7 @@
 		DE0545E12401939C008F824F /* MortgageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MortgageViewController.swift; sourceTree = "<group>"; };
 		DE0545E32401A03E008F824F /* MortgageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MortgageHelper.swift; sourceTree = "<group>"; };
 		DE3F8DB32404415900DF2525 /* LoanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanViewController.swift; sourceTree = "<group>"; };
+		DE3F8DB524045D5F00DF2525 /* SavingsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsHelper.swift; sourceTree = "<group>"; };
 		DED2535623FC4AE10066F48A /* FinanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DED2535923FC4AE10066F48A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DED2535B23FC4AE10066F48A /* SavingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			children = (
 				DED2536E23FC57150066F48A /* CompoundHelper.swift */,
 				DE0545E32401A03E008F824F /* MortgageHelper.swift */,
+				DE3F8DB524045D5F00DF2525 /* SavingsHelper.swift */,
 			);
 			path = HelperClasses;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DED2536F23FC57150066F48A /* CompoundHelper.swift in Sources */,
+				DE3F8DB624045D5F00DF2525 /* SavingsHelper.swift in Sources */,
 				DED2535E23FC4AE10066F48A /* CompoundViewController.swift in Sources */,
 				DED2535A23FC4AE10066F48A /* AppDelegate.swift in Sources */,
 				DE3F8DB42404415900DF2525 /* LoanViewController.swift in Sources */,

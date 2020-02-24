@@ -159,74 +159,90 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Future value" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qkn-AT-YUX">
-                                <rect key="frame" x="16" y="93" width="185.66666666666666" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Future value" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="qkn-AT-YUX">
+                                <rect key="frame" x="16" y="93" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Initial amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OGp-yY-kku">
-                                <rect key="frame" x="16" y="131" width="185.66666666666666" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Initial amount" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="OGp-yY-kku">
+                                <rect key="frame" x="16" y="131" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Interest rate" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tni-xS-aDK">
-                                <rect key="frame" x="16" y="207" width="185.66666666666666" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Interest rate" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="tni-xS-aDK">
+                                <rect key="frame" x="16" y="207" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number of years" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZgA-wJ-TU1">
-                                <rect key="frame" x="16" y="245" width="185.66666666666666" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number of years" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="ZgA-wJ-TU1">
+                                <rect key="frame" x="16" y="245" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Monthly payment amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gnG-dL-2gC">
-                                <rect key="frame" x="16" y="169" width="185.66666666666666" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Monthly payment amount" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="gnG-dL-2gC">
+                                <rect key="frame" x="16" y="169" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PjZ-95-It9">
-                                <rect key="frame" x="77" y="291" width="64" height="30"/>
+                                <rect key="frame" x="143" y="329" width="64" height="30"/>
                                 <state key="normal" title="Calculate"/>
                                 <connections>
-                                    <action selector="calculatePressed:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="sXm-Nv-PYI"/>
+                                    <action selector="calculateButtonPressed:" destination="Qnm-a8-K8A" eventType="touchUpInside" id="rX0-vO-P7Z"/>
                                 </connections>
                             </button>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ql4-Ub-zo9">
-                                <rect key="frame" x="131" y="329" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </switch>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="N9N-Gd-bla">
+                                <rect key="frame" x="127" y="293" width="121" height="29"/>
+                                <segments>
+                                    <segment title="Begin"/>
+                                    <segment title="End"/>
+                                </segments>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </segmentedControl>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.7696931670984456" green="0.17347685114535036" blue="0.034651475776616841" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="tni-xS-aDK" firstAttribute="trailing" secondItem="ZgA-wJ-TU1" secondAttribute="trailing" id="1VK-9Y-9Av"/>
-                            <constraint firstItem="ZgA-wJ-TU1" firstAttribute="centerX" secondItem="PjZ-95-It9" secondAttribute="centerX" id="2Bc-7D-224"/>
-                            <constraint firstItem="gnG-dL-2gC" firstAttribute="top" secondItem="OGp-yY-kku" secondAttribute="bottom" constant="8" symbolic="YES" id="BUj-Ps-lnI"/>
-                            <constraint firstItem="qkn-AT-YUX" firstAttribute="leading" secondItem="OGp-yY-kku" secondAttribute="leading" id="Ihc-SC-hrp"/>
-                            <constraint firstItem="gnG-dL-2gC" firstAttribute="trailing" secondItem="tni-xS-aDK" secondAttribute="trailing" id="NFB-ka-f1e"/>
-                            <constraint firstItem="ZgA-wJ-TU1" firstAttribute="top" secondItem="tni-xS-aDK" secondAttribute="bottom" constant="8" symbolic="YES" id="Tar-Ih-Ya2"/>
-                            <constraint firstItem="tni-xS-aDK" firstAttribute="top" secondItem="gnG-dL-2gC" secondAttribute="bottom" constant="8" symbolic="YES" id="ZUi-7l-0w5"/>
-                            <constraint firstItem="OGp-yY-kku" firstAttribute="trailing" secondItem="gnG-dL-2gC" secondAttribute="trailing" id="a5K-zs-fOA"/>
-                            <constraint firstItem="qkn-AT-YUX" firstAttribute="top" secondItem="og9-9u-PQH" secondAttribute="top" constant="49" id="buk-JE-Tl0"/>
-                            <constraint firstItem="gnG-dL-2gC" firstAttribute="leading" secondItem="tni-xS-aDK" secondAttribute="leading" id="dEK-ZM-XD6"/>
-                            <constraint firstItem="OGp-yY-kku" firstAttribute="top" secondItem="qkn-AT-YUX" secondAttribute="bottom" constant="8" symbolic="YES" id="dQh-1d-P7I"/>
-                            <constraint firstItem="qkn-AT-YUX" firstAttribute="leading" secondItem="qi3-8p-7yZ" secondAttribute="leadingMargin" id="gdc-2E-lye"/>
-                            <constraint firstItem="PjZ-95-It9" firstAttribute="top" secondItem="ZgA-wJ-TU1" secondAttribute="bottom" constant="16" id="hc4-4l-jfa"/>
-                            <constraint firstItem="OGp-yY-kku" firstAttribute="leading" secondItem="gnG-dL-2gC" secondAttribute="leading" id="hpb-z8-kPN"/>
-                            <constraint firstItem="qkn-AT-YUX" firstAttribute="trailing" secondItem="OGp-yY-kku" secondAttribute="trailing" id="op2-OE-u9a"/>
-                            <constraint firstItem="tni-xS-aDK" firstAttribute="leading" secondItem="ZgA-wJ-TU1" secondAttribute="leading" id="yts-4Q-85v"/>
+                            <constraint firstItem="ZgA-wJ-TU1" firstAttribute="top" secondItem="tni-xS-aDK" secondAttribute="bottom" constant="8" symbolic="YES" id="0UA-yN-MhQ"/>
+                            <constraint firstItem="tni-xS-aDK" firstAttribute="leading" secondItem="ZgA-wJ-TU1" secondAttribute="leading" id="3jU-TP-Yhj"/>
+                            <constraint firstItem="gnG-dL-2gC" firstAttribute="top" secondItem="OGp-yY-kku" secondAttribute="bottom" constant="8" symbolic="YES" id="BEm-Yg-qYJ"/>
+                            <constraint firstItem="qkn-AT-YUX" firstAttribute="leading" secondItem="OGp-yY-kku" secondAttribute="leading" id="Bgk-YI-Bgs"/>
+                            <constraint firstItem="qkn-AT-YUX" firstAttribute="trailing" secondItem="qi3-8p-7yZ" secondAttribute="trailingMargin" id="Eqb-2U-pbY"/>
+                            <constraint firstItem="qkn-AT-YUX" firstAttribute="leading" secondItem="qi3-8p-7yZ" secondAttribute="leadingMargin" id="G40-Nu-6Bc"/>
+                            <constraint firstItem="N9N-Gd-bla" firstAttribute="top" secondItem="ZgA-wJ-TU1" secondAttribute="bottom" constant="18" id="Gks-sW-bVc"/>
+                            <constraint firstItem="qkn-AT-YUX" firstAttribute="trailing" secondItem="OGp-yY-kku" secondAttribute="trailing" id="LPn-gC-kXQ"/>
+                            <constraint firstItem="tni-xS-aDK" firstAttribute="top" secondItem="gnG-dL-2gC" secondAttribute="bottom" constant="8" symbolic="YES" id="bJ7-ES-CYX"/>
+                            <constraint firstItem="tni-xS-aDK" firstAttribute="trailing" secondItem="ZgA-wJ-TU1" secondAttribute="trailing" id="cQI-lK-MtM"/>
+                            <constraint firstItem="gnG-dL-2gC" firstAttribute="trailing" secondItem="tni-xS-aDK" secondAttribute="trailing" id="dFE-q7-uHl"/>
+                            <constraint firstItem="PjZ-95-It9" firstAttribute="leading" secondItem="og9-9u-PQH" secondAttribute="leading" constant="143" id="hGm-3K-IWJ"/>
+                            <constraint firstItem="gnG-dL-2gC" firstAttribute="leading" secondItem="tni-xS-aDK" secondAttribute="leading" id="hKT-td-6gJ"/>
+                            <constraint firstItem="ZgA-wJ-TU1" firstAttribute="centerX" secondItem="N9N-Gd-bla" secondAttribute="centerX" id="kwi-kn-MSj"/>
+                            <constraint firstItem="N9N-Gd-bla" firstAttribute="leading" secondItem="og9-9u-PQH" secondAttribute="leading" constant="127" id="miz-YP-kYK"/>
+                            <constraint firstItem="qkn-AT-YUX" firstAttribute="top" secondItem="og9-9u-PQH" secondAttribute="top" constant="49" id="ofp-ZS-9IS"/>
+                            <constraint firstItem="PjZ-95-It9" firstAttribute="top" secondItem="N9N-Gd-bla" secondAttribute="bottom" constant="8" symbolic="YES" id="oqk-2T-oqa"/>
+                            <constraint firstItem="OGp-yY-kku" firstAttribute="trailing" secondItem="gnG-dL-2gC" secondAttribute="trailing" id="r4q-OM-Uce"/>
+                            <constraint firstItem="OGp-yY-kku" firstAttribute="leading" secondItem="gnG-dL-2gC" secondAttribute="leading" id="vGR-eK-IqU"/>
+                            <constraint firstItem="OGp-yY-kku" firstAttribute="top" secondItem="qkn-AT-YUX" secondAttribute="bottom" constant="8" symbolic="YES" id="xQm-e7-3pH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="og9-9u-PQH"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Savings" image="first" id="iBB-CM-3g5"/>
+                    <connections>
+                        <outlet property="futureValueTF" destination="qkn-AT-YUX" id="3PK-RN-NMU"/>
+                        <outlet property="initialAmountTF" destination="OGp-yY-kku" id="wLS-4t-d9H"/>
+                        <outlet property="interestRateTF" destination="tni-xS-aDK" id="GvR-Ph-rRM"/>
+                        <outlet property="numberOfYearsTF" destination="ZgA-wJ-TU1" id="McM-jr-85L"/>
+                        <outlet property="paymentAmountTF" destination="gnG-dL-2gC" id="AnP-ak-TgW"/>
+                        <outlet property="savingsType" destination="N9N-Gd-bla" id="9eN-Qh-jJL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sXs-Y9-EQA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="962" y="473"/>
+            <point key="canvasLocation" x="960.79999999999995" y="472.90640394088672"/>
         </scene>
         <!--Loans-->
         <scene sceneID="nGm-w8-mTc">
@@ -248,7 +264,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
-                            <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number of months" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Vui-bI-5sK">
+                            <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number of years" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Vui-bI-5sK">
                                 <rect key="frame" x="18" y="156" width="339" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
