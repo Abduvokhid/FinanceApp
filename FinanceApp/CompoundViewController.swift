@@ -16,13 +16,12 @@ enum CompoundFinding {
     case InterestRate
 }
 
-class CompoundViewController: UIViewController, KeyboardViewDelegate {
+class CompoundViewController: UIViewController{
 
     @IBOutlet weak var futureValueTF: UITextField!
     @IBOutlet weak var initialAmountTF: UITextField!
     @IBOutlet weak var interestRateTF: UITextField!
     @IBOutlet weak var numberOfYearsTF: UITextField!
-    @IBOutlet weak var customKeyboardView: KeyboardView!
     var currentTextField: UITextField!
     
     var finding = CompoundFinding.Empty
@@ -31,16 +30,6 @@ class CompoundViewController: UIViewController, KeyboardViewDelegate {
         super.viewDidLoad()
     }
     
-    @IBAction func textFieldPressed(_ sender: UITextField) {
-        if (currentTextField != nil) {currentTextField.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)}
-        currentTextField = sender
-        sender.resignFirstResponder()
-        currentTextField.backgroundColor = #colorLiteral(red: 0.9465146661, green: 0.946672976, blue: 0.9464938045, alpha: 1)
-    }
-    
-    func keyboardButtonPressed(value: Int) {
-        currentTextField.text = String(value)
-    }
     
     @IBAction func calculatePressed(_ sender: Any) {
         var counter = 0

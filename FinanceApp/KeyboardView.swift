@@ -26,5 +26,6 @@ class KeyboardView: UIView {
     
     @IBAction func buttonPressed(_ sender: UIButton) {
         self.keyboardViewDelegate?.keyboardButtonPressed(value: sender.tag)
+        sender.titleLabel!.text = String(Int(sender.frame.height))
     }
 }

@@ -1,29 +1,29 @@
 //
-//  MortgageViewController.swift
+//  LoanViewController.swift
 //  FinanceApp
 //
-//  Created by Abduvokhid Akhmedov on 22/02/2020.
+//  Created by Abduvokhid Akhmedov on 24/02/2020.
 //  Copyright © 2020 Abduvokhid Akhmedov. All rights reserved.
 //
 
 import UIKit
 
-enum MortgageFinding {
+enum LoanFinding {
     case empty
     case initialAmount
     case paymentAmount
-    case numberOfYears
+    case numberOfMonths
 }
 
-class MortgageViewController: UIViewController{
-
+class LoanViewController: UIViewController {
+    
     @IBOutlet weak var initialAmountTF: UITextField!
     @IBOutlet weak var paymentAmountTF: UITextField!
-    @IBOutlet weak var numberOfYearsTF: UITextField!
+    @IBOutlet weak var numberOfMonthsTF: UITextField!
     @IBOutlet weak var interestRateTF: UITextField!
     var currentTextField: UITextField!
     
-    var finding = MortgageFinding.empty
+    var finding = LoanFinding.empty
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,10 +49,10 @@ class MortgageViewController: UIViewController{
             finding = .paymentAmount
         }
         
-        let numberOfYears: Double! = Double(numberOfYearsTF.text!)
-        if (numberOfYears == nil) {
+        let numberOfMonths: Double! = Double(numberOfMonthsTF.text!)
+        if (numberOfMonths == nil) {
             counter += 1
-            finding = .numberOfYears
+            finding = .numberOfMonths
         }
         
         if ((counter == 0 && finding == .empty) || counter > 1) {
@@ -62,24 +62,17 @@ class MortgageViewController: UIViewController{
         
         switch finding {
         case .initialAmount:
-            let result = MortgageHelper.initialValue(paymentAmount: paymentAmount, interestRate: interestRate, numberOfYears: numberOfYears)
+            let result = MortgageHelper.initialValue(paymentAmount: paymentAmount, interestRate: interestRate, numberOfYears: numberOfMonths / 12)
             initialAmountTF.text = String(format: "%.2f", result)
-        case .numberOfYears:
+        case .numberOfMonths:
             let result = MortgageHelper.numberOfYears(initialAmount: initialAmount, interestRate: interestRate, paymentAmount: paymentAmount)
-            numberOfYearsTF.text = String(format: "%.2f", result)
+            numberOfMonthsTF.text = String(format: "%.2f", result * 12)
         case .paymentAmount:
-            let result = MortgageHelper.paymentAmount(initialAmount: initialAmount, interestRate: interestRate, numberOfYears: numberOfYears)
+            let result = MortgageHelper.paymentAmount(initialAmount: initialAmount, interestRate: interestRate, numberOfYears: numberOfMonths / 12)
             paymentAmountTF.text = String(format: "%.2f", result)
-            
-            /*let formatter = NumberFormatter()
-            formatter.usesGroupingSeparator = true
-            formatter.numberStyle = .currency
-            formatter.currencyGroupingSeparator = " "
-            formatter.currencyDecimalSeparator = "."
-            formatter.currencySymbol = "£"
-            paymentAmountTF.text = formatter.string(for: result)*/
         default:
             return
         }
     }
+
 }
