@@ -64,4 +64,31 @@ class SavingsHelper {
         calculation = (futureValue - one) / calculation
         return calculation
     }
+    
+    static func numberOfYearsEnd(initialAmount: Double, futureValue: Double, interestRate: Double, paymentAmount: Double) -> Double{
+        let interest = interestRate / 100
+        var a = futureValue * (interest / 12)
+        a = a + paymentAmount
+        var b = initialAmount * (interest / 12)
+        b = b + paymentAmount
+        let c = log(a / b)
+        var d = 1 + (interest / 12)
+        d = 12 * log(d)
+        d = 1 / d
+        let calculation = c * d
+        return calculation
+    }
+    
+    static func numberOfYearsBegin(initialAmount: Double, futureValue: Double, interestRate: Double, paymentAmount: Double) -> Double{
+        let interest = interestRate / 100
+        var a = paymentAmount / (interest / 12)
+        a = futureValue + a + paymentAmount
+        var b = paymentAmount / (interest / 12)
+        b = initialAmount + b + paymentAmount
+        let c = log (a / b)
+        var d = 1 + (interest / 12)
+        d = 12 * log(d)
+        let calculation = c / d
+        return calculation
+    }
 }

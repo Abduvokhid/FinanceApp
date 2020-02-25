@@ -77,11 +77,14 @@ class SavingsViewController: UIViewController {
                 result = SavingsHelper.futureValueBegin(initialAmount: initialAmount, paymentAmount: paymentAmount, interestRate: interestRate, numberOfYears: numberOfYears)
             }
             futureValueTF.text = String(format: "%.2f", result)
-            break
         case .numberOfYears:
-            let result = CompoundHelper.CalculateNumberOfYears(interestRate: interestRate, futureValue: futureValue, initialAmount: initialAmount)
-            numberOfYearsTF.text = String(format: "%.2f", result)
-            break
+            let result: Double
+            if (savingsType.selectedSegmentIndex == 1) {
+                result = SavingsHelper.numberOfYearsEnd(initialAmount: initialAmount, futureValue: futureValue, interestRate: interestRate, paymentAmount: paymentAmount)
+            } else {
+                result = SavingsHelper.numberOfYearsBegin(initialAmount: initialAmount, futureValue: futureValue, interestRate: interestRate, paymentAmount: paymentAmount)
+            }
+            numberOfYearsTF                                                                                            .text = String(format: "%.2f", result)
         case .paymentAmount:
             let result: Double
             if (savingsType.selectedSegmentIndex == 1) {
