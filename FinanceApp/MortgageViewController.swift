@@ -70,7 +70,7 @@ class MortgageViewController: UIViewController{
         view.addGestureRecognizer(tap)
         
         let tabBarFrame: CGRect = (self.tabBarController?.tabBar.frame)!
-        currentLoc -= tabBarFrame.origin.y
+        currentLoc = tabBarFrame.origin.y
     }
     
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
