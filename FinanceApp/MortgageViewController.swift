@@ -28,6 +28,8 @@ class MortgageViewController: UIViewController{
     var keyBoardHeight:CGFloat = 0
     var currentLoc:CGFloat = 0
     
+    var isOpen = false
+    
     override func viewWillAppear(_ animated: Bool) {
         //add a notification for when the keyboard shows and call keyboardWillShow when the keyboard is to        be shown
         let sel = #selector(keyboardWillShow(notification:))
@@ -39,8 +41,11 @@ class MortgageViewController: UIViewController{
         //this moves the tab bar above the keyboard for all devices
         
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if (self.keyBoardHeight == 0){
             self.keyBoardHeight = keyboardSize.origin.y - keyboardSize.height -
                 (self.tabBarController?.tabBar.frame.height)!
+            }
+            isOpen = true
         }
         var tabBarFrame: CGRect = (self.tabBarController?.tabBar.frame)!
         currentLoc = tabBarFrame.origin.y
@@ -48,38 +53,24 @@ class MortgageViewController: UIViewController{
         self.tabBarController?.tabBar.frame = tabBarFrame
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        let sel = #selector(keyboardWillHide(notification:))
-        NotificationCenter.default.addObserver(self, selector: sel, name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    @objc func keyboardWillHide(notification: NSNotification) {
-        
-        //this moves the tab bar above the keyboard for all devices
-        
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            self.keyBoardHeight = keyboardSize.origin.y - keyboardSize.height -
-                (self.tabBarController?.tabBar.frame.height)!
-        }
-//        var tabBarFrame: CGRect = (self.tabBarController?.tabBar.frame)!
-//        tabBarFrame.origin.y = currentLoc
-//        self.tabBarController?.tabBar.frame = tabBarFrame
-    }
-    
     @objc func closeKeyboard(){
         view.endEditing(true)
-        var tabBarFrame: CGRect = (self.tabBarController?.tabBar.frame)!
-        tabBarFrame.origin.y = currentLoc
-        self.tabBarController?.tabBar.frame = tabBarFrame
+        if (isOpen){
+            var tabBarFrame: CGRect = (self.tabBarController?.tabBar.frame)!
+            tabBarFrame.origin.y = currentLoc
+            self.tabBarController?.tabBar.frame = tabBarFrame
+            isOpen = false
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let sel = #selector(self.closeKeyboard)
-        var tabBarFrame: CGRect = (self.tabBarController?.tabBar.frame)!
-        currentLoc = tabBarFrame.origin.y
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: sel)
         view.addGestureRecognizer(tap)
+        
+        let tabBarFrame: CGRect = (self.tabBarController?.tabBar.frame)!
+        currentLoc -= tabBarFrame.origin.y
     }
     
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
