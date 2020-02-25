@@ -25,11 +25,6 @@ class MortgageViewController: UIViewController{
     
     var finding = MortgageFinding.empty
     
-    var keyBoardHeight:CGFloat = 0
-    var currentLoc:CGFloat = 0
-    
-    var isOpen = false
-    
     override func viewWillAppear(_ animated: Bool) {
         //add a notification for when the keyboard shows and call keyboardWillShow when the keyboard is to        be shown
         let sel = #selector(keyboardWillShow(notification:))
@@ -41,25 +36,25 @@ class MortgageViewController: UIViewController{
         //this moves the tab bar above the keyboard for all devices
         
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if (self.keyBoardHeight == 0){
-            self.keyBoardHeight = keyboardSize.origin.y - keyboardSize.height -
+            if (KB.keyBoardHeight == 0){
+            KB.keyBoardHeight = keyboardSize.origin.y - keyboardSize.height -
                 (self.tabBarController?.tabBar.frame.height)!
             }
-            isOpen = true
+            KB.isOpen = true
         }
         var tabBarFrame: CGRect = (self.tabBarController?.tabBar.frame)!
-        currentLoc = tabBarFrame.origin.y
-        tabBarFrame.origin.y = self.keyBoardHeight
+        KB.currentLoc = tabBarFrame.origin.y
+        tabBarFrame.origin.y = KB.keyBoardHeight
         self.tabBarController?.tabBar.frame = tabBarFrame
     }
     
     @objc func closeKeyboard(){
         view.endEditing(true)
-        if (isOpen){
+        if (KB.isOpen){
             var tabBarFrame: CGRect = (self.tabBarController?.tabBar.frame)!
-            tabBarFrame.origin.y = currentLoc
+            tabBarFrame.origin.y = KB.currentLoc
             self.tabBarController?.tabBar.frame = tabBarFrame
-            isOpen = false
+            KB.isOpen = false
         }
     }
     
@@ -68,9 +63,15 @@ class MortgageViewController: UIViewController{
         let sel = #selector(self.closeKeyboard)
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: sel)
         view.addGestureRecognizer(tap)
-        
         let tabBarFrame: CGRect = (self.tabBarController?.tabBar.frame)!
-        currentLoc = tabBarFrame.origin.y
+        
+        if KB.isFirst {
+            KB.defaultLoc = tabBarFrame.origin.y
+            KB.currentLoc = tabBarFrame.origin.y
+            KB.isFirst = false
+        } else {
+            KB.currentLoc = KB.defaultLoc
+        }
     }
     
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
