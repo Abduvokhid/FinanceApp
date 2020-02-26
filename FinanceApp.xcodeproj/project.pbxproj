@@ -73,11 +73,11 @@
 				DE0545E12401939C008F824F /* MortgageViewController.swift */,
 				DED2535923FC4AE10066F48A /* AppDelegate.swift */,
 				DED2535D23FC4AE10066F48A /* CompoundViewController.swift */,
+				DE3F8DB32404415900DF2525 /* LoanViewController.swift */,
 				DED2535F23FC4AE10066F48A /* Main.storyboard */,
 				DED2536223FC4AE20066F48A /* Assets.xcassets */,
 				DED2536423FC4AE20066F48A /* LaunchScreen.storyboard */,
 				DED2536723FC4AE20066F48A /* Info.plist */,
-				DE3F8DB32404415900DF2525 /* LoanViewController.swift */,
 			);
 			path = FinanceApp;
 			sourceTree = "<group>";

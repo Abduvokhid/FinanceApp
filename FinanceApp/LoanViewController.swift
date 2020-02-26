@@ -24,10 +24,30 @@ class LoanViewController: UIViewController {
     var currentTextField: UITextField!
     
     var finding = LoanFinding.empty
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let resignSelector = #selector(self.saveFields)
+        NotificationCenter.default.addObserver(self, selector: resignSelector, name: UIApplication.willResignActiveNotification, object: nil)
+        
+        readFields()
     }
+    
+    @objc func saveFields() {
+        defaults.set(paymentAmountTF.text, forKey: "loanPaymentAmount")
+        defaults.set(initialAmountTF.text, forKey: "loanInitialAmount")
+        defaults.set(interestRateTF.text, forKey: "loanInterestRate")
+        defaults.set(numberOfMonthsTF.text, forKey: "loanNumberOfMonths")
+    }
+    
+    func readFields(){
+        paymentAmountTF.text = defaults.string(forKey: "loanPaymentAmount")
+        initialAmountTF.text = defaults.string(forKey: "loanInitialAmount")
+        interestRateTF.text = defaults.string(forKey: "loanInterestRate")
+        numberOfMonthsTF.text = defaults.string(forKey: "loanNumberOfMonths")
+    }    
     
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
         var counter = 0

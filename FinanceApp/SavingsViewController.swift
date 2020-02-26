@@ -25,6 +25,7 @@ class SavingsViewController: UIViewController {
     @IBOutlet weak var savingsType: UISegmentedControl!
     
     var finding = SavingsFinding.empty
+    let defaults = UserDefaults.standard
     
     override func viewWillAppear(_ animated: Bool) {
         //add a notification for when the keyboard shows and call keyboardWillShow when the keyboard is to        be shown
@@ -65,6 +66,11 @@ class SavingsViewController: UIViewController {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: sel)
         view.addGestureRecognizer(tap)
         
+        let resignSelector = #selector(self.saveFields)
+        NotificationCenter.default.addObserver(self, selector: resignSelector, name: UIApplication.willResignActiveNotification, object: nil)
+        
+        readFields()
+        
         let tabBarFrame: CGRect = (self.tabBarController?.tabBar.frame)!
         if KB.isFirst {
             KB.defaultLoc = tabBarFrame.origin.y
@@ -74,6 +80,24 @@ class SavingsViewController: UIViewController {
             KB.currentLoc = KB.defaultLoc
         }
     }
+    
+    @objc func saveFields() {
+        defaults.set(futureValueTF.text, forKey: "savingsFutureValue")
+        defaults.set(initialAmountTF.text, forKey: "savingsInitialAmount")
+        defaults.set(paymentAmountTF.text, forKey: "savingsPaymentAmount")
+        defaults.set(interestRateTF.text, forKey: "savingsInterestRate")
+        defaults.set(numberOfYearsTF.text, forKey: "savingsNumberOfYears")
+        defaults.set(savingsType.selectedSegmentIndex, forKey: "savingsType")
+    }
+    
+    func readFields(){
+        futureValueTF.text = defaults.string(forKey: "savingsFutureValue")
+        initialAmountTF.text = defaults.string(forKey: "savingsInitialAmount")
+        paymentAmountTF.text = defaults.string(forKey: "savingsPaymentAmount")
+        interestRateTF.text = defaults.string(forKey: "savingsInterestRate")
+        numberOfYearsTF.text = defaults.string(forKey: "savingsNumberOfYears")
+        savingsType.selectedSegmentIndex = defaults.integer(forKey: "savingsType")
+    }    
 
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
         var counter = 0

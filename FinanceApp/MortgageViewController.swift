@@ -24,6 +24,7 @@ class MortgageViewController: UIViewController{
     var currentTextField: UITextField!
     
     var finding = MortgageFinding.empty
+    let defaults = UserDefaults.standard
     
     override func viewWillAppear(_ animated: Bool) {
         //add a notification for when the keyboard shows and call keyboardWillShow when the keyboard is to        be shown
@@ -63,8 +64,13 @@ class MortgageViewController: UIViewController{
         let sel = #selector(self.closeKeyboard)
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: sel)
         view.addGestureRecognizer(tap)
-        let tabBarFrame: CGRect = (self.tabBarController?.tabBar.frame)!
         
+        let resignSelector = #selector(self.saveFields)
+        NotificationCenter.default.addObserver(self, selector: resignSelector, name: UIApplication.willResignActiveNotification, object: nil)
+        
+        readFields()
+        
+        let tabBarFrame: CGRect = (self.tabBarController?.tabBar.frame)!
         if KB.isFirst {
             KB.defaultLoc = tabBarFrame.origin.y
             KB.currentLoc = tabBarFrame.origin.y
@@ -72,6 +78,20 @@ class MortgageViewController: UIViewController{
         } else {
             KB.currentLoc = KB.defaultLoc
         }
+    }
+    
+    @objc func saveFields() {
+        defaults.set(initialAmountTF.text, forKey: "mortgageInitialAmount")
+        defaults.set(paymentAmountTF.text, forKey: "mortgagePaymentAmount")
+        defaults.set(numberOfYearsTF.text, forKey: "mortgageNumberOfYears")
+        defaults.set(interestRateTF.text, forKey: "mortgageInterestRate")
+    }
+    
+    func readFields(){
+        initialAmountTF.text = defaults.string(forKey: "mortgageInitialAmount")
+        paymentAmountTF.text = defaults.string(forKey: "mortgagePaymentAmount")
+        numberOfYearsTF.text = defaults.string(forKey: "mortgageNumberOfYears")
+        interestRateTF.text = defaults.string(forKey: "mortgageInterestRate")
     }
     
     @IBAction func calculateButtonPressed(_ sender: UIButton) {

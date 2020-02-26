@@ -25,11 +25,30 @@ class CompoundViewController: UIViewController{
     var currentTextField: UITextField!
     
     var finding = CompoundFinding.Empty
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let resignSelector = #selector(self.saveFields)
+        NotificationCenter.default.addObserver(self, selector: resignSelector, name: UIApplication.willResignActiveNotification, object: nil)
+        
+        readFields()
     }
     
+    @objc func saveFields() {
+        defaults.set(futureValueTF.text, forKey: "compoundFutureValue")
+        defaults.set(initialAmountTF.text, forKey: "compoundInitialAmount")
+        defaults.set(interestRateTF.text, forKey: "compoundInterestRate")
+        defaults.set(numberOfYearsTF.text, forKey: "compoundNumberOfYears")
+    }
+    
+    func readFields(){
+        futureValueTF.text = defaults.string(forKey: "compoundFutureValue")
+        initialAmountTF.text = defaults.string(forKey: "compoundInitialAmount")
+        interestRateTF.text = defaults.string(forKey: "compoundInterestRate")
+        numberOfYearsTF.text = defaults.string(forKey: "compoundNumberOfYears")
+    }    
     
     @IBAction func calculatePressed(_ sender: Any) {
         var counter = 0
