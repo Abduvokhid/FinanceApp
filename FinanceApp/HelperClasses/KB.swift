@@ -11,8 +11,6 @@ import UIKit
 
 class KB {
     static var isOpen = false
-    static var currentLoc: CGFloat = 0
-    static var defaultLoc: CGFloat = 0
-    static var isFirst = true
-    static var keyBoardHeight: CGFloat = 0
+    static var defaultLoc: CGFloat = -1
+    static var keyBoardHeight: CGFloat = -1
 }

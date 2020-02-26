@@ -19,6 +19,7 @@
 		DED2536323FC4AE20066F48A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DED2536223FC4AE20066F48A /* Assets.xcassets */; };
 		DED2536623FC4AE20066F48A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DED2536423FC4AE20066F48A /* LaunchScreen.storyboard */; };
 		DED2536F23FC57150066F48A /* CompoundHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED2536E23FC57150066F48A /* CompoundHelper.swift */; };
+		DEEFD98C2406A90600953459 /* CustomTabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEFD98B2406A90600953459 /* CustomTabBarControllerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		DED2536523FC4AE20066F48A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DED2536723FC4AE20066F48A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DED2536E23FC57150066F48A /* CompoundHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompoundHelper.swift; sourceTree = "<group>"; };
+		DEEFD98B2406A90600953459 /* CustomTabBarControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarControllerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				DED2535923FC4AE10066F48A /* AppDelegate.swift */,
 				DED2535D23FC4AE10066F48A /* CompoundViewController.swift */,
 				DE3F8DB32404415900DF2525 /* LoanViewController.swift */,
+				DEEFD98B2406A90600953459 /* CustomTabBarControllerViewController.swift */,
 				DED2535F23FC4AE10066F48A /* Main.storyboard */,
 				DED2536223FC4AE20066F48A /* Assets.xcassets */,
 				DED2536423FC4AE20066F48A /* LaunchScreen.storyboard */,
@@ -167,6 +170,7 @@
 				DED2536F23FC57150066F48A /* CompoundHelper.swift in Sources */,
 				DE3F8DB624045D5F00DF2525 /* SavingsHelper.swift in Sources */,
 				DE35C57324058463002A53AC /* KB.swift in Sources */,
+				DEEFD98C2406A90600953459 /* CustomTabBarControllerViewController.swift in Sources */,
 				DED2535E23FC4AE10066F48A /* CompoundViewController.swift in Sources */,
 				DED2535A23FC4AE10066F48A /* AppDelegate.swift in Sources */,
 				DE3F8DB42404415900DF2525 /* LoanViewController.swift in Sources */,

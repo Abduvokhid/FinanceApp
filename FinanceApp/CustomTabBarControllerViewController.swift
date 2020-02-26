@@ -8,15 +8,16 @@
 
 import UIKit
 
-class CustomTabBarControllerViewController: UITabBarController {
+class CustomTabBarControllerViewController: UITabBarController, UITabBarControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.delegate = self
     }
     
-
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        viewController.viewDidLoad()
+    }
     
 
 }

@@ -25,14 +25,55 @@ class LoanViewController: UIViewController {
     
     var finding = LoanFinding.empty
     let defaults = UserDefaults.standard
+    var isJustOpened = true
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let sel = #selector(keyboardWillShow(notification:))
+        NotificationCenter.default.addObserver(self, selector: sel, name: UIResponder.keyboardWillShowNotification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if (!KB.isOpen){
+            if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+                if (KB.keyBoardHeight == -1) {
+                    KB.keyBoardHeight = keyboardSize.origin.y - keyboardSize.height -
+                        (self.tabBarController?.tabBar.frame.height)!
+                }
+            }
+            var tabBarFrame: CGRect = (self.tabBarController?.tabBar.frame)!
+            if (KB.defaultLoc == -1) {
+                KB.defaultLoc = tabBarFrame.origin.y
+            }
+            tabBarFrame.origin.y = KB.keyBoardHeight
+            self.tabBarController?.tabBar.frame = tabBarFrame
+            KB.isOpen = true
+        }
+    }
+    
+    @objc func closeKeyboard(){
+        view.endEditing(true)
+        if (KB.isOpen){
+            var tabBarFrame: CGRect = (self.tabBarController?.tabBar.frame)!
+            tabBarFrame.origin.y = KB.defaultLoc
+            self.tabBarController?.tabBar.frame = tabBarFrame
+            KB.isOpen = false
+        }
+    }
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let resignSelector = #selector(self.saveFields)
-        NotificationCenter.default.addObserver(self, selector: resignSelector, name: UIApplication.willResignActiveNotification, object: nil)
-        
-        readFields()
+        if (isJustOpened){
+            super.viewDidLoad()
+            isJustOpened = false
+            let sel = #selector(self.closeKeyboard)
+            let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: sel)
+            view.addGestureRecognizer(tap)
+            
+            let resignSelector = #selector(self.saveFields)
+            NotificationCenter.default.addObserver(self, selector: resignSelector, name: UIApplication.willResignActiveNotification, object: nil)
+            
+            readFields()
+        }
+        closeKeyboard()
     }
     
     @objc func saveFields() {
