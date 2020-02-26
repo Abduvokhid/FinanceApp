@@ -16,6 +16,7 @@ class CustomTabBarControllerViewController: UITabBarController, UITabBarControll
     }
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        
         viewController.viewDidLoad()
     }
     
