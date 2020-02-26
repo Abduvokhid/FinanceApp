@@ -16,6 +16,25 @@ enum MortgageFinding {
 }
 
 class MortgageViewController: UIViewController{
+    
+    @IBOutlet weak var logo: UIImageView!
+    
+    @IBAction func textFieldFocused(_ sender: UITextField) {
+        var tabBarFrame: CGRect = (self.logo?.frame)!
+        tabBarFrame.origin.y = 0
+        UIView.animate(withDuration: 0.25, animations: {() -> Void in
+            self.logo?.alpha = 0
+            self.logo?.frame = tabBarFrame
+            UIView.animate(withDuration: 0.6,
+                                                         animations: {
+                                                            self.logo?.transform = CGAffineTransform(scaleX: 1, y: 0.01)
+            },
+                                                         completion: { _ in
+                                                            self.logo?.isHidden = true
+            })
+        })
+    }
+    
 
     @IBOutlet weak var initialAmountTF: UITextField!
     @IBOutlet weak var paymentAmountTF: UITextField!
