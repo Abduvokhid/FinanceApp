@@ -13,10 +13,14 @@ class CustomTabBarControllerViewController: UITabBarController, UITabBarControll
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
+        tabBar.backgroundColor = .white
+        tabBar.layer.borderWidth = 0
+        tabBar.layer.borderColor = UIColor.clear.cgColor
+        tabBar.clipsToBounds = true
     }
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        
+        tabBar.tintColor = viewController.view.backgroundColor
         viewController.viewDidLoad()
     }
     

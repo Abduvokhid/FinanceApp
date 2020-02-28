@@ -18,21 +18,35 @@ enum MortgageFinding {
 class MortgageViewController: UIViewController{
     
     @IBOutlet weak var logo: UIImageView!
-    
+    var isLogoHidden = false
     @IBAction func textFieldFocused(_ sender: UITextField) {
-        var tabBarFrame: CGRect = (self.logo?.frame)!
+        if !isLogoHidden{
+            logo.removeConstraints(logo.constraints)
+            logo.heightAnchor.constraint(equalToConstant: 0).isActive = true
+            UIView.animate(withDuration: 0.2, animations: {() -> Void in
+                self.view.layoutIfNeeded()
+                self.logo.alpha = 0
+            }, completion: {_ in
+                self.logo.isHidden = true
+            })
+            isLogoHidden = true
+        }
+    }
+    
+    func extraMethod() {
+        /*var tabBarFrame: CGRect = (self.logo?.frame)!
         tabBarFrame.origin.y = 0
         UIView.animate(withDuration: 0.25, animations: {() -> Void in
             self.logo?.alpha = 0
             self.logo?.frame = tabBarFrame
             UIView.animate(withDuration: 0.6,
-                                                         animations: {
-                                                            self.logo?.transform = CGAffineTransform(scaleX: 1, y: 0.01)
+                           animations: {
+                            self.logo?.transform = CGAffineTransform(scaleX: 1, y: 0.01)
             },
-                                                         completion: { _ in
-                                                            self.logo?.isHidden = true
+                           completion: { _ in
+                            self.logo?.isHidden = true
             })
-        })
+        })*/
     }
     
 
@@ -70,6 +84,17 @@ class MortgageViewController: UIViewController{
     }
     
     @objc func closeKeyboard(){
+        if isLogoHidden{
+            logo.removeConstraints(logo.constraints)
+            self.logo.isHidden = false
+            logo.heightAnchor.constraint(equalToConstant: CGFloat(120)).isActive = true
+            UIView.animate(withDuration: 0.2, animations: {() -> Void in
+                self.view.layoutIfNeeded()
+                self.logo.alpha = 1
+            }, completion: {_ in
+            })
+            isLogoHidden = false
+        }
         view.endEditing(true)
         if (KB.isOpen){
             var tabBarFrame: CGRect = (self.tabBarController?.tabBar.frame)!
