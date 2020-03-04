@@ -13,9 +13,12 @@ class Slide: UIView {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var textField: UITextField!
     
     @IBAction func calculate(_ sender: UIButton) {
         label.text = "this is test from ..."
+        
+        //HomePageViewController.parentView
     }
     
     /*

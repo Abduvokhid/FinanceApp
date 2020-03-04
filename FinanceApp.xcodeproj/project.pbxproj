@@ -85,6 +85,9 @@
 		DED2535823FC4AE10066F48A /* FinanceApp */ = {
 			isa = PBXGroup;
 			children = (
+				DED2535F23FC4AE10066F48A /* Main.storyboard */,
+				DE1A0DA2240FDB8E00B3E8DE /* Slide.xib */,
+				DED2536423FC4AE20066F48A /* LaunchScreen.storyboard */,
 				DE1A0D9D240FDA6600B3E8DE /* Pages */,
 				DED2536D23FC56830066F48A /* HelperClasses */,
 				DED2535B23FC4AE10066F48A /* SavingsViewController.swift */,
@@ -93,10 +96,7 @@
 				DED2535D23FC4AE10066F48A /* CompoundViewController.swift */,
 				DE3F8DB32404415900DF2525 /* LoanViewController.swift */,
 				DEEFD98B2406A90600953459 /* CustomTabBarControllerViewController.swift */,
-				DED2535F23FC4AE10066F48A /* Main.storyboard */,
-				DE1A0DA2240FDB8E00B3E8DE /* Slide.xib */,
 				DED2536223FC4AE20066F48A /* Assets.xcassets */,
-				DED2536423FC4AE20066F48A /* LaunchScreen.storyboard */,
 				DED2536723FC4AE20066F48A /* Info.plist */,
 			);
 			path = FinanceApp;
