@@ -28,6 +28,11 @@ class HomePageViewController: UIViewController, UIScrollViewDelegate {
         view.bringSubviewToFront(pageControl)
     }
     
+    @IBAction func lastButtonPressed(_ sender: UIButton) {
+        scrollView.setContentOffset(CGPoint(x: view.frame.width * CGFloat(sender.tag - 1), y: scrollView.contentOffset.y), animated: true)
+        //scrollViewDidScroll(scrollView)
+    }
+    
     func createSlides() -> [Slide] {
         
         let slide1:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
@@ -65,7 +70,7 @@ class HomePageViewController: UIViewController, UIScrollViewDelegate {
     }
     
     /*
-     * default function called when view is scolled. In order to enable callback
+     * default function called when view is scrolled. In order to enable callback
      * when scrollview is scrolled, the below code needs to be called:
      * slideScrollView.delegate = self or
      */

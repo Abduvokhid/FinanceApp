@@ -12,6 +12,11 @@ class Slide: UIView {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var button: UIButton!
+    
+    @IBAction func calculate(_ sender: UIButton) {
+        label.text = "this is test from ..."
+    }
     
     /*
     // Only override draw() if you perform custom drawing.
