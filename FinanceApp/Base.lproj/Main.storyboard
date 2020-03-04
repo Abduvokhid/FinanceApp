@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fXt-dC-imu">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -210,6 +210,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-640.79999999999995" y="471.42857142857144"/>
+        </scene>
+        <!--Home Page View Controller-->
+        <scene sceneID="n8e-bR-wAB">
+            <objects>
+                <viewController id="fXt-dC-imu" customClass="HomePageViewController" customModule="FinanceApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gcx-8S-O54">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWV-Qb-buX">
+                                <rect key="frame" x="0.0" y="5" width="375" height="812"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="mOP-XM-n6G">
+                                <rect key="frame" x="169" y="724" width="39" height="37"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mOP-XM-n6G" firstAttribute="centerX" secondItem="BmF-Ev-Q55" secondAttribute="centerX" id="AYJ-ZY-k01"/>
+                            <constraint firstItem="XWV-Qb-buX" firstAttribute="width" secondItem="gcx-8S-O54" secondAttribute="width" id="Aoi-nR-md0"/>
+                            <constraint firstItem="XWV-Qb-buX" firstAttribute="height" secondItem="gcx-8S-O54" secondAttribute="height" id="Niw-c3-b5O"/>
+                            <constraint firstItem="XWV-Qb-buX" firstAttribute="centerY" secondItem="BmF-Ev-Q55" secondAttribute="centerY" id="eRe-XQ-8mc"/>
+                            <constraint firstItem="XWV-Qb-buX" firstAttribute="centerX" secondItem="BmF-Ev-Q55" secondAttribute="centerX" id="rvh-xf-PFo"/>
+                            <constraint firstItem="BmF-Ev-Q55" firstAttribute="bottom" secondItem="mOP-XM-n6G" secondAttribute="bottom" id="sE1-J9-GLr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="BmF-Ev-Q55"/>
+                    </view>
+                    <connections>
+                        <outlet property="pageControl" destination="mOP-XM-n6G" id="3nz-Hf-yJ0"/>
+                        <outlet property="scrollView" destination="XWV-Qb-buX" id="uDK-Pt-qoT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sep-3F-Lsr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-641" y="1536"/>
         </scene>
         <!--Compound-->
         <scene sceneID="wg7-f3-ORb">
