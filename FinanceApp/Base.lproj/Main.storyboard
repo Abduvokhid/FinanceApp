@@ -401,6 +401,7 @@
                         <outlet property="secondConstraint" destination="E3L-9s-7TL" id="Axu-Eh-t1Y"/>
                         <outlet property="secondItem" destination="iC4-Q6-4bm" id="832-75-6Hb"/>
                         <outlet property="tabBar" destination="Yo7-bN-nE7" id="TDv-D7-MY4"/>
+                        <outlet property="tabBarConstraint" destination="ngM-Eq-D4A" id="COU-kd-btg"/>
                         <outlet property="thirdConstraint" destination="oBq-2A-6rx" id="a3W-Zy-2fO"/>
                         <outlet property="thirdItem" destination="tQK-ZC-gfi" id="j6z-gM-COL"/>
                     </connections>

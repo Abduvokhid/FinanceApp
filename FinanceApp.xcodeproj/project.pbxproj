@@ -15,6 +15,8 @@
 		DE35C57324058463002A53AC /* KB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE35C57224058463002A53AC /* KB.swift */; };
 		DE3F8DB42404415900DF2525 /* LoanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3F8DB32404415900DF2525 /* LoanViewController.swift */; };
 		DE3F8DB624045D5F00DF2525 /* SavingsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3F8DB524045D5F00DF2525 /* SavingsHelper.swift */; };
+		DEAC5BFC241155A6000703F6 /* MortgageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAC5BFB241155A6000703F6 /* MortgageView.swift */; };
+		DEAC5C00241156FC000703F6 /* MortgageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEAC5BFF241156FC000703F6 /* MortgageView.xib */; };
 		DED2535A23FC4AE10066F48A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED2535923FC4AE10066F48A /* AppDelegate.swift */; };
 		DED2535C23FC4AE10066F48A /* SavingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED2535B23FC4AE10066F48A /* SavingsViewController.swift */; };
 		DED2535E23FC4AE10066F48A /* CompoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED2535D23FC4AE10066F48A /* CompoundViewController.swift */; };
@@ -34,6 +36,8 @@
 		DE35C57224058463002A53AC /* KB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KB.swift; sourceTree = "<group>"; };
 		DE3F8DB32404415900DF2525 /* LoanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanViewController.swift; sourceTree = "<group>"; };
 		DE3F8DB524045D5F00DF2525 /* SavingsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsHelper.swift; sourceTree = "<group>"; };
+		DEAC5BFB241155A6000703F6 /* MortgageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MortgageView.swift; sourceTree = "<group>"; };
+		DEAC5BFF241156FC000703F6 /* MortgageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MortgageView.xib; sourceTree = "<group>"; };
 		DED2535623FC4AE10066F48A /* FinanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DED2535923FC4AE10066F48A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DED2535B23FC4AE10066F48A /* SavingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +66,7 @@
 			children = (
 				DE1A0D9E240FDAAF00B3E8DE /* HomePageViewController.swift */,
 				DE1A0DA0240FDB6100B3E8DE /* Slide.swift */,
+				DEAC5BFB241155A6000703F6 /* MortgageView.swift */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -86,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				DED2535F23FC4AE10066F48A /* Main.storyboard */,
+				DEAC5BFF241156FC000703F6 /* MortgageView.xib */,
 				DE1A0DA2240FDB8E00B3E8DE /* Slide.xib */,
 				DED2536423FC4AE20066F48A /* LaunchScreen.storyboard */,
 				DE1A0D9D240FDA6600B3E8DE /* Pages */,
@@ -173,6 +179,7 @@
 			files = (
 				DED2536623FC4AE20066F48A /* LaunchScreen.storyboard in Resources */,
 				DED2536323FC4AE20066F48A /* Assets.xcassets in Resources */,
+				DEAC5C00241156FC000703F6 /* MortgageView.xib in Resources */,
 				DED2536123FC4AE10066F48A /* Main.storyboard in Resources */,
 				DE1A0DA3240FDB8E00B3E8DE /* Slide.xib in Resources */,
 			);
@@ -192,6 +199,7 @@
 				DEEFD98C2406A90600953459 /* CustomTabBarControllerViewController.swift in Sources */,
 				DED2535E23FC4AE10066F48A /* CompoundViewController.swift in Sources */,
 				DED2535A23FC4AE10066F48A /* AppDelegate.swift in Sources */,
+				DEAC5BFC241155A6000703F6 /* MortgageView.swift in Sources */,
 				DE3F8DB42404415900DF2525 /* LoanViewController.swift in Sources */,
 				DE1A0D9F240FDAAF00B3E8DE /* HomePageViewController.swift in Sources */,
 				DED2535C23FC4AE10066F48A /* SavingsViewController.swift in Sources */,

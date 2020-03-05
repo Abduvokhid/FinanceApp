@@ -23,11 +23,13 @@ class HomePageViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var thirdConstraint: NSLayoutConstraint!
     @IBOutlet weak var fourthConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var tabBarConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var tabBar: UIView!
     
     var currentItem: UIView!
     
-    var slides:[Slide] = [];
+    var slides:[UIView] = [];
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,16 +73,19 @@ class HomePageViewController: UIViewController, UIScrollViewDelegate {
         if (!KB.isOpen){
             if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
                 if (KB.keyBoardHeight == -1) {
-                    KB.keyBoardHeight = keyboardSize.origin.y - keyboardSize.height -
-                        (tabBar.frame.height)
+                    var constant = keyboardSize.origin.y - keyboardSize.height - (tabBar.frame.height)
+                    constant = (constant - tabBar.frame.origin.y) * -1
+                    KB.keyBoardHeight = constant
                 }
             }
-            var tabBarFrame: CGRect = (tabBar.frame)
+            //var tabBarFrame: CGRect = (tabBar.frame)
             if (KB.defaultLoc == -1) {
-                KB.defaultLoc = tabBarFrame.origin.y
+                //KB.defaultLoc = tabBarFrame.origin.y
             }
-            tabBarFrame.origin.y = KB.keyBoardHeight
-            tabBar.frame = tabBarFrame
+            //tabBarFrame.origin.y = KB.keyBoardHeight
+            //tabBar.frame = tabBarFrame
+            tabBarConstraint.constant = KB.keyBoardHeight
+            view.layoutIfNeeded()
             KB.isOpen = true
         }
     }
@@ -88,9 +93,12 @@ class HomePageViewController: UIViewController, UIScrollViewDelegate {
     @objc func closeKeyboard(){
         view.endEditing(true)
         if (KB.isOpen){
-            var tabBarFrame: CGRect = (tabBar.frame)
+            /*var tabBarFrame: CGRect = (tabBar.frame)
             tabBarFrame.origin.y = KB.defaultLoc
-            tabBar.frame = tabBarFrame
+            tabBar.frame = tabBarFrame*/
+            
+            tabBarConstraint.constant = 0
+            view.layoutIfNeeded()
             KB.isOpen = false
         }
     }
@@ -120,6 +128,7 @@ class HomePageViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func buttonPressed(sender: UIView) {
+        closeKeyboard()
         undoCurrent()
         UIView.animate(withDuration: 0.1, animations: {() -> Void in
             sender.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
@@ -150,11 +159,11 @@ class HomePageViewController: UIViewController, UIScrollViewDelegate {
         })
     }
     
-    func createSlides() -> [Slide] {
+    func createSlides() -> [UIView] {
         
-        let slide1:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide1.imageView.image = UIImage(named: "imageOne")
-        slide1.label.text = "A real-life bear"
+        let slide1:UIView = Bundle.main.loadNibNamed("MortgageView", owner: self, options: nil)?.first as! UIView
+        //slide1.imageView.image = UIImage(named: "imageOne")
+        //slide1.label.text = "A real-life bear"
         
         let slide2:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
         slide2.imageView.image = UIImage(named: "imageTwo")
@@ -171,7 +180,7 @@ class HomePageViewController: UIViewController, UIScrollViewDelegate {
         return [slide1, slide2, slide3, slide4]
     }
 
-    func setupSlideScrollView(slides : [Slide]) {
+    func setupSlideScrollView(slides : [UIView]) {
         scrollView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
         scrollView.contentSize = CGSize(width: view.frame.width * CGFloat(slides.count), height: view.frame.height)
         scrollView.isPagingEnabled = true
