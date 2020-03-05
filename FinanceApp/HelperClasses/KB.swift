@@ -11,6 +11,7 @@ import UIKit
 
 class KB {
     static var isOpen = false
+    static var tabBarConstant: CGFloat = -1
+    
     static var defaultLoc: CGFloat = -1
-    static var keyBoardHeight: CGFloat = -1
 }

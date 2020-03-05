@@ -35,8 +35,8 @@ class LoanViewController: UIViewController {
     @objc func keyboardWillShow(notification: NSNotification) {
         if (!KB.isOpen){
             if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-                if (KB.keyBoardHeight == -1) {
-                    KB.keyBoardHeight = keyboardSize.origin.y - keyboardSize.height -
+                if (KB.tabBarConstant == -1) {
+                    KB.tabBarConstant = keyboardSize.origin.y - keyboardSize.height -
                         (self.tabBarController?.tabBar.frame.height)!
                 }
             }
@@ -44,7 +44,7 @@ class LoanViewController: UIViewController {
             if (KB.defaultLoc == -1) {
                 KB.defaultLoc = tabBarFrame.origin.y
             }
-            tabBarFrame.origin.y = KB.keyBoardHeight
+            tabBarFrame.origin.y = KB.tabBarConstant
             self.tabBarController?.tabBar.frame = tabBarFrame
             KB.isOpen = true
         }

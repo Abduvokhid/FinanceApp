@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="Slide" customModule="FinanceApp" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -31,9 +31,6 @@
                     <rect key="frame" x="183" y="555" width="46" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Button"/>
-                    <connections>
-                        <action selector="calculate:" destination="iN0-l3-epB" eventType="touchUpInside" id="UcN-Zp-lVY"/>
-                    </connections>
                 </button>
                 <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fyp-4b-y9a">
                     <rect key="frame" x="108" y="641" width="97" height="30"/>
@@ -45,12 +42,6 @@
             </subviews>
             <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <connections>
-                <outlet property="button" destination="yur-PB-rwe" id="WLn-jq-bA6"/>
-                <outlet property="imageView" destination="q1a-bi-zrV" id="cLq-pe-miq"/>
-                <outlet property="label" destination="cd5-il-LVP" id="bWB-up-gnN"/>
-                <outlet property="textField" destination="fyp-4b-y9a" id="B00-QJ-eb5"/>
-            </connections>
             <point key="canvasLocation" x="34.782608695652179" y="34.821428571428569"/>
         </view>
     </objects>

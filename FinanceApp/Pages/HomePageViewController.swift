@@ -29,7 +29,7 @@ class HomePageViewController: UIViewController, UIScrollViewDelegate {
     
     var currentItem: UIView!
     
-    var slides:[UIView] = [];
+    var slides:[Slide] = [];
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +57,10 @@ class HomePageViewController: UIViewController, UIScrollViewDelegate {
         let sele = #selector(self.closeKeyboard)
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: sele)
         view.addGestureRecognizer(tap)
+        
+        tabBar.layer.shadowRadius = 5
+        tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
+        tabBar.layer.shadowOpacity = 0.3
     }
     
     func setMenuSize(){
@@ -72,19 +76,13 @@ class HomePageViewController: UIViewController, UIScrollViewDelegate {
     @objc func keyboardWillShow(notification: NSNotification) {
         if (!KB.isOpen){
             if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-                if (KB.keyBoardHeight == -1) {
+                if (KB.tabBarConstant == -1) {
                     var constant = keyboardSize.origin.y - keyboardSize.height - (tabBar.frame.height)
                     constant = (constant - tabBar.frame.origin.y) * -1
-                    KB.keyBoardHeight = constant
+                    KB.tabBarConstant = constant
                 }
             }
-            //var tabBarFrame: CGRect = (tabBar.frame)
-            if (KB.defaultLoc == -1) {
-                //KB.defaultLoc = tabBarFrame.origin.y
-            }
-            //tabBarFrame.origin.y = KB.keyBoardHeight
-            //tabBar.frame = tabBarFrame
-            tabBarConstraint.constant = KB.keyBoardHeight
+            tabBarConstraint.constant = KB.tabBarConstant
             view.layoutIfNeeded()
             KB.isOpen = true
         }
@@ -135,10 +133,10 @@ class HomePageViewController: UIViewController, UIScrollViewDelegate {
         }, completion: { _ in
             UIView.animate(withDuration: 0.1, animations: {() -> Void in
                 if let title = sender.viewWithTag(20) as? UILabel {
-                    title.textColor = .black
+                    title.textColor = UIColor(red:0.24, green:0.45, blue:0.87, alpha:1.0)
                 }
                 if let image = sender.viewWithTag(10) as? UIImageView {
-                    image.tintColor = .black
+                    image.tintColor = UIColor(red:0.24, green:0.45, blue:0.87, alpha:1.0)
                 }
                 sender.transform = CGAffineTransform.identity
             })
@@ -159,13 +157,17 @@ class HomePageViewController: UIViewController, UIScrollViewDelegate {
         })
     }
     
-    func createSlides() -> [UIView] {
+    func createSlides() -> [Slide] {
         
-        let slide1:UIView = Bundle.main.loadNibNamed("MortgageView", owner: self, options: nil)?.first as! UIView
+        let slide1:Slide = Bundle.main.loadNibNamed("MortgageView", owner: self, options: nil)?.first as! Slide
+        let slide2:Slide = Bundle.main.loadNibNamed("MortgageView", owner: self, options: nil)?.first as! Slide
+        let slide3:Slide = Bundle.main.loadNibNamed("MortgageView", owner: self, options: nil)?.first as! Slide
+        let slide4:Slide = Bundle.main.loadNibNamed("MortgageView", owner: self, options: nil)?.first as! Slide
+        
         //slide1.imageView.image = UIImage(named: "imageOne")
         //slide1.label.text = "A real-life bear"
         
-        let slide2:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
+        /*let slide2:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
         slide2.imageView.image = UIImage(named: "imageTwo")
         slide2.label.text = "A real-life bear"
         
@@ -175,7 +177,7 @@ class HomePageViewController: UIViewController, UIScrollViewDelegate {
         
         let slide4:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
         slide4.imageView.image = UIImage(named: "imageFour")
-        slide4.label.text = "A real-life bear"
+        slide4.label.text = "A real-life bear"*/
         
         return [slide1, slide2, slide3, slide4]
     }
@@ -214,17 +216,17 @@ class HomePageViewController: UIViewController, UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let pageIndex = round(scrollView.contentOffset.x/view.frame.width)
         pageControl.currentPage = Int(pageIndex)
-        
-        //let maximumHorizontalOffset: CGFloat = scrollView.contentSize.width - scrollView.frame.width
-        //let currentHorizontalOffset: CGFloat = scrollView.contentOffset.x
-        
-        // vertical
-        //let maximumVerticalOffset: CGFloat = scrollView.contentSize.height - scrollView.frame.height
-        //let currentVerticalOffset: CGFloat = scrollView.contentOffset.y
-        
-        //let percentageHorizontalOffset: CGFloat = currentHorizontalOffset / maximumHorizontalOffset
-        //let percentageVerticalOffset: CGFloat = currentVerticalOffset / maximumVerticalOffset
-        
+
+//        let maximumHorizontalOffset: CGFloat = scrollView.contentSize.width - scrollView.frame.width
+//        let currentHorizontalOffset: CGFloat = scrollView.contentOffset.x
+//
+//         //vertical
+//        let maximumVerticalOffset: CGFloat = scrollView.contentSize.height - scrollView.frame.height
+//        let currentVerticalOffset: CGFloat = scrollView.contentOffset.y
+//
+//        let percentageHorizontalOffset: CGFloat = currentHorizontalOffset / maximumHorizontalOffset
+//        let percentageVerticalOffset: CGFloat = currentVerticalOffset / maximumVerticalOffset
+//
         
         /*
          * below code changes the background color of view on paging the scrollview
@@ -235,24 +237,24 @@ class HomePageViewController: UIViewController, UIScrollViewDelegate {
         /*
          * below code scales the imageview on paging the scrollview
          */
-        /*let percentOffset: CGPoint = CGPoint(x: percentageHorizontalOffset, y: percentageVerticalOffset)
-        
-        if(percentOffset.x > 0 && percentOffset.x <= 0.25) {
-            
-            slides[0].imageView.transform = CGAffineTransform(scaleX: (0.25-percentOffset.x)/0.25, y: (0.25-percentOffset.x)/0.25)
-            slides[1].imageView.transform = CGAffineTransform(scaleX: percentOffset.x/0.25, y: percentOffset.x/0.25)
-            
-        } else if(percentOffset.x > 0.25 && percentOffset.x <= 0.50) {
-            slides[1].imageView.transform = CGAffineTransform(scaleX: (0.50-percentOffset.x)/0.25, y: (0.50-percentOffset.x)/0.25)
-            slides[2].imageView.transform = CGAffineTransform(scaleX: percentOffset.x/0.50, y: percentOffset.x/0.50)
-            
-        } else if(percentOffset.x > 0.50 && percentOffset.x <= 0.75) {
-            slides[2].imageView.transform = CGAffineTransform(scaleX: (0.75-percentOffset.x)/0.25, y: (0.75-percentOffset.x)/0.25)
-            slides[3].imageView.transform = CGAffineTransform(scaleX: percentOffset.x/0.75, y: percentOffset.x/0.75)
-            
-        } else if(percentOffset.x > 0.75 && percentOffset.x <= 1) {
-            slides[3].imageView.transform = CGAffineTransform(scaleX: (1-percentOffset.x)/0.25, y: (1-percentOffset.x)/0.25)
-            slides[4].imageView.transform = CGAffineTransform(scaleX: percentOffset.x, y: percentOffset.x)
-        }*/
+//        let percentOffset: CGPoint = CGPoint(x: percentageHorizontalOffset, y: percentageVerticalOffset)
+//
+//        if(percentOffset.x > 0 && percentOffset.x <= 0.25) {
+//
+//            slides[0].cardView.transform = CGAffineTransform(scaleX: (0.25-percentOffset.x)/0.25, y: (0.25-percentOffset.x)/0.25)
+//            slides[1].cardView.transform = CGAffineTransform(scaleX: percentOffset.x/0.25, y: percentOffset.x/0.25)
+//
+//        } else if(percentOffset.x > 0.25 && percentOffset.x <= 0.50) {
+//            slides[1].cardView.transform = CGAffineTransform(scaleX: (0.50-percentOffset.x)/0.25, y: (0.50-percentOffset.x)/0.25)
+//            slides[2].cardView.transform = CGAffineTransform(scaleX: percentOffset.x/0.50, y: percentOffset.x/0.50)
+//
+//        } else if(percentOffset.x > 0.50 && percentOffset.x <= 0.75) {
+//            slides[2].cardView.transform = CGAffineTransform(scaleX: (0.75-percentOffset.x)/0.25, y: (0.75-percentOffset.x)/0.25)
+//            slides[3].cardView.transform = CGAffineTransform(scaleX: percentOffset.x/0.75, y: percentOffset.x/0.75)
+//
+//        } else if(percentOffset.x > 0.75 && percentOffset.x <= 1) {
+//            slides[3].cardView.transform = CGAffineTransform(scaleX: (1-percentOffset.x)/0.25, y: (1-percentOffset.x)/0.25)
+//            slides[4].cardView.transform = CGAffineTransform(scaleX: percentOffset.x, y: percentOffset.x)
+//        }
     }
 }
