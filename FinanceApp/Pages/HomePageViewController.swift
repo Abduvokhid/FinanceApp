@@ -18,6 +18,9 @@ class HomePageViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var thirdItem: UIView!
     @IBOutlet weak var fourthItem: UIView!
     
+    @IBOutlet weak var helpButton: UIButton!
+    @IBOutlet weak var helpButtonShadowView: UIView!
+    
     @IBOutlet weak var firstConstraint: NSLayoutConstraint!
     @IBOutlet weak var secondConstraint: NSLayoutConstraint!
     @IBOutlet weak var thirdConstraint: NSLayoutConstraint!
@@ -35,9 +38,13 @@ class HomePageViewController: UIViewController, UIScrollViewDelegate {
     
     var slides:[Slide] = [];
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setMenuSize()
         
         firstItem.addGestureRecognizer(UITapGestureRecognizer(target: self, action:  #selector (self.firstButtonPressed(_:))))
@@ -65,6 +72,13 @@ class HomePageViewController: UIViewController, UIScrollViewDelegate {
         tabBar.layer.shadowRadius = 5
         tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
         tabBar.layer.shadowOpacity = 0.3
+        
+        helpButton.layer.cornerRadius = 25
+        helpButtonShadowView.layer.cornerRadius = 25
+        
+        helpButtonShadowView.layer.shadowRadius = 5
+        helpButtonShadowView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        helpButtonShadowView.layer.shadowOpacity = 0.5
     }
     
     func setMenuSize(){
@@ -165,21 +179,6 @@ class HomePageViewController: UIViewController, UIScrollViewDelegate {
         let slide3:Slide = Bundle.main.loadNibNamed("MortgageView", owner: self, options: nil)?.first as! Slide
         let slide4:Slide = Bundle.main.loadNibNamed("MortgageView", owner: self, options: nil)?.first as! Slide
         
-        //slide1.imageView.image = UIImage(named: "imageOne")
-        //slide1.label.text = "A real-life bear"
-        
-        /*let slide2:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide2.imageView.image = UIImage(named: "imageTwo")
-        slide2.label.text = "A real-life bear"
-        
-        let slide3:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide3.imageView.image = UIImage(named: "imageThree")
-        slide3.label.text = "A real-life bear"
-        
-        let slide4:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide4.imageView.image = UIImage(named: "imageFour")
-        slide4.label.text = "A real-life bear"*/
-        
         return [slide1, slide2, slide3, slide4]
     }
 
@@ -209,53 +208,8 @@ class HomePageViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    /*
-     * default function called when view is scrolled. In order to enable callback
-     * when scrollview is scrolled, the below code needs to be called:
-     * slideScrollView.delegate = self or
-     */
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let pageIndex = round(scrollView.contentOffset.x/view.frame.width)
         pageControl.currentPage = Int(pageIndex)
-
-//        let maximumHorizontalOffset: CGFloat = scrollView.contentSize.width - scrollView.frame.width
-//        let currentHorizontalOffset: CGFloat = scrollView.contentOffset.x
-//
-//         //vertical
-//        let maximumVerticalOffset: CGFloat = scrollView.contentSize.height - scrollView.frame.height
-//        let currentVerticalOffset: CGFloat = scrollView.contentOffset.y
-//
-//        let percentageHorizontalOffset: CGFloat = currentHorizontalOffset / maximumHorizontalOffset
-//        let percentageVerticalOffset: CGFloat = currentVerticalOffset / maximumVerticalOffset
-//
-        
-        /*
-         * below code changes the background color of view on paging the scrollview
-         */
-        //        self.scrollView(scrollView, didScrollToPercentageOffset: percentageHorizontalOffset)
-        
-        
-        /*
-         * below code scales the imageview on paging the scrollview
-         */
-//        let percentOffset: CGPoint = CGPoint(x: percentageHorizontalOffset, y: percentageVerticalOffset)
-//
-//        if(percentOffset.x > 0 && percentOffset.x <= 0.25) {
-//
-//            slides[0].cardView.transform = CGAffineTransform(scaleX: (0.25-percentOffset.x)/0.25, y: (0.25-percentOffset.x)/0.25)
-//            slides[1].cardView.transform = CGAffineTransform(scaleX: percentOffset.x/0.25, y: percentOffset.x/0.25)
-//
-//        } else if(percentOffset.x > 0.25 && percentOffset.x <= 0.50) {
-//            slides[1].cardView.transform = CGAffineTransform(scaleX: (0.50-percentOffset.x)/0.25, y: (0.50-percentOffset.x)/0.25)
-//            slides[2].cardView.transform = CGAffineTransform(scaleX: percentOffset.x/0.50, y: percentOffset.x/0.50)
-//
-//        } else if(percentOffset.x > 0.50 && percentOffset.x <= 0.75) {
-//            slides[2].cardView.transform = CGAffineTransform(scaleX: (0.75-percentOffset.x)/0.25, y: (0.75-percentOffset.x)/0.25)
-//            slides[3].cardView.transform = CGAffineTransform(scaleX: percentOffset.x/0.75, y: percentOffset.x/0.75)
-//
-//        } else if(percentOffset.x > 0.75 && percentOffset.x <= 1) {
-//            slides[3].cardView.transform = CGAffineTransform(scaleX: (1-percentOffset.x)/0.25, y: (1-percentOffset.x)/0.25)
-//            slides[4].cardView.transform = CGAffineTransform(scaleX: percentOffset.x, y: percentOffset.x)
-//        }
     }
 }
