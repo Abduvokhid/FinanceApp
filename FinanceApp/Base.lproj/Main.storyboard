@@ -221,7 +221,7 @@
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWV-Qb-buX">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.29803921568627451" green="0.44705882352941173" blue="0.84313725490196079" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </scrollView>
                             <pageControl hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="mOP-XM-n6G">
                                 <rect key="frame" x="169" y="724" width="39" height="37"/>
@@ -371,23 +371,24 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DbD-nx-zoK">
                                 <rect key="frame" x="0.0" y="778" width="375" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.29803921570000003" green="0.44705882349999998" blue="0.84313725490000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="DbD-nx-zoK" firstAttribute="leading" secondItem="BmF-Ev-Q55" secondAttribute="leading" id="4Gx-rn-Hma"/>
-                            <constraint firstItem="XWV-Qb-buX" firstAttribute="leading" secondItem="BmF-Ev-Q55" secondAttribute="leading" id="9Zm-xT-Vsu"/>
                             <constraint firstItem="mOP-XM-n6G" firstAttribute="centerX" secondItem="BmF-Ev-Q55" secondAttribute="centerX" id="AYJ-ZY-k01"/>
-                            <constraint firstItem="XWV-Qb-buX" firstAttribute="bottom" secondItem="gcx-8S-O54" secondAttribute="bottom" id="UqD-3b-yQf"/>
-                            <constraint firstAttribute="top" secondItem="XWV-Qb-buX" secondAttribute="top" id="X3v-KG-Dg6"/>
+                            <constraint firstAttribute="top" secondItem="XWV-Qb-buX" secondAttribute="top" id="XEB-AL-2IY"/>
                             <constraint firstItem="BmF-Ev-Q55" firstAttribute="trailing" secondItem="Yo7-bN-nE7" secondAttribute="trailing" id="XUC-Nh-nvk"/>
+                            <constraint firstItem="XWV-Qb-buX" firstAttribute="leading" secondItem="BmF-Ev-Q55" secondAttribute="leading" id="Xwl-ql-qp6"/>
                             <constraint firstItem="BmF-Ev-Q55" firstAttribute="bottom" secondItem="DbD-nx-zoK" secondAttribute="top" id="c4n-Ri-2li"/>
                             <constraint firstItem="BmF-Ev-Q55" firstAttribute="trailing" secondItem="DbD-nx-zoK" secondAttribute="trailing" id="hgA-6e-1Ta"/>
                             <constraint firstAttribute="bottom" secondItem="DbD-nx-zoK" secondAttribute="bottom" id="jOa-wS-tKP"/>
-                            <constraint firstItem="BmF-Ev-Q55" firstAttribute="trailing" secondItem="XWV-Qb-buX" secondAttribute="trailing" id="l6Q-Ff-Mvb"/>
+                            <constraint firstItem="BmF-Ev-Q55" firstAttribute="trailing" secondItem="XWV-Qb-buX" secondAttribute="trailing" id="mVH-qH-xeS"/>
                             <constraint firstItem="BmF-Ev-Q55" firstAttribute="bottom" secondItem="Yo7-bN-nE7" secondAttribute="bottom" id="ngM-Eq-D4A"/>
                             <constraint firstItem="BmF-Ev-Q55" firstAttribute="bottom" secondItem="mOP-XM-n6G" secondAttribute="bottom" id="sE1-J9-GLr"/>
                             <constraint firstItem="Yo7-bN-nE7" firstAttribute="leading" secondItem="BmF-Ev-Q55" secondAttribute="leading" id="tQA-zk-q5W"/>
+                            <constraint firstItem="XWV-Qb-buX" firstAttribute="bottom" secondItem="gcx-8S-O54" secondAttribute="bottom" id="zgJ-fZ-SKl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BmF-Ev-Q55"/>
                     </view>

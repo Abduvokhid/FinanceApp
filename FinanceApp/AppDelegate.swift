@@ -43,3 +43,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension UITextField {
+    func getDouble() -> Double! {
+        let text = self.text!.filter("1234567890.".contains)
+        return Double(text)
+    }
+    
+    var validatedDouble: Double! {
+        get {
+            let text = self.text!.filter("1234567890.".contains)
+            return Double(text)
+        }
+    }
+}
+

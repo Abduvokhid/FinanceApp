@@ -10,6 +10,7 @@ import Foundation
 
 class MortgageHelper {
     static func paymentAmount(initialAmount: Double, interestRate: Double, numberOfYears: Double) -> Double{
+        if (interestRate == 0) {return initialAmount / numberOfYears / 12}
         let part = interestRate / 100 / 12
         var top = pow(1 + part, 12 * numberOfYears)
         top = initialAmount * part * top
@@ -20,6 +21,7 @@ class MortgageHelper {
     }
     
     static func numberOfYears(initialAmount: Double, interestRate: Double, paymentAmount: Double) -> Double{
+        if (interestRate == 0) {return initialAmount / paymentAmount / 12}
         let part = interestRate / 100
         var top = initialAmount * part
         top = top - (12 * paymentAmount)
@@ -32,6 +34,7 @@ class MortgageHelper {
     }
     
     static func initialValue(paymentAmount: Double, interestRate: Double, numberOfYears: Double) -> Double{
+        if (interestRate == 0) {return paymentAmount * numberOfYears * 12}
         let part = interestRate / 100 / 12
         var top = pow(1 + part, 12 * numberOfYears)
         top = top - 1

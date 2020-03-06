@@ -29,6 +29,10 @@ class HomePageViewController: UIViewController, UIScrollViewDelegate {
     
     var currentItem: UIView!
     
+    var isOpen = false
+    var tabBarConstant: CGFloat = -1
+    static var extraPoint: CGFloat = 0
+    
     var slides:[Slide] = [];
     
     override func viewDidLoad() {
@@ -51,12 +55,12 @@ class HomePageViewController: UIViewController, UIScrollViewDelegate {
         buttonPressed(sender: firstItem)
         view.bringSubviewToFront(pageControl)
         
-        let sel = #selector(keyboardWillShow(notification:))
-        NotificationCenter.default.addObserver(self, selector: sel, name: UIResponder.keyboardWillShowNotification, object: nil)
+        let keyboardSelector = #selector(keyboardWillShow(notification:))
+        NotificationCenter.default.addObserver(self, selector: keyboardSelector, name: UIResponder.keyboardWillShowNotification, object: nil)
         
-        let sele = #selector(self.closeKeyboard)
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: sele)
-        view.addGestureRecognizer(tap)
+        let singleTapSelector = #selector(self.closeKeyboard)
+        let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: singleTapSelector)
+        view.addGestureRecognizer(singleTap)
         
         tabBar.layer.shadowRadius = 5
         tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
@@ -74,30 +78,27 @@ class HomePageViewController: UIViewController, UIScrollViewDelegate {
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        if (!KB.isOpen){
+        if (!isOpen){
             if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-                if (KB.tabBarConstant == -1) {
+                if (tabBarConstant == -1) {
                     var constant = keyboardSize.origin.y - keyboardSize.height - (tabBar.frame.height)
                     constant = (constant - tabBar.frame.origin.y) * -1
-                    KB.tabBarConstant = constant
+                    tabBarConstant = constant
+                    HomePageViewController.extraPoint = constant + 100
                 }
             }
-            tabBarConstraint.constant = KB.tabBarConstant
+            tabBarConstraint.constant = tabBarConstant
             view.layoutIfNeeded()
-            KB.isOpen = true
+            isOpen = true
         }
     }
     
     @objc func closeKeyboard(){
         view.endEditing(true)
-        if (KB.isOpen){
-            /*var tabBarFrame: CGRect = (tabBar.frame)
-            tabBarFrame.origin.y = KB.defaultLoc
-            tabBar.frame = tabBarFrame*/
-            
+        if (isOpen){
             tabBarConstraint.constant = 0
             view.layoutIfNeeded()
-            KB.isOpen = false
+            isOpen = false
         }
     }
     

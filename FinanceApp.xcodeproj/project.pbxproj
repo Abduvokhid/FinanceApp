@@ -11,7 +11,6 @@
 		DE0545E42401A03E008F824F /* MortgageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0545E32401A03E008F824F /* MortgageHelper.swift */; };
 		DE1A0D9F240FDAAF00B3E8DE /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1A0D9E240FDAAF00B3E8DE /* HomePageViewController.swift */; };
 		DE1A0DA1240FDB6100B3E8DE /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1A0DA0240FDB6100B3E8DE /* Slide.swift */; };
-		DE1A0DA3240FDB8E00B3E8DE /* Slide.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE1A0DA2240FDB8E00B3E8DE /* Slide.xib */; };
 		DE35C57324058463002A53AC /* KB.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE35C57224058463002A53AC /* KB.swift */; };
 		DE3F8DB42404415900DF2525 /* LoanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3F8DB32404415900DF2525 /* LoanViewController.swift */; };
 		DE3F8DB624045D5F00DF2525 /* SavingsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3F8DB524045D5F00DF2525 /* SavingsHelper.swift */; };
@@ -32,7 +31,6 @@
 		DE0545E32401A03E008F824F /* MortgageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MortgageHelper.swift; sourceTree = "<group>"; };
 		DE1A0D9E240FDAAF00B3E8DE /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		DE1A0DA0240FDB6100B3E8DE /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
-		DE1A0DA2240FDB8E00B3E8DE /* Slide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide.xib; sourceTree = "<group>"; };
 		DE35C57224058463002A53AC /* KB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KB.swift; sourceTree = "<group>"; };
 		DE3F8DB32404415900DF2525 /* LoanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanViewController.swift; sourceTree = "<group>"; };
 		DE3F8DB524045D5F00DF2525 /* SavingsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsHelper.swift; sourceTree = "<group>"; };
@@ -92,7 +90,6 @@
 			children = (
 				DED2535F23FC4AE10066F48A /* Main.storyboard */,
 				DEAC5BFF241156FC000703F6 /* MortgageView.xib */,
-				DE1A0DA2240FDB8E00B3E8DE /* Slide.xib */,
 				DED2536423FC4AE20066F48A /* LaunchScreen.storyboard */,
 				DE1A0D9D240FDA6600B3E8DE /* Pages */,
 				DED2536D23FC56830066F48A /* HelperClasses */,
@@ -181,7 +178,6 @@
 				DED2536323FC4AE20066F48A /* Assets.xcassets in Resources */,
 				DEAC5C00241156FC000703F6 /* MortgageView.xib in Resources */,
 				DED2536123FC4AE10066F48A /* Main.storyboard in Resources */,
-				DE1A0DA3240FDB8E00B3E8DE /* Slide.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

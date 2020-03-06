@@ -121,17 +121,17 @@ class MortgageViewController: UIViewController{
     }
     
     @objc func saveFields() {
-        defaults.set(initialAmountTF.text, forKey: "mortgageInitialAmount")
-        defaults.set(paymentAmountTF.text, forKey: "mortgagePaymentAmount")
-        defaults.set(numberOfYearsTF.text, forKey: "mortgageNumberOfYears")
-        defaults.set(interestRateTF.text, forKey: "mortgageInterestRate")
+//        defaults.set(initialAmountTF.text, forKey: "mortgageInitialAmount")
+//        defaults.set(paymentAmountTF.text, forKey: "mortgagePaymentAmount")
+//        defaults.set(numberOfYearsTF.text, forKey: "mortgageNumberOfYears")
+//        defaults.set(interestRateTF.text, forKey: "mortgageInterestRate")
     }
     
     func readFields(){
-        initialAmountTF.text = defaults.string(forKey: "mortgageInitialAmount")
-        paymentAmountTF.text = defaults.string(forKey: "mortgagePaymentAmount")
-        numberOfYearsTF.text = defaults.string(forKey: "mortgageNumberOfYears")
-        interestRateTF.text = defaults.string(forKey: "mortgageInterestRate")
+//        initialAmountTF.text = defaults.string(forKey: "mortgageInitialAmount")
+//        paymentAmountTF.text = defaults.string(forKey: "mortgagePaymentAmount")
+//        numberOfYearsTF.text = defaults.string(forKey: "mortgageNumberOfYears")
+//        interestRateTF.text = defaults.string(forKey: "mortgageInterestRate")
     }
     
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
