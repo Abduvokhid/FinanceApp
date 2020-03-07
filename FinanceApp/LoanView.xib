@@ -235,10 +235,13 @@
             <connections>
                 <outlet property="calculateButton" destination="yeX-31-FWW" id="ZLn-2H-FOa"/>
                 <outlet property="cardView" destination="930-vD-n8s" id="qlk-sw-8pL"/>
+                <outlet property="cardViewTitle" destination="yrj-Q6-iyl" id="v3J-fP-Faq"/>
+                <outlet property="cardViewTitleSpace" destination="PeR-q3-3fE" id="WU1-YG-rvN"/>
                 <outlet property="initialAmountTF" destination="Ld5-uq-Udb" id="uD9-vG-bqf"/>
                 <outlet property="interestRateTF" destination="WDd-4Y-b8O" id="5d8-2E-mvw"/>
                 <outlet property="numberOfMonthsTF" destination="9rC-J3-dUa" id="v1M-d7-HaH"/>
                 <outlet property="paymentAmountTF" destination="kqV-ZT-mvj" id="dso-6d-gpM"/>
+                <outlet property="titleLabel" destination="6ii-Nn-8gf" id="aax-Lc-Cxu"/>
                 <outlet property="topBarView" destination="Wp9-AE-hHG" id="4VD-om-D8o"/>
             </connections>
         </view>

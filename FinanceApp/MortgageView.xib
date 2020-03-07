@@ -236,10 +236,13 @@
             <connections>
                 <outlet property="calculateButton" destination="fBQ-2d-Ac2" id="z9I-MM-kzy"/>
                 <outlet property="cardView" destination="eN2-f6-eZU" id="u6w-XN-X7I"/>
+                <outlet property="cardViewTitle" destination="YGP-gt-ltM" id="lH8-RH-8wB"/>
+                <outlet property="cardViewTitleSpace" destination="xts-lW-dXQ" id="cDV-3z-Af4"/>
                 <outlet property="initialAmountTF" destination="rh7-9T-dj3" id="ZJR-xk-6cb"/>
                 <outlet property="interestRateTF" destination="T01-uR-PKk" id="hyB-W8-qEQ"/>
                 <outlet property="numberOfYearsTF" destination="hqu-1S-LuN" id="o7g-bz-hfi"/>
                 <outlet property="paymentAmountTF" destination="XRw-3u-cJj" id="Tg2-p9-KaT"/>
+                <outlet property="titleLabel" destination="Avt-hh-AZ5" id="hgC-b8-mom"/>
                 <outlet property="topBarView" destination="NTa-Zc-OoS" id="CjO-pF-n72"/>
             </connections>
             <point key="canvasLocation" x="34.782608695652179" y="34.821428571428569"/>

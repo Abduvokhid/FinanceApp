@@ -104,12 +104,16 @@ class HomePageViewController: UIViewController, UIScrollViewDelegate {
             tabBarConstraint.constant = tabBarConstant
             view.layoutIfNeeded()
             isOpen = true
+            let current = slides[pageControl!.currentPage]
+            current.keyboardOpened()
         }
     }
     
     @objc func closeKeyboard(){
         view.endEditing(true)
         if (isOpen){
+            let current = slides[pageControl!.currentPage]
+            current.keyboardClosed()
             tabBarConstraint.constant = 0
             view.layoutIfNeeded()
             isOpen = false

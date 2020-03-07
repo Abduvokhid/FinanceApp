@@ -13,11 +13,15 @@ class LoanView: UIView, UITextFieldDelegate, Slide {
     @IBOutlet var cardView: UIView!
     @IBOutlet weak var topBarView: UIView!
     @IBOutlet weak var calculateButton: UIButton!
+    @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var initialAmountTF: UITextField!
     @IBOutlet weak var paymentAmountTF: UITextField!
     @IBOutlet weak var interestRateTF: UITextField!
     @IBOutlet weak var numberOfMonthsTF: UITextField!
+    
+    @IBOutlet weak var cardViewTitle: UILabel!
+    @IBOutlet weak var cardViewTitleSpace: UIView!
 
     var finding = MortgageFinding.empty
     let defaults = UserDefaults.standard
@@ -39,6 +43,42 @@ class LoanView: UIView, UITextFieldDelegate, Slide {
         NotificationCenter.default.addObserver(self, selector: resignSelector, name: UIApplication.willResignActiveNotification, object: nil)
         
         readFields()
+    }
+    
+    func keyboardOpened() {
+        UIView.transition(with: superview!,
+                          duration: 0.25,
+                          options: .transitionCrossDissolve,
+                          animations: { [weak self] in
+                            self?.titleLabel.text = self?.cardViewTitle.text!
+            }, completion: nil)
+        UIView.animate(withDuration: 0.05, animations: {
+            self.cardViewTitle.alpha = 0
+            self.cardViewTitleSpace.alpha = 0
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.1, animations: {
+                self.cardViewTitle.isHidden = true
+                self.cardViewTitleSpace.isHidden = true
+            })
+        })
+    }
+    
+    func keyboardClosed() {
+        UIView.transition(with: superview!,
+                          duration: 0.25,
+                          options: .transitionCrossDissolve,
+                          animations: { [weak self] in
+                            self?.titleLabel.text = "Finance App"
+            }, completion: nil)
+        UIView.animate(withDuration: 0.05, animations: {
+            self.cardViewTitle.alpha = 1
+            self.cardViewTitleSpace.alpha = 1
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.1, animations: {
+                self.cardViewTitle.isHidden = false
+                self.cardViewTitleSpace.isHidden = false
+            })
+        })
     }
     
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
@@ -69,13 +109,13 @@ class LoanView: UIView, UITextFieldDelegate, Slide {
             
             switch finding {
             case .initialAmount:
-                let result = MortgageHelper.initialValue(paymentAmount: paymentAmount!, interestRate: interestRate!, numberOfYears: numberOfMonths!)
+                let result = MortgageHelper.initialValue(paymentAmount: paymentAmount!, interestRate: interestRate!, numberOfYears: numberOfMonths! / 12)
                 initialAmountTF.text = String(format: "%.2f", result)
             case .numberOfYears:
                 let result = MortgageHelper.numberOfYears(initialAmount: initialAmount!, interestRate: interestRate!, paymentAmount: paymentAmount!)
-                numberOfMonthsTF.text = String(format: "%.2f", result)
+                numberOfMonthsTF.text = String(format: "%.2f", result * 12)
             case .paymentAmount:
-                let result = MortgageHelper.paymentAmount(initialAmount: initialAmount!, interestRate: interestRate!, numberOfYears: numberOfMonths!)
+                let result = MortgageHelper.paymentAmount(initialAmount: initialAmount!, interestRate: interestRate!, numberOfYears: numberOfMonths! / 12)
                 paymentAmountTF.text = String(format: "%.2f", result)
             default:
                 return

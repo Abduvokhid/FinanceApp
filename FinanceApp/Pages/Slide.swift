@@ -10,4 +10,6 @@ import UIKit
 
 protocol Slide: UIView {
     var cardView: UIView! {get set}
+    func keyboardOpened()
+    func keyboardClosed()
 }
