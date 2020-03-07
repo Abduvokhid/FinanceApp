@@ -180,8 +180,8 @@ class HomePageViewController: UIViewController, UIScrollViewDelegate {
         
         let slide1:Slide = Bundle.main.loadNibNamed("MortgageView", owner: self, options: nil)?.first as! Slide
         let slide2:Slide = Bundle.main.loadNibNamed("LoanView", owner: self, options: nil)?.first as! Slide
-        let slide3:Slide = Bundle.main.loadNibNamed("MortgageView", owner: self, options: nil)?.first as! Slide
-        let slide4:Slide = Bundle.main.loadNibNamed("MortgageView", owner: self, options: nil)?.first as! Slide
+        let slide3:Slide = Bundle.main.loadNibNamed("SavingView", owner: self, options: nil)?.first as! Slide
+        let slide4:Slide = Bundle.main.loadNibNamed("CompoundView", owner: self, options: nil)?.first as! Slide
         
         return [slide1, slide2, slide3, slide4]
     }

@@ -14,7 +14,7 @@ class CompoundHelper {
         var calculation = futureValue / initialAmount
         calculation = pow(calculation, ( 1 / ( 12 * numberOfYears ) ) )
         calculation = (calculation - 1) * 12
-        return calculation
+        return calculation * 100
     }
     
     static func CalculateFutureValue(interestRate: Double, initialAmount: Double, numberOfYears: Double) -> Double{

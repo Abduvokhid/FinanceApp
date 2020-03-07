@@ -145,17 +145,17 @@ class SavingsViewController: UIViewController {
         case .numberOfYears:
             let result: Double
             if (savingsType.selectedSegmentIndex == 1) {
-                result = SavingsHelper.numberOfYearsEnd(initialAmount: initialAmount, futureValue: futureValue, interestRate: interestRate, paymentAmount: paymentAmount)
+                result = SavingsHelper.numberOfYearsEnd(initialAmount: initialAmount, futureAmount: futureValue, interestRate: interestRate, paymentAmount: paymentAmount)
             } else {
-                result = SavingsHelper.numberOfYearsBegin(initialAmount: initialAmount, futureValue: futureValue, interestRate: interestRate, paymentAmount: paymentAmount)
+                result = SavingsHelper.numberOfYearsBegin(initialAmount: initialAmount, futureAmount: futureValue, interestRate: interestRate, paymentAmount: paymentAmount)
             }
             numberOfYearsTF                                                                                            .text = String(format: "%.2f", result)
         case .paymentAmount:
             let result: Double
             if (savingsType.selectedSegmentIndex == 1) {
-                result = SavingsHelper.paymentAmountEnd(initialAmount: initialAmount, futureValue: futureValue, interestRate: interestRate, numberOfYears: numberOfYears)
+                result = SavingsHelper.paymentAmountEnd(initialAmount: initialAmount, futureAmount: futureValue, interestRate: interestRate, numberOfYears: numberOfYears)
             } else {
-                result = SavingsHelper.paymentAmountBegin(initialAmount: initialAmount, futureValue: futureValue, interestRate: interestRate, numberOfYears: numberOfYears)
+                result = SavingsHelper.paymentAmountBegin(initialAmount: initialAmount, futureAmount: futureValue, interestRate: interestRate, numberOfYears: numberOfYears)
             }
             paymentAmountTF.text = String(format: "%.2f", result)
         default:

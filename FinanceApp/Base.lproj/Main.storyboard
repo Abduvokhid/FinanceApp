@@ -384,7 +384,7 @@
                                     <constraint firstAttribute="height" constant="50" id="zxY-rf-f9K"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
+                                <inset key="imageEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
                                 <state key="normal" image="help"/>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DbD-nx-zoK">

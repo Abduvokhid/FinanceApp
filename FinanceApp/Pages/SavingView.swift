@@ -1,5 +1,5 @@
 //
-//  LoanView.swift
+//  SavingView.swift
 //  FinanceApp
 //
 //  Created by Abduvokhid Akhmedov on 07/03/2020.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-class LoanView: UIView, UITextFieldDelegate, Slide {
-
-    enum LoanFinding {
+class SavingView: UIView, UITextFieldDelegate, Slide {
+    
+    enum SavingFinding {
         case Empty
-        case InitialAmount
+        case FutureAmount
         case PaymentAmount
-        case NumberOfMonths
+        case NumberOfYears
     }
     
     @IBOutlet var cardView: UIView!
@@ -22,15 +22,19 @@ class LoanView: UIView, UITextFieldDelegate, Slide {
     @IBOutlet weak var calculateButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     
+    @IBOutlet weak var futureAmountTF: UITextField!
     @IBOutlet weak var initialAmountTF: UITextField!
     @IBOutlet weak var paymentAmountTF: UITextField!
     @IBOutlet weak var interestRateTF: UITextField!
-    @IBOutlet weak var numberOfMonthsTF: UITextField!
+    @IBOutlet weak var numberOfYearsTF: UITextField!
+    
+    @IBOutlet weak var periodSwitch: UISwitch!
+    @IBOutlet weak var switchLabel: UILabel!
     
     @IBOutlet weak var cardViewTitle: UILabel!
     @IBOutlet weak var cardViewTitleSpace: UIView!
-
-    var finding = LoanFinding.Empty
+    
+    var finding = SavingFinding.Empty
     let defaults = UserDefaults.standard
     
     override func awakeFromNib() {
@@ -41,13 +45,17 @@ class LoanView: UIView, UITextFieldDelegate, Slide {
         cardView.layer.shadowOpacity = 0.2
         
         calculateButton.layer.cornerRadius = 5
+        futureAmountTF.layer.cornerRadius = 5
         initialAmountTF.layer.cornerRadius = 5
-        paymentAmountTF.layer.cornerRadius = 5
         interestRateTF.layer.cornerRadius = 5
-        numberOfMonthsTF.layer.cornerRadius = 5
+        numberOfYearsTF.layer.cornerRadius = 5
         
         let resignSelector = #selector(saveFields)
         NotificationCenter.default.addObserver(self, selector: resignSelector, name: UIApplication.willResignActiveNotification, object: nil)
+        
+        let switchLabelSelector = #selector(switchLabelTapped(sender:))
+        let switchLabelTap = UITapGestureRecognizer(target: self, action: switchLabelSelector)
+        switchLabel.addGestureRecognizer(switchLabelTap)
         
         readFields()
     }
@@ -90,11 +98,12 @@ class LoanView: UIView, UITextFieldDelegate, Slide {
     
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
         let interestRate = interestRateTF.validatedDouble
-        let initialAmount = initialAmountTF.validatedDouble
+        let futureAmount = futureAmountTF.validatedDouble
         let paymentAmount = paymentAmountTF.validatedDouble
-        let numberOfMonths = numberOfMonthsTF.validatedDouble
+        let initialAmount = initialAmountTF.validatedDouble
+        let numberOfYears = numberOfYearsTF.validatedDouble
         
-        let validationError = validateInput(interestRate: interestRate, initialAmount: initialAmount, paymentAmount: paymentAmount, numberOfYears: numberOfMonths)
+        let validationError = validateInput(interestRate: interestRate, futureAmount: futureAmount, initialAmount: initialAmount, numberOfYears: numberOfYears, paymentAmount: paymentAmount)
         
         let color = sender.backgroundColor
         
@@ -115,14 +124,29 @@ class LoanView: UIView, UITextFieldDelegate, Slide {
             })
             
             switch finding {
-            case .InitialAmount:
-                let result = MortgageHelper.initialValue(paymentAmount: paymentAmount!, interestRate: interestRate!, numberOfYears: numberOfMonths! / 12)
-                initialAmountTF.text = String(format: "%.2f", result)
-            case .NumberOfMonths:
-                let result = MortgageHelper.numberOfYears(initialAmount: initialAmount!, interestRate: interestRate!, paymentAmount: paymentAmount!)
-                numberOfMonthsTF.text = String(format: "%.2f", result * 12)
+            case .FutureAmount:
+                let result: Double
+                if (!periodSwitch.isOn) {
+                    result = SavingsHelper.futureValueEnd(initialAmount: initialAmount!, paymentAmount: paymentAmount!, interestRate: interestRate!, numberOfYears: numberOfYears!)
+                } else {
+                    result = SavingsHelper.futureValueBegin(initialAmount: initialAmount!, paymentAmount: paymentAmount!, interestRate: interestRate!, numberOfYears: numberOfYears!)
+                }
+                futureAmountTF.text = String(format: "%.2f", result)
+            case .NumberOfYears:
+                let result: Double
+                if (!periodSwitch.isOn) {
+                    result = SavingsHelper.numberOfYearsEnd(initialAmount: initialAmount!, futureAmount: futureAmount!, interestRate: interestRate!, paymentAmount: paymentAmount!)
+                } else {
+                    result = SavingsHelper.numberOfYearsBegin(initialAmount: initialAmount!, futureAmount: futureAmount!, interestRate: interestRate!, paymentAmount: paymentAmount!)
+                }
+                numberOfYearsTF.text = String(format: "%.2f", result)
             case .PaymentAmount:
-                let result = MortgageHelper.paymentAmount(initialAmount: initialAmount!, interestRate: interestRate!, numberOfYears: numberOfMonths! / 12)
+                let result: Double
+                if (!periodSwitch.isOn) {
+                    result = SavingsHelper.paymentAmountEnd(initialAmount: initialAmount!, futureAmount: futureAmount!, interestRate: interestRate!, numberOfYears: numberOfYears!)
+                } else {
+                    result = SavingsHelper.paymentAmountBegin(initialAmount: initialAmount!, futureAmount: futureAmount!, interestRate: interestRate!, numberOfYears: numberOfYears!)
+                }
                 paymentAmountTF.text = String(format: "%.2f", result)
             default:
                 return
@@ -148,12 +172,12 @@ class LoanView: UIView, UITextFieldDelegate, Slide {
         
     }
     
-    func validateInput(interestRate: Double!, initialAmount: Double!, paymentAmount: Double!, numberOfYears: Double!) -> String! {
+    func validateInput(interestRate: Double!, futureAmount: Double!, initialAmount: Double!, numberOfYears: Double!, paymentAmount: Double!) -> String! {
         var counter = 0
         
-        if (initialAmount == nil) {
+        if (futureAmount == nil) {
             counter += 1
-            finding = .InitialAmount
+            finding = .FutureAmount
         }
         
         if (paymentAmount == nil) {
@@ -163,7 +187,7 @@ class LoanView: UIView, UITextFieldDelegate, Slide {
         
         if (numberOfYears == nil) {
             counter += 1
-            finding = .NumberOfMonths
+            finding = .NumberOfYears
         }
         
         if ((counter == 0 && finding == .Empty) || counter > 1) {
@@ -173,6 +197,10 @@ class LoanView: UIView, UITextFieldDelegate, Slide {
         
         if (interestRate == nil) {
             return "Interest rate cannot be empty!\n\nPlease, read the help page to get more information!"
+        }
+        
+        if (initialAmount == nil) {
+            return "Initial amount cannot be empty!\n\nPlease, read the help page to get more information!"
         }
         
         return nil
@@ -194,10 +222,10 @@ class LoanView: UIView, UITextFieldDelegate, Slide {
                           duration: 0.25,
                           options: .transitionCrossDissolve,
                           animations: { [weak self] in
+                            self?.futureAmountTF.text = ""
                             self?.initialAmountTF.text = ""
-                            self?.paymentAmountTF.text = ""
                             self?.interestRateTF.text = ""
-                            self?.numberOfMonthsTF.text = ""
+                            self?.numberOfYearsTF.text = ""
             }, completion: nil)
     }
     
@@ -213,17 +241,39 @@ class LoanView: UIView, UITextFieldDelegate, Slide {
         return true
     }
     
+    @objc func switchLabelTapped(sender:UITapGestureRecognizer) {
+        periodSwitch.setOn(!periodSwitch.isOn, animated: true)
+        changeSwitchLabel()
+    }
+    
+    func changeSwitchLabel(){
+        if periodSwitch.isOn {
+            switchLabel.text = "Pay at the beginning of month"
+        } else {
+            switchLabel.text = "Pay at the end of month"
+        }
+    }
+    
+    @IBAction func switchValueChanged(_ sender: UISwitch) {
+        changeSwitchLabel()
+    }
+    
     @objc func saveFields() {
-        defaults.set(initialAmountTF.text, forKey: "loanInitialAmount")
-        defaults.set(paymentAmountTF.text, forKey: "loanPaymentAmount")
-        defaults.set(numberOfMonthsTF.text, forKey: "loanNumberOfMonths")
-        defaults.set(interestRateTF.text, forKey: "loanInterestRate")
+        defaults.set(futureAmountTF.text, forKey: "savingFutureAmount")
+        defaults.set(initialAmountTF.text, forKey: "savingInitialAmount")
+        defaults.set(numberOfYearsTF.text, forKey: "savingNumberOfYears")
+        defaults.set(interestRateTF.text, forKey: "savingInterestRate")
+        defaults.set(paymentAmountTF.text, forKey: "savingPaymentAmount")
+        defaults.set(periodSwitch.isOn, forKey: "savingPeriod")
     }
     
     func readFields(){
-        initialAmountTF.text = defaults.string(forKey: "loanInitialAmount")
-        paymentAmountTF.text = defaults.string(forKey: "loanPaymentAmount")
-        numberOfMonthsTF.text = defaults.string(forKey: "loanNumberOfMonths")
-        interestRateTF.text = defaults.string(forKey: "loanInterestRate")
+        futureAmountTF.text = defaults.string(forKey: "savingFutureAmount")
+        initialAmountTF.text = defaults.string(forKey: "savingInitialAmount")
+        numberOfYearsTF.text = defaults.string(forKey: "savingNumberOfYears")
+        interestRateTF.text = defaults.string(forKey: "savingInterestRate")
+        paymentAmountTF.text = defaults.string(forKey: "savingPaymentAmount")
+        periodSwitch.isOn = defaults.bool(forKey: "savingPeriod")
+        changeSwitchLabel()
     }
 }

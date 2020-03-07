@@ -10,6 +10,13 @@ import UIKit
 
 class MortgageView: UIView, UITextFieldDelegate, Slide {
     
+    enum MortgageFinding {
+        case Empty
+        case InitialAmount
+        case PaymentAmount
+        case NumberOfYears
+    }
+    
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var topBarView: UIView!
     @IBOutlet weak var calculateButton: UIButton!
@@ -23,7 +30,7 @@ class MortgageView: UIView, UITextFieldDelegate, Slide {
     @IBOutlet weak var cardViewTitle: UILabel!
     @IBOutlet weak var cardViewTitleSpace: UIView!
     
-    var finding = MortgageFinding.empty
+    var finding = MortgageFinding.Empty
     let defaults = UserDefaults.standard
     
     override func awakeFromNib() {
@@ -108,13 +115,13 @@ class MortgageView: UIView, UITextFieldDelegate, Slide {
             })
             
             switch finding {
-            case .initialAmount:
+            case .InitialAmount:
                 let result = MortgageHelper.initialValue(paymentAmount: paymentAmount!, interestRate: interestRate!, numberOfYears: numberOfYears!)
                 initialAmountTF.text = String(format: "%.2f", result)
-            case .numberOfYears:
+            case .NumberOfYears:
                 let result = MortgageHelper.numberOfYears(initialAmount: initialAmount!, interestRate: interestRate!, paymentAmount: paymentAmount!)
                 numberOfYearsTF.text = String(format: "%.2f", result)
-            case .paymentAmount:
+            case .PaymentAmount:
                 let result = MortgageHelper.paymentAmount(initialAmount: initialAmount!, interestRate: interestRate!, numberOfYears: numberOfYears!)
                 paymentAmountTF.text = String(format: "%.2f", result)
             default:
@@ -146,21 +153,21 @@ class MortgageView: UIView, UITextFieldDelegate, Slide {
         
         if (initialAmount == nil) {
             counter += 1
-            finding = .initialAmount
+            finding = .InitialAmount
         }
         
         if (paymentAmount == nil) {
             counter += 1
-            finding = .paymentAmount
+            finding = .PaymentAmount
         }
         
         if (numberOfYears == nil) {
             counter += 1
-            finding = .numberOfYears
+            finding = .NumberOfYears
         }
         
-        if ((counter == 0 && finding == .empty) || counter > 1) {
-            finding = .empty
+        if ((counter == 0 && finding == .Empty) || counter > 1) {
+            finding = .Empty
             return "Only one text field can be empty!\n\nPlease, read the help page to get more information!"
         }
         

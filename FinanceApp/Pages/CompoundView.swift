@@ -1,5 +1,5 @@
 //
-//  LoanView.swift
+//  CompoundView.swift
 //  FinanceApp
 //
 //  Created by Abduvokhid Akhmedov on 07/03/2020.
@@ -8,13 +8,14 @@
 
 import UIKit
 
-class LoanView: UIView, UITextFieldDelegate, Slide {
-
-    enum LoanFinding {
+class CompoundView: UIView, UITextFieldDelegate, Slide {
+    
+    enum CompoundFinding{
         case Empty
+        case FutureValue
         case InitialAmount
-        case PaymentAmount
-        case NumberOfMonths
+        case NumberOfYears
+        case InterestRate
     }
     
     @IBOutlet var cardView: UIView!
@@ -22,15 +23,15 @@ class LoanView: UIView, UITextFieldDelegate, Slide {
     @IBOutlet weak var calculateButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     
+    @IBOutlet weak var futureAmountTF: UITextField!
     @IBOutlet weak var initialAmountTF: UITextField!
-    @IBOutlet weak var paymentAmountTF: UITextField!
     @IBOutlet weak var interestRateTF: UITextField!
-    @IBOutlet weak var numberOfMonthsTF: UITextField!
+    @IBOutlet weak var numberOfYearsTF: UITextField!
     
     @IBOutlet weak var cardViewTitle: UILabel!
     @IBOutlet weak var cardViewTitleSpace: UIView!
-
-    var finding = LoanFinding.Empty
+    
+    var finding = CompoundFinding.Empty
     let defaults = UserDefaults.standard
     
     override func awakeFromNib() {
@@ -41,10 +42,10 @@ class LoanView: UIView, UITextFieldDelegate, Slide {
         cardView.layer.shadowOpacity = 0.2
         
         calculateButton.layer.cornerRadius = 5
+        futureAmountTF.layer.cornerRadius = 5
         initialAmountTF.layer.cornerRadius = 5
-        paymentAmountTF.layer.cornerRadius = 5
         interestRateTF.layer.cornerRadius = 5
-        numberOfMonthsTF.layer.cornerRadius = 5
+        numberOfYearsTF.layer.cornerRadius = 5
         
         let resignSelector = #selector(saveFields)
         NotificationCenter.default.addObserver(self, selector: resignSelector, name: UIApplication.willResignActiveNotification, object: nil)
@@ -90,11 +91,11 @@ class LoanView: UIView, UITextFieldDelegate, Slide {
     
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
         let interestRate = interestRateTF.validatedDouble
+        let futureAmount = futureAmountTF.validatedDouble
         let initialAmount = initialAmountTF.validatedDouble
-        let paymentAmount = paymentAmountTF.validatedDouble
-        let numberOfMonths = numberOfMonthsTF.validatedDouble
+        let numberOfYears = numberOfYearsTF.validatedDouble
         
-        let validationError = validateInput(interestRate: interestRate, initialAmount: initialAmount, paymentAmount: paymentAmount, numberOfYears: numberOfMonths)
+        let validationError = validateInput(interestRate: interestRate, futureAmount: futureAmount, initialAmount: initialAmount, numberOfYears: numberOfYears)
         
         let color = sender.backgroundColor
         
@@ -116,14 +117,17 @@ class LoanView: UIView, UITextFieldDelegate, Slide {
             
             switch finding {
             case .InitialAmount:
-                let result = MortgageHelper.initialValue(paymentAmount: paymentAmount!, interestRate: interestRate!, numberOfYears: numberOfMonths! / 12)
+                let result = CompoundHelper.CalculateInitialAmount(interestRate: interestRate!, futureValue: futureAmount!, numberOfYears: numberOfYears!)
                 initialAmountTF.text = String(format: "%.2f", result)
-            case .NumberOfMonths:
-                let result = MortgageHelper.numberOfYears(initialAmount: initialAmount!, interestRate: interestRate!, paymentAmount: paymentAmount!)
-                numberOfMonthsTF.text = String(format: "%.2f", result * 12)
-            case .PaymentAmount:
-                let result = MortgageHelper.paymentAmount(initialAmount: initialAmount!, interestRate: interestRate!, numberOfYears: numberOfMonths! / 12)
-                paymentAmountTF.text = String(format: "%.2f", result)
+            case .NumberOfYears:
+                let result = CompoundHelper.CalculateNumberOfYears(interestRate: interestRate!, futureValue: futureAmount!, initialAmount: initialAmount!)
+                numberOfYearsTF.text = String(format: "%.2f", result)
+            case .FutureValue:
+                let result = CompoundHelper.CalculateFutureValue(interestRate: interestRate!, initialAmount: initialAmount!, numberOfYears: numberOfYears!)
+                futureAmountTF.text = String(format: "%.2f", result)
+            case .InterestRate:
+                let result = CompoundHelper.CalculateInterestRate(futureValue: futureAmount!, initialAmount: initialAmount!, numberOfYears: numberOfYears!)
+                interestRateTF.text = String(format: "%.2f", result)
             default:
                 return
             }
@@ -148,31 +152,32 @@ class LoanView: UIView, UITextFieldDelegate, Slide {
         
     }
     
-    func validateInput(interestRate: Double!, initialAmount: Double!, paymentAmount: Double!, numberOfYears: Double!) -> String! {
+    func validateInput(interestRate: Double!, futureAmount: Double!, initialAmount: Double!, numberOfYears: Double!) -> String! {
         var counter = 0
+        
+        if (futureAmount == nil) {
+            counter += 1
+            finding = .FutureValue
+        }
         
         if (initialAmount == nil) {
             counter += 1
             finding = .InitialAmount
         }
         
-        if (paymentAmount == nil) {
-            counter += 1
-            finding = .PaymentAmount
-        }
-        
         if (numberOfYears == nil) {
             counter += 1
-            finding = .NumberOfMonths
+            finding = .NumberOfYears
+        }
+        
+        if (interestRate == nil) {
+            counter += 1
+            finding = .InterestRate
         }
         
         if ((counter == 0 && finding == .Empty) || counter > 1) {
             finding = .Empty
             return "Only one text field can be empty!\n\nPlease, read the help page to get more information!"
-        }
-        
-        if (interestRate == nil) {
-            return "Interest rate cannot be empty!\n\nPlease, read the help page to get more information!"
         }
         
         return nil
@@ -194,10 +199,10 @@ class LoanView: UIView, UITextFieldDelegate, Slide {
                           duration: 0.25,
                           options: .transitionCrossDissolve,
                           animations: { [weak self] in
+                            self?.futureAmountTF.text = ""
                             self?.initialAmountTF.text = ""
-                            self?.paymentAmountTF.text = ""
                             self?.interestRateTF.text = ""
-                            self?.numberOfMonthsTF.text = ""
+                            self?.numberOfYearsTF.text = ""
             }, completion: nil)
     }
     
@@ -214,16 +219,17 @@ class LoanView: UIView, UITextFieldDelegate, Slide {
     }
     
     @objc func saveFields() {
-        defaults.set(initialAmountTF.text, forKey: "loanInitialAmount")
-        defaults.set(paymentAmountTF.text, forKey: "loanPaymentAmount")
-        defaults.set(numberOfMonthsTF.text, forKey: "loanNumberOfMonths")
-        defaults.set(interestRateTF.text, forKey: "loanInterestRate")
+        defaults.set(futureAmountTF.text, forKey: "compoundFutureAmount")
+        defaults.set(initialAmountTF.text, forKey: "compoundInitialAmount")
+        defaults.set(numberOfYearsTF.text, forKey: "compoundNumberOfYears")
+        defaults.set(interestRateTF.text, forKey: "compoundInterestRate")
     }
     
     func readFields(){
-        initialAmountTF.text = defaults.string(forKey: "loanInitialAmount")
-        paymentAmountTF.text = defaults.string(forKey: "loanPaymentAmount")
-        numberOfMonthsTF.text = defaults.string(forKey: "loanNumberOfMonths")
-        interestRateTF.text = defaults.string(forKey: "loanInterestRate")
+        futureAmountTF.text = defaults.string(forKey: "compoundFutureAmount")
+        initialAmountTF.text = defaults.string(forKey: "compoundInitialAmount")
+        numberOfYearsTF.text = defaults.string(forKey: "compoundNumberOfYears")
+        interestRateTF.text = defaults.string(forKey: "compoundInterestRate")
     }
+
 }

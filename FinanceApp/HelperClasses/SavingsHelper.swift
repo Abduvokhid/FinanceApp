@@ -38,7 +38,7 @@ class SavingsHelper {
         return calculation
     }
     
-    static func paymentAmountEnd(initialAmount: Double, futureValue: Double, interestRate: Double, numberOfYears: Double) -> Double{
+    static func paymentAmountEnd(initialAmount: Double, futureAmount: Double, interestRate: Double, numberOfYears: Double) -> Double{
         let interest = interestRate / 100
         var one = 1 + (interest / 12)
         one = pow(one, 12 * numberOfYears)
@@ -47,11 +47,11 @@ class SavingsHelper {
         calculation = pow(calculation, 12 * numberOfYears)
         calculation = calculation - 1
         calculation = calculation / (interest / 12)
-        calculation = (futureValue - one) / calculation
+        calculation = (futureAmount - one) / calculation
         return calculation
     }
     
-    static func paymentAmountBegin(initialAmount: Double, futureValue: Double, interestRate: Double, numberOfYears: Double) -> Double{
+    static func paymentAmountBegin(initialAmount: Double, futureAmount: Double, interestRate: Double, numberOfYears: Double) -> Double{
         let interest = interestRate / 100
         var one = 1 + (interest / 12)
         one = pow(one, 12 * numberOfYears)
@@ -61,13 +61,13 @@ class SavingsHelper {
         calculation = calculation - 1
         calculation = calculation / (interest / 12)
         calculation = calculation * (1 + (interest / 12))
-        calculation = (futureValue - one) / calculation
+        calculation = (futureAmount - one) / calculation
         return calculation
     }
     
-    static func numberOfYearsEnd(initialAmount: Double, futureValue: Double, interestRate: Double, paymentAmount: Double) -> Double{
+    static func numberOfYearsEnd(initialAmount: Double, futureAmount: Double, interestRate: Double, paymentAmount: Double) -> Double{
         let interest = interestRate / 100
-        var a = futureValue * (interest / 12)
+        var a = futureAmount * (interest / 12)
         a = a + paymentAmount
         var b = initialAmount * (interest / 12)
         b = b + paymentAmount
@@ -79,10 +79,10 @@ class SavingsHelper {
         return calculation
     }
     
-    static func numberOfYearsBegin(initialAmount: Double, futureValue: Double, interestRate: Double, paymentAmount: Double) -> Double{
+    static func numberOfYearsBegin(initialAmount: Double, futureAmount: Double, interestRate: Double, paymentAmount: Double) -> Double{
         let interest = interestRate / 100
         var a = paymentAmount / (interest / 12)
-        a = futureValue + a + paymentAmount
+        a = futureAmount + a + paymentAmount
         var b = paymentAmount / (interest / 12)
         b = initialAmount + b + paymentAmount
         let c = log (a / b)
