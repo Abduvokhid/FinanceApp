@@ -175,7 +175,7 @@ class HomePageViewController: UIViewController, UIScrollViewDelegate {
     func createSlides() -> [Slide] {
         
         let slide1:Slide = Bundle.main.loadNibNamed("MortgageView", owner: self, options: nil)?.first as! Slide
-        let slide2:Slide = Bundle.main.loadNibNamed("MortgageView", owner: self, options: nil)?.first as! Slide
+        let slide2:Slide = Bundle.main.loadNibNamed("LoanView", owner: self, options: nil)?.first as! Slide
         let slide3:Slide = Bundle.main.loadNibNamed("MortgageView", owner: self, options: nil)?.first as! Slide
         let slide4:Slide = Bundle.main.loadNibNamed("MortgageView", owner: self, options: nil)?.first as! Slide
         

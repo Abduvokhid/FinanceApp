@@ -17,16 +17,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NTa-Zc-OoS">
-                    <rect key="frame" x="0.0" y="-100" width="414" height="350"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Finance App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Avt-hh-AZ5">
-                            <rect key="frame" x="50" y="160" width="99" height="20.5"/>
+                            <rect key="frame" x="50" y="60" width="99" height="20.5"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kiw-BE-ClW">
-                            <rect key="frame" x="332" y="154" width="32" height="32"/>
+                            <rect key="frame" x="332" y="54" width="32" height="32"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="32" id="uLe-VS-RCa"/>
                                 <constraint firstAttribute="height" constant="32" id="vrO-Tk-QQU"/>
@@ -39,7 +39,7 @@
                             </connections>
                         </button>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZN-RW-Nnf">
-                            <rect key="frame" x="292" y="154" width="32" height="32"/>
+                            <rect key="frame" x="292" y="54" width="32" height="32"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="32" id="5QD-au-xDT"/>
                                 <constraint firstAttribute="height" constant="32" id="tdU-wa-TvA"/>
@@ -51,7 +51,7 @@
                     </subviews>
                     <color key="backgroundColor" red="0.29803921568627451" green="0.44705882352941173" blue="0.84313725490196079" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="350" id="18I-ei-vIM"/>
+                        <constraint firstAttribute="height" constant="250" id="18I-ei-vIM"/>
                         <constraint firstAttribute="trailing" secondItem="kiw-BE-ClW" secondAttribute="trailing" constant="50" id="Sue-s9-ow0"/>
                         <constraint firstItem="kiw-BE-ClW" firstAttribute="leading" secondItem="aZN-RW-Nnf" secondAttribute="trailing" constant="8" id="b3i-Rc-3s0"/>
                         <constraint firstItem="Avt-hh-AZ5" firstAttribute="leading" secondItem="NTa-Zc-OoS" secondAttribute="leading" constant="50" id="dU7-8S-51m"/>
@@ -227,7 +227,7 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="eN2-f6-eZU" secondAttribute="trailing" constant="40" id="XWu-Tz-ECr"/>
                 <constraint firstItem="NTa-Zc-OoS" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="YPu-JD-0RP"/>
                 <constraint firstItem="eN2-f6-eZU" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="52" id="c8k-me-zcl"/>
-                <constraint firstItem="NTa-Zc-OoS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="-100" id="d5i-cn-Eej"/>
+                <constraint firstItem="NTa-Zc-OoS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="d5i-cn-Eej"/>
                 <constraint firstItem="eN2-f6-eZU" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="smR-HY-0JD"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="Avt-hh-AZ5" secondAttribute="top" constant="-16" id="wvE-hc-2mg"/>
                 <constraint firstItem="aZN-RW-Nnf" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="zm5-xe-XoH"/>
