@@ -180,6 +180,10 @@ class CompoundView: UIView, UITextFieldDelegate, Slide {
             return "Only one text field can be empty!\n\nPlease, read the help page to get more information!"
         }
         
+        if interestRate == 0 {
+            return "Interest rate cannot be zero!\n\nPlease, read the help page to get more information!"
+        }
+        
         return nil
     }
     
