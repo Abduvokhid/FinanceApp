@@ -243,11 +243,37 @@
                                     <action selector="dismissSecondVC:" destination="3Ao-YJ-ZDY" eventType="touchUpInside" id="ctO-br-3Ga"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help page title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMF-TY-inH">
+                                <rect key="frame" x="20" y="64" width="335" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x43-eR-y8b">
+                                <rect key="frame" x="30" y="94.333333333333329" width="315" height="233.33333333333337"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <mutableString key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                        <attributes>
+                                            <font key="NSFont" metaFont="system" size="14"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="J0U-3W-ZOf" firstAttribute="bottom" secondItem="keS-mc-e2i" secondAttribute="bottom" constant="42" id="38V-qt-D43"/>
+                            <constraint firstItem="uMF-TY-inH" firstAttribute="leading" secondItem="J0U-3W-ZOf" secondAttribute="leading" constant="20" id="4WJ-Ys-J6U"/>
+                            <constraint firstItem="uMF-TY-inH" firstAttribute="top" secondItem="J0U-3W-ZOf" secondAttribute="top" constant="20" id="7tz-HO-tfJ"/>
+                            <constraint firstItem="J0U-3W-ZOf" firstAttribute="trailing" secondItem="uMF-TY-inH" secondAttribute="trailing" constant="20" id="Nv4-wa-GEc"/>
+                            <constraint firstItem="x43-eR-y8b" firstAttribute="top" secondItem="uMF-TY-inH" secondAttribute="bottom" constant="10" id="WM2-C7-TZT"/>
+                            <constraint firstItem="J0U-3W-ZOf" firstAttribute="trailing" secondItem="x43-eR-y8b" secondAttribute="trailing" constant="30" id="dpk-WH-yKx"/>
                             <constraint firstItem="e2o-X8-rya" firstAttribute="centerX" secondItem="J0U-3W-ZOf" secondAttribute="centerX" id="i4U-jb-aSc"/>
+                            <constraint firstItem="x43-eR-y8b" firstAttribute="leading" secondItem="J0U-3W-ZOf" secondAttribute="leading" constant="30" id="qzj-lN-XoB"/>
                             <constraint firstItem="keS-mc-e2i" firstAttribute="centerX" secondItem="J0U-3W-ZOf" secondAttribute="centerX" id="v8c-nW-BTG"/>
                             <constraint firstItem="J0U-3W-ZOf" firstAttribute="bottom" secondItem="e2o-X8-rya" secondAttribute="bottom" constant="43" id="zpC-FD-T9I"/>
                         </constraints>
@@ -256,6 +282,8 @@
                     <connections>
                         <outlet property="dismissButton" destination="keS-mc-e2i" id="vs9-JF-HvK"/>
                         <outlet property="dismissButtonShadowView" destination="e2o-X8-rya" id="7Xc-lp-1W8"/>
+                        <outlet property="helpTextView" destination="x43-eR-y8b" id="0Vo-M5-qKr"/>
+                        <outlet property="titleLabel" destination="uMF-TY-inH" id="NCb-UC-ukq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZfC-cc-x7o" userLabel="First Responder" sceneMemberID="firstResponder"/>

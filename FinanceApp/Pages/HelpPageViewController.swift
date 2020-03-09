@@ -12,6 +12,12 @@ class HelpPageViewController: UIViewController {
 
     @IBOutlet weak var dismissButton: UIButton!
     @IBOutlet weak var dismissButtonShadowView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var helpTextView: UITextView!
+    
+    var titleText: String = ""
+    var helpText: String = ""
+    var helpAttributes: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +29,8 @@ class HelpPageViewController: UIViewController {
         dismissButtonShadowView.layer.shadowOffset = CGSize(width: 0, height: 0)
         dismissButtonShadowView.layer.shadowOpacity = 0.5
         
+        titleLabel.text = titleText
+        helpTextView.text = helpText
     }
     
     @IBAction func dismissSecondVC(_ sender: AnyObject) {
