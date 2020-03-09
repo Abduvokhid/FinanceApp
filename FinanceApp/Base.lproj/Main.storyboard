@@ -211,6 +211,57 @@
             </objects>
             <point key="canvasLocation" x="-640.79999999999995" y="471.42857142857144"/>
         </scene>
+        <!--Help Page View Controller-->
+        <scene sceneID="uhC-f1-hcL">
+            <objects>
+                <viewController id="3Ao-YJ-ZDY" customClass="HelpPageViewController" customModule="FinanceApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VTH-ou-pTY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e2o-X8-rya">
+                                <rect key="frame" x="163.66666666666666" y="687" width="48" height="48"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="JL3-4L-l4N"/>
+                                    <constraint firstAttribute="height" constant="48" id="vw6-Wr-SeW"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keS-mc-e2i">
+                                <rect key="frame" x="162.66666666666666" y="686" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.14999999999999999" green="0.68000000000000005" blue="0.38" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Sf6-xU-tAe"/>
+                                    <constraint firstAttribute="width" constant="50" id="a31-5H-164"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="16" minY="16" maxX="16" maxY="16"/>
+                                <state key="normal" image="close">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissSecondVC:" destination="3Ao-YJ-ZDY" eventType="touchUpInside" id="ctO-br-3Ga"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="J0U-3W-ZOf" firstAttribute="bottom" secondItem="keS-mc-e2i" secondAttribute="bottom" constant="42" id="38V-qt-D43"/>
+                            <constraint firstItem="e2o-X8-rya" firstAttribute="centerX" secondItem="J0U-3W-ZOf" secondAttribute="centerX" id="i4U-jb-aSc"/>
+                            <constraint firstItem="keS-mc-e2i" firstAttribute="centerX" secondItem="J0U-3W-ZOf" secondAttribute="centerX" id="v8c-nW-BTG"/>
+                            <constraint firstItem="J0U-3W-ZOf" firstAttribute="bottom" secondItem="e2o-X8-rya" secondAttribute="bottom" constant="43" id="zpC-FD-T9I"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="J0U-3W-ZOf"/>
+                    </view>
+                    <connections>
+                        <outlet property="dismissButton" destination="keS-mc-e2i" id="vs9-JF-HvK"/>
+                        <outlet property="dismissButtonShadowView" destination="e2o-X8-rya" id="7Xc-lp-1W8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZfC-cc-x7o" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1622" y="1535"/>
+        </scene>
         <!--Alert View Controller-->
         <scene sceneID="a6D-2B-Oo6">
             <objects>
@@ -310,7 +361,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dhj-XB-vi3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1610.4000000000001" y="1534.729064039409"/>
+            <point key="canvasLocation" x="-2487" y="1535"/>
         </scene>
         <!--Home Page View Controller-->
         <scene sceneID="n8e-bR-wAB">
@@ -477,7 +528,7 @@
                                     <constraint firstAttribute="bottom" secondItem="Sf2-ie-XNK" secondAttribute="bottom" id="pxt-dK-lR1"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xDz-lA-f2H">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xDz-lA-f2H">
                                 <rect key="frame" x="162.66666666666666" y="686" width="50" height="50"/>
                                 <color key="backgroundColor" red="0.27450980390000002" green="0.41176470590000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -486,7 +537,12 @@
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
-                                <state key="normal" image="help"/>
+                                <state key="normal" image="help">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="3Ao-YJ-ZDY" kind="show" id="3bh-Xo-AbN"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DbD-nx-zoK">
                                 <rect key="frame" x="0.0" y="778" width="375" height="34"/>
@@ -1148,6 +1204,7 @@
     <resources>
         <image name="Image-1" width="200" height="200"/>
         <image name="Image-2" width="32" height="32"/>
+        <image name="close" width="128" height="128"/>
         <image name="compound" width="33.333332061767578" height="33.333332061767578"/>
         <image name="first" width="32" height="32"/>
         <image name="help" width="100" height="100"/>

@@ -8,9 +8,11 @@
 
 import UIKit
 
-class HomePageViewController: UIViewController, UIScrollViewDelegate {
+class HomePageViewController: UIViewController, UIScrollViewDelegate, UIViewControllerTransitioningDelegate {
     
     static var parentController: UIViewController! = nil
+    
+    let transition = CircularTransition()
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
@@ -222,4 +224,40 @@ class HomePageViewController: UIViewController, UIScrollViewDelegate {
         let pageIndex = round(scrollView.contentOffset.x/view.frame.width)
         pageControl.currentPage = Int(pageIndex)
     }
+    
+    //
+    //
+    // This part is created to animate help page view opening
+    //
+    //
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let secondVC = segue.destination as! HelpPageViewController
+        secondVC.transitioningDelegate = self
+        secondVC.modalPresentationStyle = .custom
+    }
+    
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .present
+        transition.startingPoint = helpButton.center
+        transition.circleColor = .white
+        //transition.circleColor = helpButton.backgroundColor!
+        
+        return transition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .dismiss
+        transition.startingPoint = helpButton.center
+        transition.circleColor = helpButton.backgroundColor!
+        
+        return transition
+    }
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
 }
