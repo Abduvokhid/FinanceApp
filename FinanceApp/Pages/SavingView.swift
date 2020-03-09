@@ -131,7 +131,7 @@ class SavingView: UIView, UITextFieldDelegate, Slide {
                 } else {
                     result = SavingsHelper.futureValueBegin(initialAmount: initialAmount!, paymentAmount: paymentAmount!, interestRate: interestRate!, numberOfYears: numberOfYears!)
                 }
-                futureAmountTF.text = String(format: "%.2f", result)
+                futureAmountTF.text = "£ " + String(format: "%.2f", result)
             case .NumberOfYears:
                 let result: Double
                 if (!periodSwitch.isOn) {
@@ -147,29 +147,34 @@ class SavingView: UIView, UITextFieldDelegate, Slide {
                 } else {
                     result = SavingsHelper.paymentAmountBegin(initialAmount: initialAmount!, futureAmount: futureAmount!, interestRate: interestRate!, numberOfYears: numberOfYears!)
                 }
-                paymentAmountTF.text = String(format: "%.2f", result)
+                paymentAmountTF.text = "£ " + String(format: "%.2f", result)
             default:
                 return
             }
         } else {
-            let bounds = sender.bounds
-            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 10, options: .curveEaseOut, animations: {
-                sender.bounds = CGRect(x: bounds.origin.x - 20, y: bounds.origin.y, width: bounds.size.width + 40, height: bounds.size.height)
-            }) { (success:Bool) in
-                if success{
-                    UIView.animate(withDuration: 0.5, animations: {
-                        sender.bounds = bounds
-                        sender.backgroundColor = color
-                        self.topBarView.backgroundColor = color
-                    })
-                }
-            }
-            UIView.animate(withDuration: 0.2, animations: {
-                sender.backgroundColor = UIColor(red:0.75, green:0.22, blue:0.17, alpha:1.0)
-                self.topBarView.backgroundColor = UIColor(red:0.75, green:0.22, blue:0.17, alpha:1.0)
-            })
+            let alertView = HomePageViewController.parentController.storyboard?.instantiateViewController(withIdentifier: "AlertViewController") as! AlertViewController
+            alertView.alertTitle = "Validation error!"
+            alertView.alertText = validationError!
+            alertView.modalPresentationStyle = .overCurrentContext
+            alertView.modalTransitionStyle = .crossDissolve
+            HomePageViewController.parentController.present(alertView, animated: true, completion: nil)
         }
         
+    }
+    
+    @IBAction func textFieldEdited(_ sender: UITextField) {
+        if sender.filteredText == "" {
+            sender.text = sender.filteredText
+            return
+        }
+        switch sender.tag {
+        case 1:
+            sender.text = "£ " + sender.filteredText
+        case 2:
+            sender.text = sender.filteredText + " %"
+        default:
+            break
+        }
     }
     
     func validateInput(interestRate: Double!, futureAmount: Double!, initialAmount: Double!, numberOfYears: Double!, paymentAmount: Double!) -> String! {
@@ -190,17 +195,22 @@ class SavingView: UIView, UITextFieldDelegate, Slide {
             finding = .NumberOfYears
         }
         
-        if ((counter == 0 && finding == .Empty) || counter > 1) {
+        if counter > 1 {
             finding = .Empty
             return "Only one text field can be empty!\n\nPlease, read the help page to get more information!"
         }
         
-        if (interestRate == nil) {
+        if interestRate == nil {
             return "Interest rate cannot be empty!\n\nPlease, read the help page to get more information!"
         }
         
-        if (initialAmount == nil) {
+        if initialAmount == nil {
             return "Initial amount cannot be empty!\n\nPlease, read the help page to get more information!"
+        }
+        
+        if counter == 0 && finding == .Empty {
+            finding = .Empty
+            return "At least one text field must be empty!\n\nPlease, read the help page to get more information!"
         }
         
         return nil
@@ -234,10 +244,34 @@ class SavingView: UIView, UITextFieldDelegate, Slide {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let amountOfDots = textField.text!.components(separatedBy: ".").count
-        if amountOfDots > 1 && string == "." {
+        let newText = textField.filteredText
+        
+        if let char = string.cString(using: String.Encoding.utf8){
+            let isBackspace = strcmp(char, "\\b")
+            if (isBackspace == -92){
+                textField.text = String(newText.dropLast()) + " "
+                return true
+            }
+        }
+        
+        let stringParts = newText.components(separatedBy: ".")
+        
+        if stringParts.count > 1 && string == "." {
             return false
         }
+        
+        if (stringParts.count == 2 && stringParts[1].count == 2){
+            return false
+        }
+        
+        if textField.filteredText == "0" && string != "." {
+            textField.text = ""
+        }
+        
+        if textField.filteredText == "" && string == "." {
+            textField.text = "0"
+        }
+        
         return true
     }
     

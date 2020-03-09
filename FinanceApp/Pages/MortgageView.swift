@@ -117,33 +117,23 @@ class MortgageView: UIView, UITextFieldDelegate, Slide {
             switch finding {
             case .InitialAmount:
                 let result = MortgageHelper.initialValue(paymentAmount: paymentAmount!, interestRate: interestRate!, numberOfYears: numberOfYears!)
-                initialAmountTF.text = String(format: "%.2f", result)
+                initialAmountTF.text = "£ " + String(format: "%.2f", result)
             case .NumberOfYears:
                 let result = MortgageHelper.numberOfYears(initialAmount: initialAmount!, interestRate: interestRate!, paymentAmount: paymentAmount!)
                 numberOfYearsTF.text = String(format: "%.2f", result)
             case .PaymentAmount:
                 let result = MortgageHelper.paymentAmount(initialAmount: initialAmount!, interestRate: interestRate!, numberOfYears: numberOfYears!)
-                paymentAmountTF.text = String(format: "%.2f", result)
+                paymentAmountTF.text = "£ " + String(format: "%.2f", result)
             default:
                 return
             }
         } else {
-            let bounds = sender.bounds
-            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 10, options: .curveEaseOut, animations: {
-                sender.bounds = CGRect(x: bounds.origin.x - 20, y: bounds.origin.y, width: bounds.size.width + 40, height: bounds.size.height)
-            }) { (success:Bool) in
-                if success{
-                    UIView.animate(withDuration: 0.5, animations: {
-                        sender.bounds = bounds
-                        sender.backgroundColor = color
-                        self.topBarView.backgroundColor = color
-                    })
-                }
-            }
-            UIView.animate(withDuration: 0.2, animations: {
-                sender.backgroundColor = UIColor(red:0.75, green:0.22, blue:0.17, alpha:1.0)
-                self.topBarView.backgroundColor = UIColor(red:0.75, green:0.22, blue:0.17, alpha:1.0)
-            })
+            let alertView = HomePageViewController.parentController.storyboard?.instantiateViewController(withIdentifier: "AlertViewController") as! AlertViewController
+            alertView.alertTitle = "Validation error!"
+            alertView.alertText = validationError!
+            alertView.modalPresentationStyle = .overCurrentContext
+            alertView.modalTransitionStyle = .crossDissolve
+            HomePageViewController.parentController.present(alertView, animated: true, completion: nil)
         }
         
     }
@@ -181,13 +171,40 @@ class MortgageView: UIView, UITextFieldDelegate, Slide {
             finding = .NumberOfYears
         }
         
-        if ((counter == 0 && finding == .Empty) || counter > 1) {
+        if counter > 1 {
             finding = .Empty
             return "Only one text field can be empty!\n\nPlease, read the help page to get more information!"
         }
         
-        if (interestRate == nil) {
+        if interestRate == nil {
             return "Interest rate cannot be empty!\n\nPlease, read the help page to get more information!"
+        }
+        
+        if counter == 0 && finding == .Empty {
+            finding = .Empty
+            return "At least one text field must be empty!\n\nPlease, read the help page to get more information!"
+        }
+        
+        if paymentAmount != nil && initialAmount != nil {
+            if paymentAmount > initialAmount {
+                finding = .Empty
+                return "Payment amount cannot be more than initial amount!"
+            }
+        }
+        
+        if initialAmount != nil && initialAmount == 0 {
+            finding = .Empty
+            return "Initial amount cannot be zero!"
+        }
+        
+        if paymentAmount != nil && paymentAmount == 0 {
+            finding = .Empty
+            return "Payment amount cannot be zero!"
+        }
+        
+        if numberOfYears != nil && numberOfYears == 0 {
+            finding = .Empty
+            return "Number of years cannot be zero!"
         }
         
         return nil

@@ -10,6 +10,8 @@ import UIKit
 
 class HomePageViewController: UIViewController, UIScrollViewDelegate {
     
+    static var parentController: UIViewController! = nil
+    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
     
@@ -44,6 +46,10 @@ class HomePageViewController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if (HomePageViewController.parentController == nil) {
+            HomePageViewController.parentController = self
+        }
         
         setMenuSize()
         

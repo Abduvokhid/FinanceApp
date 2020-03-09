@@ -95,6 +95,7 @@
                                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     <connections>
                                         <action selector="textFieldEditBegin:" destination="iN0-l3-epB" eventType="editingDidBegin" id="ZYz-eZ-Yh6"/>
+                                        <action selector="textFieldEdited:" destination="iN0-l3-epB" eventType="editingChanged" id="EWd-e8-WyL"/>
                                     </connections>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bLg-Zv-Qyg">
@@ -113,7 +114,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Initial amount" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="xGQ-Q3-COM">
+                                <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Initial amount" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="xGQ-Q3-COM">
                                     <rect key="frame" x="0.0" y="131.5" width="274" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="jRx-Rl-U11"/>
@@ -123,6 +124,7 @@
                                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     <connections>
                                         <action selector="textFieldEditBegin:" destination="iN0-l3-epB" eventType="editingDidBegin" id="7Fz-ax-3hx"/>
+                                        <action selector="textFieldEdited:" destination="iN0-l3-epB" eventType="editingChanged" id="f83-dq-0GJ"/>
                                     </connections>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eD2-dT-gkn">
@@ -141,7 +143,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Interest rate" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="jNz-fa-Xl9">
+                                <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Interest rate" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="jNz-fa-Xl9">
                                     <rect key="frame" x="0.0" y="201.5" width="274" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="R80-N7-Y4J"/>
@@ -151,6 +153,7 @@
                                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     <connections>
                                         <action selector="textFieldEditBegin:" destination="iN0-l3-epB" eventType="editingDidBegin" id="bxj-mi-bv8"/>
+                                        <action selector="textFieldEdited:" destination="iN0-l3-epB" eventType="editingChanged" id="oUM-jl-tnx"/>
                                     </connections>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YHc-I3-J86">
@@ -169,7 +172,7 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textField opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number of years" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Gpa-0E-tlV">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number of years" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Gpa-0E-tlV">
                                     <rect key="frame" x="0.0" y="271.5" width="274" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="NIQ-E4-tLb"/>
@@ -179,6 +182,7 @@
                                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     <connections>
                                         <action selector="textFieldEditBegin:" destination="iN0-l3-epB" eventType="editingDidBegin" id="bhm-sX-P4J"/>
+                                        <action selector="textFieldEdited:" destination="iN0-l3-epB" eventType="editingChanged" id="o1J-q6-B5F"/>
                                     </connections>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p4r-vI-1xv">
