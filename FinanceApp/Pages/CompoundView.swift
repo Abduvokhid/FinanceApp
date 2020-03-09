@@ -194,6 +194,25 @@ class CompoundView: UIView, UITextFieldDelegate, Slide {
             return "At least one text field must be empty!\n\nPlease, read the help page to get more information!"
         }
         
+        if futureAmount != nil && initialAmount != nil {
+            if initialAmount > futureAmount && finding != .InitialAmount {
+                finding = .Empty
+                return "Initial amount cannot be more than future amount!"
+            }
+        }
+        
+        if initialAmount != nil && initialAmount == 0 {
+            return "Initial amount cannot be zero!\n\nPlease, read the help page to get more information!"
+        }
+        
+        if futureAmount != nil && futureAmount == 0 {
+            return "Future amount cannot be zero!\n\nPlease, read the help page to get more information!"
+        }
+        
+        if numberOfYears != nil && numberOfYears == 0 {
+            return "Number of years cannot be zero!\n\nPlease, read the help page to get more information!"
+        }
+        
         return nil
     }
     

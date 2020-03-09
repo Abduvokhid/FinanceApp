@@ -213,6 +213,30 @@ class SavingView: UIView, UITextFieldDelegate, Slide {
             return "At least one text field must be empty!\n\nPlease, read the help page to get more information!"
         }
         
+        if initialAmount != nil && futureAmount != nil {
+            if initialAmount > futureAmount {
+                return "Initial amount cannot be more than future amount!\n\nPlease, read the help page to get more information!"
+            }
+        }
+        
+        if paymentAmount != nil && futureAmount != nil {
+            if paymentAmount > futureAmount {
+                return "Payment amount cannot be more than future amount!\n\nPlease, read the help page to get more information!"
+            }
+        }
+        
+        if numberOfYears != nil && numberOfYears == 0 {
+            return "Number of years cannot be zero!\n\nPlease, read the help page to get more information!"
+        }
+        
+        if futureAmount != nil && futureAmount == 0 {
+            return "Future amount cannot be zero!\n\nPlease, read the help page to get more information!"
+        }
+        
+        if paymentAmount != nil && paymentAmount == 0 {
+            return "Payment amount cannot be zero!\n\nPlease, read the help page to get more information!"
+        }
+        
         return nil
     }
     

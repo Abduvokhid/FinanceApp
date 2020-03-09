@@ -186,7 +186,7 @@ class LoanView: UIView, UITextFieldDelegate, Slide {
         }
         
         if paymentAmount != nil && initialAmount != nil {
-            if paymentAmount > initialAmount {
+            if paymentAmount > initialAmount && finding != .PaymentAmount {
                 finding = .Empty
                 return "Payment amount cannot be more than initial amount!"
             }
