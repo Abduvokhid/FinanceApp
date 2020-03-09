@@ -148,6 +148,21 @@ class MortgageView: UIView, UITextFieldDelegate, Slide {
         
     }
     
+    @IBAction func textFieldEdited(_ sender: UITextField) {
+        if sender.filteredText == "" {
+            sender.text = sender.filteredText
+            return
+        }
+        switch sender.tag {
+        case 1:
+            sender.text = "£ " + sender.filteredText
+        case 2:
+            sender.text = sender.filteredText + " %"
+        default:
+            break
+        }
+    }
+    
     func validateInput(interestRate: Double!, initialAmount: Double!, paymentAmount: Double!, numberOfYears: Double!) -> String! {
         var counter = 0
         
@@ -206,10 +221,34 @@ class MortgageView: UIView, UITextFieldDelegate, Slide {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let amountOfDots = textField.text!.components(separatedBy: ".").count
-        if amountOfDots > 1 && string == "." {
+        let newText = textField.filteredText
+        
+        if let char = string.cString(using: String.Encoding.utf8){
+            let isBackspace = strcmp(char, "\\b")
+            if (isBackspace == -92){
+                textField.text = String(newText.dropLast()) + " "
+                return true
+            }
+        }
+        
+        let stringParts = newText.components(separatedBy: ".")
+        
+        if stringParts.count > 1 && string == "." {
             return false
         }
+        
+        if (stringParts.count == 2 && stringParts[1].count == 2){
+            return false
+        }
+        
+        if textField.filteredText == "0" && string != "." {
+            textField.text = ""
+        }
+        
+        if textField.filteredText == "" && string == "." {
+            textField.text = "0"
+        }
+        
         return true
     }
     
