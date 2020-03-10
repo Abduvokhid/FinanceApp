@@ -33,7 +33,6 @@
 		DED27DB72416E2E500E9EA71 /* CircularTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED27DB62416E2E500E9EA71 /* CircularTransition.swift */; };
 		DED27DB92416E3B700E9EA71 /* HelpPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED27DB82416E3B700E9EA71 /* HelpPageViewController.swift */; };
 		DEEFD98C2406A90600953459 /* CustomTabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEFD98B2406A90600953459 /* CustomTabBarControllerViewController.swift */; };
-		DEFAB71C241682F500596923 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFAB71B241682F500596923 /* AlertViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,7 +64,6 @@
 		DED27DB62416E2E500E9EA71 /* CircularTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTransition.swift; sourceTree = "<group>"; };
 		DED27DB82416E3B700E9EA71 /* HelpPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPageViewController.swift; sourceTree = "<group>"; };
 		DEEFD98B2406A90600953459 /* CustomTabBarControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarControllerViewController.swift; sourceTree = "<group>"; };
-		DEFAB71B241682F500596923 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +86,6 @@
 				DECCDAB82413C0A700E0EC26 /* LoanView.swift */,
 				DECCDAC72413EACF00E0EC26 /* SavingView.swift */,
 				DECCDAC32413D6CE00E0EC26 /* CompoundView.swift */,
-				DEFAB71B241682F500596923 /* AlertViewController.swift */,
 				DED27DB82416E3B700E9EA71 /* HelpPageViewController.swift */,
 			);
 			path = Pages;
@@ -236,7 +233,6 @@
 				DED27DB92416E3B700E9EA71 /* HelpPageViewController.swift in Sources */,
 				DE1A0D9F240FDAAF00B3E8DE /* HomePageViewController.swift in Sources */,
 				DED2535C23FC4AE10066F48A /* SavingsViewController.swift in Sources */,
-				DEFAB71C241682F500596923 /* AlertViewController.swift in Sources */,
 				DE0545E22401939C008F824F /* MortgageViewController.swift in Sources */,
 				DECCDAC42413D6CE00E0EC26 /* CompoundView.swift in Sources */,
 				DE0545E42401A03E008F824F /* MortgageHelper.swift in Sources */,

@@ -120,8 +120,7 @@ class HomePageViewController: UIViewController, UIScrollViewDelegate, UIViewCont
     @objc func closeKeyboard(){
         view.endEditing(true)
         if (isOpen){
-            let current = slides[pageControl!.currentPage]
-            current.keyboardClosed()
+            closeKeyboardAll()
             tabBarConstraint.constant = 0
             view.layoutIfNeeded()
             isOpen = false
@@ -150,6 +149,12 @@ class HomePageViewController: UIViewController, UIScrollViewDelegate, UIViewCont
     
     func moveScroll(sender: UIView){
         scrollView.setContentOffset(CGPoint(x: view.frame.width * CGFloat(sender.tag - 1), y: scrollView.contentOffset.y), animated: true)
+    }
+    
+    func closeKeyboardAll() {
+        for slide in slides {
+            slide.keyboardClosed()
+        }
     }
     
     func buttonPressed(sender: UIView) {
