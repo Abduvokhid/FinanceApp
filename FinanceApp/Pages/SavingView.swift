@@ -260,6 +260,7 @@ class SavingView: UIView, UITextFieldDelegate, Slide {
                             self?.initialAmountTF.text = ""
                             self?.interestRateTF.text = ""
                             self?.numberOfYearsTF.text = ""
+                            self?.paymentAmountTF.text = ""
             }, completion: nil)
     }
     
