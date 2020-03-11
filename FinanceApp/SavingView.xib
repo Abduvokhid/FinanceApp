@@ -38,7 +38,7 @@
                                 <action selector="clearButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="WD2-vQ-yFF"/>
                             </connections>
                         </button>
-                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyv-Ah-W4H">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyv-Ah-W4H">
                             <rect key="frame" x="292" y="54" width="32" height="32"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="32" id="c1j-cC-sE2"/>

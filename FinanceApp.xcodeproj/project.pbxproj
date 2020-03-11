@@ -30,7 +30,6 @@
 		DED2536323FC4AE20066F48A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DED2536223FC4AE20066F48A /* Assets.xcassets */; };
 		DED2536623FC4AE20066F48A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DED2536423FC4AE20066F48A /* LaunchScreen.storyboard */; };
 		DED2536F23FC57150066F48A /* CompoundHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED2536E23FC57150066F48A /* CompoundHelper.swift */; };
-		DED27DB72416E2E500E9EA71 /* CircularTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED27DB62416E2E500E9EA71 /* CircularTransition.swift */; };
 		DED27DB92416E3B700E9EA71 /* HelpPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED27DB82416E3B700E9EA71 /* HelpPageViewController.swift */; };
 		DEEFD98C2406A90600953459 /* CustomTabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEFD98B2406A90600953459 /* CustomTabBarControllerViewController.swift */; };
 /* End PBXBuildFile section */
@@ -61,7 +60,6 @@
 		DED2536523FC4AE20066F48A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DED2536723FC4AE20066F48A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DED2536E23FC57150066F48A /* CompoundHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompoundHelper.swift; sourceTree = "<group>"; };
-		DED27DB62416E2E500E9EA71 /* CircularTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTransition.swift; sourceTree = "<group>"; };
 		DED27DB82416E3B700E9EA71 /* HelpPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPageViewController.swift; sourceTree = "<group>"; };
 		DEEFD98B2406A90600953459 /* CustomTabBarControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarControllerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,7 +136,6 @@
 				DE0545E32401A03E008F824F /* MortgageHelper.swift */,
 				DE3F8DB524045D5F00DF2525 /* SavingsHelper.swift */,
 				DE35C57224058463002A53AC /* KB.swift */,
-				DED27DB62416E2E500E9EA71 /* CircularTransition.swift */,
 			);
 			path = HelperClasses;
 			sourceTree = "<group>";
@@ -226,7 +223,6 @@
 				DEEFD98C2406A90600953459 /* CustomTabBarControllerViewController.swift in Sources */,
 				DEBFB6342412EC2E0012B0D5 /* LaunchViewController.swift in Sources */,
 				DED2535E23FC4AE10066F48A /* CompoundViewController.swift in Sources */,
-				DED27DB72416E2E500E9EA71 /* CircularTransition.swift in Sources */,
 				DED2535A23FC4AE10066F48A /* AppDelegate.swift in Sources */,
 				DEAC5BFC241155A6000703F6 /* MortgageView.swift in Sources */,
 				DE3F8DB42404415900DF2525 /* LoanViewController.swift in Sources */,

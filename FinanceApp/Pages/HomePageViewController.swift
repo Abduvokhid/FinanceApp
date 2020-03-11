@@ -8,11 +8,9 @@
 
 import UIKit
 
-class HomePageViewController: UIViewController, UIScrollViewDelegate, UIViewControllerTransitioningDelegate {
+class HomePageViewController: UIViewController, UIScrollViewDelegate {
     
     static var parentController: UIViewController! = nil
-    
-    let transition = CircularTransition()
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
@@ -21,9 +19,6 @@ class HomePageViewController: UIViewController, UIScrollViewDelegate, UIViewCont
     @IBOutlet weak var secondItem: UIView!
     @IBOutlet weak var thirdItem: UIView!
     @IBOutlet weak var fourthItem: UIView!
-    
-    @IBOutlet weak var helpButton: UIButton!
-    @IBOutlet weak var helpButtonShadowView: UIView!
     
     @IBOutlet weak var firstConstraint: NSLayoutConstraint!
     @IBOutlet weak var secondConstraint: NSLayoutConstraint!
@@ -80,13 +75,6 @@ class HomePageViewController: UIViewController, UIScrollViewDelegate, UIViewCont
         tabBar.layer.shadowRadius = 5
         tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
         tabBar.layer.shadowOpacity = 0.3
-        
-        helpButton.layer.cornerRadius = 25
-        helpButtonShadowView.layer.cornerRadius = 25
-        
-        helpButtonShadowView.layer.shadowRadius = 5
-        helpButtonShadowView.layer.shadowOffset = CGSize(width: 0, height: 0)
-        helpButtonShadowView.layer.shadowOpacity = 0.5
     }
     
     func setMenuSize(){
@@ -228,41 +216,6 @@ class HomePageViewController: UIViewController, UIScrollViewDelegate, UIViewCont
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let pageIndex = round(scrollView.contentOffset.x/view.frame.width)
         pageControl.currentPage = Int(pageIndex)
-    }
-    
-    //
-    //
-    // This part is created to animate help page view opening
-    //
-    //
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let secondVC = segue.destination as! HelpPageViewController
-        secondVC.transitioningDelegate = self
-        secondVC.modalPresentationStyle = .custom
-    }
-    
-    
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        transition.transitionMode = .present
-        transition.startingPoint = helpButton.center
-        transition.circleColor = .white
-        //transition.circleColor = helpButton.backgroundColor!
-        
-        return transition
-    }
-    
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        transition.transitionMode = .dismiss
-        transition.startingPoint = helpButton.center
-        transition.circleColor = helpButton.backgroundColor!
-        
-        return transition
-    }
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 }
