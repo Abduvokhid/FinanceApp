@@ -26,26 +26,26 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kiw-BE-ClW">
-                            <rect key="frame" x="332" y="54" width="32" height="32"/>
+                            <rect key="frame" x="324" y="50" width="40" height="40"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="32" id="uLe-VS-RCa"/>
-                                <constraint firstAttribute="height" constant="32" id="vrO-Tk-QQU"/>
+                                <constraint firstAttribute="width" constant="40" id="uLe-VS-RCa"/>
+                                <constraint firstAttribute="height" constant="40" id="vrO-Tk-QQU"/>
                             </constraints>
                             <color key="tintColor" red="0.88235294117647056" green="0.8901960784313725" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <inset key="imageEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                            <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
                             <state key="normal" image="clear"/>
                             <connections>
                                 <action selector="clearButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="JcO-jD-mm1"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aZN-RW-Nnf">
-                            <rect key="frame" x="292" y="54" width="32" height="32"/>
+                            <rect key="frame" x="282" y="50" width="40" height="40"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="32" id="5QD-au-xDT"/>
-                                <constraint firstAttribute="height" constant="32" id="tdU-wa-TvA"/>
+                                <constraint firstAttribute="width" constant="40" id="5QD-au-xDT"/>
+                                <constraint firstAttribute="height" constant="40" id="tdU-wa-TvA"/>
                             </constraints>
                             <color key="tintColor" red="0.88235294117647056" green="0.8901960784313725" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <inset key="imageEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                            <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
                             <state key="normal" image="help"/>
                         </button>
                     </subviews>
@@ -53,7 +53,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="250" id="18I-ei-vIM"/>
                         <constraint firstAttribute="trailing" secondItem="kiw-BE-ClW" secondAttribute="trailing" constant="50" id="Sue-s9-ow0"/>
-                        <constraint firstItem="kiw-BE-ClW" firstAttribute="leading" secondItem="aZN-RW-Nnf" secondAttribute="trailing" constant="8" id="b3i-Rc-3s0"/>
+                        <constraint firstItem="kiw-BE-ClW" firstAttribute="leading" secondItem="aZN-RW-Nnf" secondAttribute="trailing" constant="2" id="b3i-Rc-3s0"/>
                         <constraint firstItem="Avt-hh-AZ5" firstAttribute="leading" secondItem="NTa-Zc-OoS" secondAttribute="leading" constant="50" id="dU7-8S-51m"/>
                     </constraints>
                 </view>
@@ -226,7 +226,7 @@
             <color key="backgroundColor" red="0.94509803921568625" green="0.96078431372549022" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstItem="kiw-BE-ClW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="8Ip-oN-Sf2"/>
+                <constraint firstItem="kiw-BE-ClW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="6" id="8Ip-oN-Sf2"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="NTa-Zc-OoS" secondAttribute="trailing" id="BlX-Ze-kqc"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="eN2-f6-eZU" secondAttribute="trailing" constant="40" id="XWu-Tz-ECr"/>
                 <constraint firstItem="NTa-Zc-OoS" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="YPu-JD-0RP"/>
@@ -234,7 +234,7 @@
                 <constraint firstItem="NTa-Zc-OoS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="d5i-cn-Eej"/>
                 <constraint firstItem="eN2-f6-eZU" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="smR-HY-0JD"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="Avt-hh-AZ5" secondAttribute="top" constant="-16" id="wvE-hc-2mg"/>
-                <constraint firstItem="aZN-RW-Nnf" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="zm5-xe-XoH"/>
+                <constraint firstItem="aZN-RW-Nnf" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="6" id="zm5-xe-XoH"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>

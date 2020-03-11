@@ -19,6 +19,7 @@ class SavingView: UIView, UITextFieldDelegate, Slide {
     
     @IBOutlet var cardView: UIView!
     @IBOutlet weak var topBarView: UIView!
+    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var calculateButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -61,6 +62,21 @@ class SavingView: UIView, UITextFieldDelegate, Slide {
     }
     
     func keyboardOpened() {
+        for childView in self.stackView.subviews {
+            if childView.tag == 1 {
+                childView.removeConstraints(childView.constraints)
+                childView.heightAnchor.constraint(equalToConstant: 5).isActive = true
+            }
+            if childView is UILabel && childView.tag == 0 {
+                childView.removeConstraints(childView.constraints)
+                childView.heightAnchor.constraint(equalToConstant: 17).isActive = true
+            }
+            if childView is UITextField {
+                childView.removeConstraints(childView.constraints)
+                childView.heightAnchor.constraint(equalToConstant: 35).isActive = true
+            }
+        }
+        
         UIView.transition(with: superview!,
                           duration: 0.25,
                           options: .transitionCrossDissolve,
@@ -70,15 +86,32 @@ class SavingView: UIView, UITextFieldDelegate, Slide {
         UIView.animate(withDuration: 0.05, animations: {
             self.cardViewTitle.alpha = 0
             self.cardViewTitleSpace.alpha = 0
+            self.superview?.layoutIfNeeded()
         }, completion: { _ in
             UIView.animate(withDuration: 0.1, animations: {
                 self.cardViewTitle.isHidden = true
                 self.cardViewTitleSpace.isHidden = true
             })
         })
+        
     }
     
     func keyboardClosed() {
+        for childView in self.stackView.subviews {
+            if childView.tag == 1 {
+                childView.removeConstraints(childView.constraints)
+                childView.heightAnchor.constraint(equalToConstant: 10).isActive = true
+            }
+            if childView is UILabel && childView.tag == 0 {
+                childView.removeConstraints(childView.constraints)
+                childView.heightAnchor.constraint(equalToConstant: 20).isActive = true
+            }
+            if childView is UITextField {
+                childView.removeConstraints(childView.constraints)
+                childView.heightAnchor.constraint(equalToConstant: 40).isActive = true
+            }
+        }
+        
         UIView.transition(with: superview!,
                           duration: 0.25,
                           options: .transitionCrossDissolve,
@@ -88,6 +121,7 @@ class SavingView: UIView, UITextFieldDelegate, Slide {
         UIView.animate(withDuration: 0.05, animations: {
             self.cardViewTitle.alpha = 1
             self.cardViewTitleSpace.alpha = 1
+            self.superview?.layoutIfNeeded()
         }, completion: { _ in
             UIView.animate(withDuration: 0.1, animations: {
                 self.cardViewTitle.isHidden = false
