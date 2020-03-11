@@ -90,6 +90,9 @@ class CompoundView: UIView, UITextFieldDelegate, Slide {
     }
     
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
+        
+        HomePageViewController.parentController.closeKeyboard()
+        
         let interestRate = interestRateTF.validatedDouble
         let futureAmount = futureAmountTF.validatedDouble
         let initialAmount = initialAmountTF.validatedDouble

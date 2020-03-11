@@ -89,6 +89,9 @@ class LoanView: UIView, UITextFieldDelegate, Slide {
     }
     
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
+        
+        HomePageViewController.parentController.closeKeyboard()
+        
         let interestRate = interestRateTF.validatedDouble
         let initialAmount = initialAmountTF.validatedDouble
         let paymentAmount = paymentAmountTF.validatedDouble

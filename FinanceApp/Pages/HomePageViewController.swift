@@ -10,7 +10,7 @@ import UIKit
 
 class HomePageViewController: UIViewController, UIScrollViewDelegate {
     
-    static var parentController: UIViewController! = nil
+    static var parentController: HomePageViewController! = nil
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
