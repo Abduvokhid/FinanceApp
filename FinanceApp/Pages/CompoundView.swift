@@ -135,21 +135,16 @@ class CompoundView: UIView, UITextFieldDelegate, Slide {
                 return
             }
         } else {
-            let bounds = sender.bounds
-            UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 10, options: .curveEaseOut, animations: {
-                sender.bounds = CGRect(x: bounds.origin.x - 20, y: bounds.origin.y, width: bounds.size.width + 40, height: bounds.size.height)
-            }) { (success:Bool) in
-                if success{
-                    UIView.animate(withDuration: 0.5, animations: {
-                        sender.bounds = bounds
-                        sender.backgroundColor = color
-                        self.topBarView.backgroundColor = color
-                    })
-                }
-            }
+            let feedbackGenerator = UINotificationFeedbackGenerator()
+            feedbackGenerator.notificationOccurred(.error)
             UIView.animate(withDuration: 0.2, animations: {
                 sender.backgroundColor = UIColor(red:0.75, green:0.22, blue:0.17, alpha:1.0)
                 self.topBarView.backgroundColor = UIColor(red:0.75, green:0.22, blue:0.17, alpha:1.0)
+            }, completion: {_ in
+                UIView.animate(withDuration: 0.5, delay: 0.3, animations: {
+                    sender.backgroundColor = color
+                    self.topBarView.backgroundColor = color
+                })
             })
         }
         
