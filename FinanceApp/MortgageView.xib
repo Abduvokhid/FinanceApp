@@ -61,26 +61,29 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eN2-f6-eZU">
-                    <rect key="frame" x="40" y="96" width="334" height="431.5"/>
+                    <rect key="frame" x="40" y="96" width="334" height="430"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ju0-Na-lN0">
-                            <rect key="frame" x="30" y="30" width="274" height="371.5"/>
+                            <rect key="frame" x="30" y="30" width="274" height="370"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mortgage" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YGP-gt-ltM">
-                                    <rect key="frame" x="0.0" y="0.0" width="274" height="31.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="274" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="vpD-xe-IFf"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xts-lW-dXQ">
-                                    <rect key="frame" x="0.0" y="31.5" width="274" height="10"/>
+                                    <rect key="frame" x="0.0" y="30" width="274" height="10"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="10" id="u1R-Zg-WoB"/>
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Initial amount:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="seQ-po-XbX">
-                                    <rect key="frame" x="0.0" y="41.5" width="274" height="20"/>
+                                    <rect key="frame" x="0.0" y="40" width="274" height="20"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="aU0-cd-1eG"/>
                                     </constraints>
@@ -89,7 +92,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Initial amount" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="rh7-9T-dj3">
-                                    <rect key="frame" x="0.0" y="61.5" width="274" height="40"/>
+                                    <rect key="frame" x="0.0" y="60" width="274" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="12d-Pf-KsB"/>
                                     </constraints>
@@ -102,14 +105,14 @@
                                     </connections>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="026-zV-iTf">
-                                    <rect key="frame" x="0.0" y="101.5" width="274" height="10"/>
+                                    <rect key="frame" x="0.0" y="100" width="274" height="10"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="10" id="d9Y-wf-Obx"/>
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment amount:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLt-zd-BMX">
-                                    <rect key="frame" x="0.0" y="111.5" width="274" height="20"/>
+                                    <rect key="frame" x="0.0" y="110" width="274" height="20"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="Ldr-E3-9Nz"/>
                                     </constraints>
@@ -118,7 +121,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Payment amount" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="XRw-3u-cJj">
-                                    <rect key="frame" x="0.0" y="131.5" width="274" height="40"/>
+                                    <rect key="frame" x="0.0" y="130" width="274" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="EJj-wB-njp"/>
                                     </constraints>
@@ -131,14 +134,14 @@
                                     </connections>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eo0-cE-NuP">
-                                    <rect key="frame" x="0.0" y="171.5" width="274" height="10"/>
+                                    <rect key="frame" x="0.0" y="170" width="274" height="10"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="10" id="Y9e-yk-N6Y"/>
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Interest rate:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oo7-Ze-Lbx">
-                                    <rect key="frame" x="0.0" y="181.5" width="274" height="20"/>
+                                    <rect key="frame" x="0.0" y="180" width="274" height="20"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="gW3-Bs-LTz"/>
                                     </constraints>
@@ -147,7 +150,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Interest rate" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="T01-uR-PKk">
-                                    <rect key="frame" x="0.0" y="201.5" width="274" height="40"/>
+                                    <rect key="frame" x="0.0" y="200" width="274" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="GCQ-p5-sw1"/>
                                     </constraints>
@@ -160,14 +163,14 @@
                                     </connections>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="chS-lW-qhT">
-                                    <rect key="frame" x="0.0" y="241.5" width="274" height="10"/>
+                                    <rect key="frame" x="0.0" y="240" width="274" height="10"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="10" id="Jlh-or-8iE"/>
                                     </constraints>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of years:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5LL-Hc-F5T">
-                                    <rect key="frame" x="0.0" y="251.5" width="274" height="20"/>
+                                    <rect key="frame" x="0.0" y="250" width="274" height="20"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="Pca-2e-IQ6"/>
                                     </constraints>
@@ -176,7 +179,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number of years" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="hqu-1S-LuN">
-                                    <rect key="frame" x="0.0" y="271.5" width="274" height="40"/>
+                                    <rect key="frame" x="0.0" y="270" width="274" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="GHK-W3-JBa"/>
                                     </constraints>
@@ -189,21 +192,21 @@
                                     </connections>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f8w-kN-9pm">
-                                    <rect key="frame" x="0.0" y="311.5" width="274" height="10"/>
+                                    <rect key="frame" x="0.0" y="310" width="274" height="10"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="10" id="uDa-kD-Xhe"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZFA-wU-btD">
-                                    <rect key="frame" x="0.0" y="321.5" width="274" height="10"/>
+                                    <rect key="frame" x="0.0" y="320" width="274" height="10"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="10" id="AE2-8l-aRq"/>
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBQ-2d-Ac2">
-                                    <rect key="frame" x="0.0" y="331.5" width="274" height="40"/>
+                                    <rect key="frame" x="0.0" y="330" width="274" height="40"/>
                                     <color key="backgroundColor" red="0.23921568627450979" green="0.44705882352941173" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="VMR-1G-NOq"/>

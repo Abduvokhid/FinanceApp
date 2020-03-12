@@ -58,14 +58,16 @@ class MortgageView: UIView, UITextFieldDelegate, Slide {
                           animations: { [weak self] in
                             self?.titleLabel.text = self?.cardViewTitle.text!
             }, completion: nil)
-        UIView.animate(withDuration: 0.05, animations: {
+        self.cardViewTitle.removeConstraints(self.cardViewTitle.constraints)
+        self.cardViewTitle.heightAnchor.constraint(equalToConstant: 0).isActive = true
+        self.cardViewTitleSpace.removeConstraints(self.cardViewTitleSpace.constraints)
+        self.cardViewTitleSpace.heightAnchor.constraint(equalToConstant: 0).isActive = true
+        UIView.animate(withDuration: 0.3, animations: {
             self.cardViewTitle.alpha = 0
-            self.cardViewTitleSpace.alpha = 0
-        }, completion: { _ in
-            UIView.animate(withDuration: 0.1, animations: {
-                self.cardViewTitle.isHidden = true
-                self.cardViewTitleSpace.isHidden = true
-            })
+        }, completion: {_ in
+            UIView.animate(withDuration: 0.3, animations: {
+                self.superview?.layoutIfNeeded()
+            }, completion: nil)
         })
     }
     
@@ -76,14 +78,16 @@ class MortgageView: UIView, UITextFieldDelegate, Slide {
                           animations: { [weak self] in
                             self?.titleLabel.text = "Finance App"
             }, completion: nil)
-        UIView.animate(withDuration: 0.05, animations: {
+        self.cardViewTitle.removeConstraints(self.cardViewTitle.constraints)
+        self.cardViewTitle.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        self.cardViewTitleSpace.removeConstraints(self.cardViewTitleSpace.constraints)
+        self.cardViewTitleSpace.heightAnchor.constraint(equalToConstant: 10).isActive = true
+        UIView.animate(withDuration: 0.3, animations: {
             self.cardViewTitle.alpha = 1
-            self.cardViewTitleSpace.alpha = 1
-        }, completion: { _ in
-            UIView.animate(withDuration: 0.1, animations: {
-                self.cardViewTitle.isHidden = false
-                self.cardViewTitleSpace.isHidden = false
-            })
+        }, completion: {_ in
+            UIView.animate(withDuration: 0.3, animations: {
+                self.superview?.layoutIfNeeded()
+            }, completion: nil)
         })
     }
     

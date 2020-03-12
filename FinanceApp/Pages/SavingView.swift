@@ -62,6 +62,13 @@ class SavingView: UIView, UITextFieldDelegate, Slide {
     }
     
     func keyboardOpened() {
+        UIView.transition(with: superview!,
+                          duration: 0.25,
+                          options: .transitionCrossDissolve,
+                          animations: { [weak self] in
+                            self?.titleLabel.text = self?.cardViewTitle.text!
+            }, completion: nil)
+        
         for childView in self.stackView.subviews {
             if childView.tag == 1 {
                 childView.removeConstraints(childView.constraints)
@@ -77,26 +84,29 @@ class SavingView: UIView, UITextFieldDelegate, Slide {
             }
         }
         
-        UIView.transition(with: superview!,
-                          duration: 0.25,
-                          options: .transitionCrossDissolve,
-                          animations: { [weak self] in
-                            self?.titleLabel.text = self?.cardViewTitle.text!
-            }, completion: nil)
-        UIView.animate(withDuration: 0.05, animations: {
+        self.cardViewTitle.removeConstraints(self.cardViewTitle.constraints)
+        self.cardViewTitle.heightAnchor.constraint(equalToConstant: 0).isActive = true
+        self.cardViewTitleSpace.removeConstraints(self.cardViewTitleSpace.constraints)
+        self.cardViewTitleSpace.heightAnchor.constraint(equalToConstant: 0).isActive = true
+        
+        UIView.animate(withDuration: 0.3, animations: {
             self.cardViewTitle.alpha = 0
-            self.cardViewTitleSpace.alpha = 0
-            self.superview?.layoutIfNeeded()
-        }, completion: { _ in
-            UIView.animate(withDuration: 0.1, animations: {
-                self.cardViewTitle.isHidden = true
-                self.cardViewTitleSpace.isHidden = true
-            })
+        }, completion: {_ in
+            UIView.animate(withDuration: 0.3, animations: {
+                self.superview?.layoutIfNeeded()
+            }, completion: nil)
         })
         
     }
     
     func keyboardClosed() {
+        UIView.transition(with: superview!,
+                          duration: 0.25,
+                          options: .transitionCrossDissolve,
+                          animations: { [weak self] in
+                            self?.titleLabel.text = "Finance App"
+            }, completion: nil)
+        
         for childView in self.stackView.subviews {
             if childView.tag == 1 {
                 childView.removeConstraints(childView.constraints)
@@ -112,21 +122,17 @@ class SavingView: UIView, UITextFieldDelegate, Slide {
             }
         }
         
-        UIView.transition(with: superview!,
-                          duration: 0.25,
-                          options: .transitionCrossDissolve,
-                          animations: { [weak self] in
-                            self?.titleLabel.text = "Finance App"
-            }, completion: nil)
-        UIView.animate(withDuration: 0.05, animations: {
+        self.cardViewTitle.removeConstraints(self.cardViewTitle.constraints)
+        self.cardViewTitle.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        self.cardViewTitleSpace.removeConstraints(self.cardViewTitleSpace.constraints)
+        self.cardViewTitleSpace.heightAnchor.constraint(equalToConstant: 10).isActive = true
+        
+        UIView.animate(withDuration: 0.3, animations: {
             self.cardViewTitle.alpha = 1
-            self.cardViewTitleSpace.alpha = 1
-            self.superview?.layoutIfNeeded()
-        }, completion: { _ in
-            UIView.animate(withDuration: 0.1, animations: {
-                self.cardViewTitle.isHidden = false
-                self.cardViewTitleSpace.isHidden = false
-            })
+        }, completion: {_ in
+            UIView.animate(withDuration: 0.3, animations: {
+                self.superview?.layoutIfNeeded()
+            }, completion: nil)
         })
     }
     
