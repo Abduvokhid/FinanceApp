@@ -14,7 +14,7 @@ class AttributeInfo {
         self.type = type
         self.start = start
         self.length = length
-    }
+    } 
     
     enum Types {
         case Normal

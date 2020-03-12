@@ -236,7 +236,7 @@ class MortgageView: UIView, UITextFieldDelegate, Slide {
         UIView.transition(with: cardView,
                           duration: 0.25,
                           options: .transitionCrossDissolve,
-                          animations: { [weak self] in
+                          animations: { [weak self] in 
                             self?.initialAmountTF.text = ""
                             self?.paymentAmountTF.text = ""
                             self?.interestRateTF.text = ""
