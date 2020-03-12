@@ -60,40 +60,61 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" bounces="NO" indicatorStyle="black" bouncesZoom="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x43-eR-y8b">
-                                <rect key="frame" x="30" y="108" width="315" height="548"/>
-                                <attributedString key="attributedText">
-                                    <fragment>
-                                        <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <attributes>
-                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                            <font key="NSFont" size="14" name=".SFNSText"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CdM-70-p1s">
+                                <rect key="frame" x="0.0" y="108" width="375" height="548"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="black" bouncesZoom="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x43-eR-y8b">
+                                        <rect key="frame" x="40" y="0.0" width="295" height="233.33333333333334"/>
+                                        <attributedString key="attributedText">
+                                            <fragment>
+                                                <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <attributes>
+                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <font key="NSFont" size="14" name=".SFNSText"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wz7-Ci-k5F">
+                                        <rect key="frame" x="40" y="243.33333333333331" width="295" height="110"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="110" id="oQv-5c-Ycr"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="wz7-Ci-k5F" secondAttribute="bottom" constant="10" id="G5w-HK-yfy"/>
+                                    <constraint firstItem="x43-eR-y8b" firstAttribute="top" secondItem="CdM-70-p1s" secondAttribute="top" id="GwF-60-dIT"/>
+                                    <constraint firstAttribute="trailing" secondItem="wz7-Ci-k5F" secondAttribute="trailing" id="Zoo-pL-EvQ"/>
+                                    <constraint firstItem="x43-eR-y8b" firstAttribute="centerX" secondItem="CdM-70-p1s" secondAttribute="centerX" id="fG4-4l-PJj"/>
+                                    <constraint firstItem="x43-eR-y8b" firstAttribute="width" secondItem="CdM-70-p1s" secondAttribute="width" constant="-80" id="gey-Sr-rBZ"/>
+                                    <constraint firstItem="wz7-Ci-k5F" firstAttribute="centerX" secondItem="CdM-70-p1s" secondAttribute="centerX" id="hkL-Yn-deE"/>
+                                    <constraint firstItem="wz7-Ci-k5F" firstAttribute="top" secondItem="x43-eR-y8b" secondAttribute="bottom" constant="10" id="npE-Bs-hQC"/>
+                                    <constraint firstItem="wz7-Ci-k5F" firstAttribute="width" secondItem="CdM-70-p1s" secondAttribute="width" constant="-80" id="rcw-SJ-nMr"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="J0U-3W-ZOf" firstAttribute="bottom" secondItem="keS-mc-e2i" secondAttribute="bottom" constant="42" id="38V-qt-D43"/>
                             <constraint firstItem="AhP-we-5cu" firstAttribute="leading" secondItem="J0U-3W-ZOf" secondAttribute="leading" id="41Q-Cz-w35"/>
                             <constraint firstItem="uMF-TY-inH" firstAttribute="leading" secondItem="J0U-3W-ZOf" secondAttribute="leading" constant="20" id="4WJ-Ys-J6U"/>
                             <constraint firstItem="8na-K3-N4K" firstAttribute="leading" secondItem="J0U-3W-ZOf" secondAttribute="leading" id="6Ph-H8-ape"/>
+                            <constraint firstItem="keS-mc-e2i" firstAttribute="top" secondItem="CdM-70-p1s" secondAttribute="bottom" constant="30" id="6l4-w1-Jyg"/>
                             <constraint firstItem="uMF-TY-inH" firstAttribute="top" secondItem="J0U-3W-ZOf" secondAttribute="top" constant="20" id="7tz-HO-tfJ"/>
                             <constraint firstAttribute="top" secondItem="8na-K3-N4K" secondAttribute="top" id="GKA-KW-vJE"/>
                             <constraint firstItem="J0U-3W-ZOf" firstAttribute="trailing" secondItem="AhP-we-5cu" secondAttribute="trailing" id="IQP-Q3-kmG"/>
-                            <constraint firstItem="keS-mc-e2i" firstAttribute="top" secondItem="x43-eR-y8b" secondAttribute="bottom" constant="30" id="M6o-Sj-C4b"/>
                             <constraint firstItem="J0U-3W-ZOf" firstAttribute="trailing" secondItem="uMF-TY-inH" secondAttribute="trailing" constant="20" id="Nv4-wa-GEc"/>
-                            <constraint firstItem="x43-eR-y8b" firstAttribute="top" secondItem="uMF-TY-inH" secondAttribute="bottom" constant="20" id="WM2-C7-TZT"/>
+                            <constraint firstItem="J0U-3W-ZOf" firstAttribute="trailing" secondItem="CdM-70-p1s" secondAttribute="trailing" id="OLR-gn-XUQ"/>
                             <constraint firstItem="8na-K3-N4K" firstAttribute="bottom" secondItem="VTH-ou-pTY" secondAttribute="bottom" id="Wsu-8J-iNt"/>
-                            <constraint firstItem="J0U-3W-ZOf" firstAttribute="trailing" secondItem="x43-eR-y8b" secondAttribute="trailing" constant="30" id="dpk-WH-yKx"/>
                             <constraint firstItem="AhP-we-5cu" firstAttribute="top" secondItem="VTH-ou-pTY" secondAttribute="top" id="hL2-3f-27d"/>
                             <constraint firstItem="e2o-X8-rya" firstAttribute="centerX" secondItem="J0U-3W-ZOf" secondAttribute="centerX" id="i4U-jb-aSc"/>
                             <constraint firstItem="J0U-3W-ZOf" firstAttribute="trailing" secondItem="8na-K3-N4K" secondAttribute="trailing" id="mfM-gL-aEQ"/>
-                            <constraint firstItem="x43-eR-y8b" firstAttribute="leading" secondItem="J0U-3W-ZOf" secondAttribute="leading" constant="30" id="qzj-lN-XoB"/>
                             <constraint firstItem="keS-mc-e2i" firstAttribute="centerX" secondItem="J0U-3W-ZOf" secondAttribute="centerX" id="v8c-nW-BTG"/>
+                            <constraint firstItem="CdM-70-p1s" firstAttribute="top" secondItem="uMF-TY-inH" secondAttribute="bottom" constant="20" id="vcI-ES-iME"/>
                             <constraint firstAttribute="bottom" secondItem="AhP-we-5cu" secondAttribute="bottom" id="xJI-h9-EVL"/>
+                            <constraint firstItem="CdM-70-p1s" firstAttribute="leading" secondItem="J0U-3W-ZOf" secondAttribute="leading" id="yXW-RT-LbH"/>
                             <constraint firstItem="J0U-3W-ZOf" firstAttribute="bottom" secondItem="e2o-X8-rya" secondAttribute="bottom" constant="43" id="zpC-FD-T9I"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="J0U-3W-ZOf"/>
