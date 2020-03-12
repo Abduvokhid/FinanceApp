@@ -35,7 +35,6 @@ class MortgageView: UIView, UITextFieldDelegate, Slide {
     
     override func awakeFromNib() {
         cardView.layer.cornerRadius = 20
-        //cardView.layer.shadowPath = UIBezierPath(rect: cardView.bounds).cgPath
         cardView.layer.shadowRadius = 10
         cardView.layer.shadowOffset = CGSize(width: 1, height: 1)
         cardView.layer.shadowOpacity = 0.2
@@ -104,8 +103,8 @@ class MortgageView: UIView, UITextFieldDelegate, Slide {
         if validationError == nil {
             UIView.animate(withDuration: 0.2, animations: {() -> Void in
                 self.calculateButton.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-                sender.backgroundColor = UIColor(red:0.15, green:0.68, blue:0.38, alpha:1.0)
-                self.topBarView.backgroundColor = UIColor(red:0.15, green:0.68, blue:0.38, alpha:1.0)
+                sender.backgroundColor = Colors.Green
+                self.topBarView.backgroundColor = Colors.Green
             }, completion: {_ in
                 UIView.animate(withDuration: 0.2, animations: {() -> Void in
                     self.calculateButton.transform = CGAffineTransform.identity
@@ -134,8 +133,8 @@ class MortgageView: UIView, UITextFieldDelegate, Slide {
             let feedbackGenerator = UINotificationFeedbackGenerator()
             feedbackGenerator.notificationOccurred(.error)
             UIView.animate(withDuration: 0.2, animations: {
-                sender.backgroundColor = UIColor(red:0.75, green:0.22, blue:0.17, alpha:1.0)
-                self.topBarView.backgroundColor = UIColor(red:0.75, green:0.22, blue:0.17, alpha:1.0)
+                sender.backgroundColor = Colors.Red
+                self.topBarView.backgroundColor = Colors.Red
             }, completion: {_ in
                 UIView.animate(withDuration: 0.5, delay: 0.3, animations: {
                     sender.backgroundColor = color
@@ -239,6 +238,28 @@ class MortgageView: UIView, UITextFieldDelegate, Slide {
                             self?.interestRateTF.text = ""
                             self?.numberOfYearsTF.text = ""
             }, completion: nil)
+    }
+    
+    @IBAction func helpButtonPressed(_ sender: UIButton) {
+        sender.layer.cornerRadius = 5
+        UIView.animate(withDuration: 0.2, animations: {() -> Void in
+            sender.tintColor = .white
+            sender.backgroundColor = UIColor(red:0.27, green:0.41, blue:0.78, alpha:1.0)
+        }, completion: {_ in
+            UIView.animate(withDuration: 0.2, animations: {() -> Void in
+                sender.tintColor = UIColor(red:0.88, green:0.89, blue:0.90, alpha:1.0)
+                sender.backgroundColor = .none
+            })
+        })
+        
+        let helpPage = HomePageViewController.parentController.storyboard?.instantiateViewController(withIdentifier: "HelpPageViewController") as! HelpPageViewController
+        helpPage.titleText = "Mortgage help page"
+        helpPage.helpText = "Present Value – This field it is required to insert the amount of money that the user currently is planning to take from the bank for the mortgage. This field cannot be empty. \n\nFuture Value – In this field, it is required to insert the amount of money the user is planning to pay back in a near future. Please leave this field empty if you are looking for the future amount. \n\nInterest Rate - In this field, it’s required to insert the interest rate stablished for the mortgage. This field cannot be empty. \n\nNumber of years - In this field, it’s required to insert the period of time (years) within what you expect to pay back the mortgage. Please leave this field empty if you are looking for number of years. \n\nCalculate – press Calculate button to get the desired result. Please leave empty the text field you are expecting to get the result for."
+        helpPage.helpAttributes = [
+            AttributeInfo(type: .Bold, start: 0, length: 13)
+        ]
+        HomePageViewController.parentController.present(helpPage, animated: true, completion: nil)
+        
     }
     
     @IBAction func textFieldEditBegin(_ sender: UITextField) {

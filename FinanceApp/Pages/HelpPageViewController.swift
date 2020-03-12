@@ -17,7 +17,7 @@ class HelpPageViewController: UIViewController {
     
     var titleText: String = ""
     var helpText: String = ""
-    var helpAttributes: [String] = []
+    var helpAttributes: [AttributeInfo] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,31 @@ class HelpPageViewController: UIViewController {
         dismissButtonShadowView.layer.shadowOpacity = 0.5
         
         titleLabel.text = titleText
-        helpTextView.text = helpText
+        
+        let commonAttribute: [NSAttributedString.Key: Any] = [
+            .font: UIFont.systemFont(ofSize: 14, weight: .regular)
+        ]
+        
+        let boldAttribute: [NSAttributedString.Key: Any] = [
+            .font: UIFont.systemFont(ofSize: 14, weight: .semibold)]
+        
+        let newText: NSMutableAttributedString = NSMutableAttributedString(attributedString: NSAttributedString(string: helpText))
+        
+        newText.addAttributes(commonAttribute, range: NSRange(location: 0, length: helpText.count))
+        
+        for helpAttribute in helpAttributes {
+            let attribute: [NSAttributedString.Key: Any]
+            switch helpAttribute.type {
+            case .Bold:
+                attribute = boldAttribute
+            default:
+                attribute = commonAttribute
+            }
+            newText.addAttributes(attribute, range: NSRange(location: helpAttribute.start, length: helpAttribute.length))
+        }
+        
+        
+        helpTextView.attributedText = newText
     }
     
     @IBAction func dismissSecondVC(_ sender: AnyObject) {

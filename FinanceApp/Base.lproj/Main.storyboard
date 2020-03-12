@@ -13,11 +13,23 @@
         <!--Help Page View Controller-->
         <scene sceneID="uhC-f1-hcL">
             <objects>
-                <viewController id="3Ao-YJ-ZDY" customClass="HelpPageViewController" customModule="FinanceApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HelpPageViewController" autoresizesArchivedViewToFullSize="NO" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3Ao-YJ-ZDY" customClass="HelpPageViewController" customModule="FinanceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VTH-ou-pTY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AhP-we-5cu">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8na-K3-N4K">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Kh5-Ny-Z6S">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e2o-X8-rya">
                                 <rect key="frame" x="163.66666666666666" y="687" width="48" height="48"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -43,19 +55,19 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help page title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMF-TY-inH">
-                                <rect key="frame" x="20" y="64" width="335" height="20.333333333333329"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <rect key="frame" x="20" y="64" width="335" height="24"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x43-eR-y8b">
-                                <rect key="frame" x="30" y="94.333333333333329" width="315" height="233.33333333333337"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" bounces="NO" indicatorStyle="black" bouncesZoom="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x43-eR-y8b">
+                                <rect key="frame" x="30" y="108" width="315" height="548"/>
                                 <attributedString key="attributedText">
                                     <fragment>
-                                        <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <mutableString key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
                                         <attributes>
-                                            <font key="NSFont" metaFont="system" size="14"/>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="14" name=".SFNSText"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -63,21 +75,30 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="J0U-3W-ZOf" firstAttribute="bottom" secondItem="keS-mc-e2i" secondAttribute="bottom" constant="42" id="38V-qt-D43"/>
+                            <constraint firstItem="AhP-we-5cu" firstAttribute="leading" secondItem="J0U-3W-ZOf" secondAttribute="leading" id="41Q-Cz-w35"/>
                             <constraint firstItem="uMF-TY-inH" firstAttribute="leading" secondItem="J0U-3W-ZOf" secondAttribute="leading" constant="20" id="4WJ-Ys-J6U"/>
+                            <constraint firstItem="8na-K3-N4K" firstAttribute="leading" secondItem="J0U-3W-ZOf" secondAttribute="leading" id="6Ph-H8-ape"/>
                             <constraint firstItem="uMF-TY-inH" firstAttribute="top" secondItem="J0U-3W-ZOf" secondAttribute="top" constant="20" id="7tz-HO-tfJ"/>
+                            <constraint firstAttribute="top" secondItem="8na-K3-N4K" secondAttribute="top" id="GKA-KW-vJE"/>
+                            <constraint firstItem="J0U-3W-ZOf" firstAttribute="trailing" secondItem="AhP-we-5cu" secondAttribute="trailing" id="IQP-Q3-kmG"/>
+                            <constraint firstItem="keS-mc-e2i" firstAttribute="top" secondItem="x43-eR-y8b" secondAttribute="bottom" constant="30" id="M6o-Sj-C4b"/>
                             <constraint firstItem="J0U-3W-ZOf" firstAttribute="trailing" secondItem="uMF-TY-inH" secondAttribute="trailing" constant="20" id="Nv4-wa-GEc"/>
-                            <constraint firstItem="x43-eR-y8b" firstAttribute="top" secondItem="uMF-TY-inH" secondAttribute="bottom" constant="10" id="WM2-C7-TZT"/>
+                            <constraint firstItem="x43-eR-y8b" firstAttribute="top" secondItem="uMF-TY-inH" secondAttribute="bottom" constant="20" id="WM2-C7-TZT"/>
+                            <constraint firstItem="8na-K3-N4K" firstAttribute="bottom" secondItem="VTH-ou-pTY" secondAttribute="bottom" id="Wsu-8J-iNt"/>
                             <constraint firstItem="J0U-3W-ZOf" firstAttribute="trailing" secondItem="x43-eR-y8b" secondAttribute="trailing" constant="30" id="dpk-WH-yKx"/>
+                            <constraint firstItem="AhP-we-5cu" firstAttribute="top" secondItem="VTH-ou-pTY" secondAttribute="top" id="hL2-3f-27d"/>
                             <constraint firstItem="e2o-X8-rya" firstAttribute="centerX" secondItem="J0U-3W-ZOf" secondAttribute="centerX" id="i4U-jb-aSc"/>
+                            <constraint firstItem="J0U-3W-ZOf" firstAttribute="trailing" secondItem="8na-K3-N4K" secondAttribute="trailing" id="mfM-gL-aEQ"/>
                             <constraint firstItem="x43-eR-y8b" firstAttribute="leading" secondItem="J0U-3W-ZOf" secondAttribute="leading" constant="30" id="qzj-lN-XoB"/>
                             <constraint firstItem="keS-mc-e2i" firstAttribute="centerX" secondItem="J0U-3W-ZOf" secondAttribute="centerX" id="v8c-nW-BTG"/>
+                            <constraint firstAttribute="bottom" secondItem="AhP-we-5cu" secondAttribute="bottom" id="xJI-h9-EVL"/>
                             <constraint firstItem="J0U-3W-ZOf" firstAttribute="bottom" secondItem="e2o-X8-rya" secondAttribute="bottom" constant="43" id="zpC-FD-T9I"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="J0U-3W-ZOf"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="dismissButton" destination="keS-mc-e2i" id="vs9-JF-HvK"/>
                         <outlet property="dismissButtonShadowView" destination="e2o-X8-rya" id="7Xc-lp-1W8"/>
@@ -87,7 +108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZfC-cc-x7o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1622" y="1535"/>
+            <point key="canvasLocation" x="-1623.2" y="1534.729064039409"/>
         </scene>
         <!--Home Page View Controller-->
         <scene sceneID="n8e-bR-wAB">
