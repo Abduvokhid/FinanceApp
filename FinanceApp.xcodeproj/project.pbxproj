@@ -12,6 +12,7 @@
 		DE0679332419727900E32BE5 /* AttributeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0679322419727900E32BE5 /* AttributeInfo.swift */; };
 		DE1A0D9F240FDAAF00B3E8DE /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1A0D9E240FDAAF00B3E8DE /* HomePageViewController.swift */; };
 		DE1A0DA1240FDB6100B3E8DE /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1A0DA0240FDB6100B3E8DE /* Slide.swift */; };
+		DE1FB81F241AB0B900EE247C /* HtmlToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1FB81E241AB0B900EE247C /* HtmlToString.swift */; };
 		DE3F8DB624045D5F00DF2525 /* SavingsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3F8DB524045D5F00DF2525 /* SavingsHelper.swift */; };
 		DEAC5BFC241155A6000703F6 /* MortgageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAC5BFB241155A6000703F6 /* MortgageView.swift */; };
 		DEAC5C00241156FC000703F6 /* MortgageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEAC5BFF241156FC000703F6 /* MortgageView.xib */; };
@@ -36,6 +37,7 @@
 		DE0679322419727900E32BE5 /* AttributeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeInfo.swift; sourceTree = "<group>"; };
 		DE1A0D9E240FDAAF00B3E8DE /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		DE1A0DA0240FDB6100B3E8DE /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
+		DE1FB81E241AB0B900EE247C /* HtmlToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlToString.swift; sourceTree = "<group>"; };
 		DE3F8DB524045D5F00DF2525 /* SavingsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsHelper.swift; sourceTree = "<group>"; };
 		DEAC5BFB241155A6000703F6 /* MortgageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MortgageView.swift; sourceTree = "<group>"; };
 		DEAC5BFF241156FC000703F6 /* MortgageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MortgageView.xib; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				DE3F8DB524045D5F00DF2525 /* SavingsHelper.swift */,
 				DE06793024195F3F00E32BE5 /* Colors.swift */,
 				DE0679322419727900E32BE5 /* AttributeInfo.swift */,
+				DE1FB81E241AB0B900EE247C /* HtmlToString.swift */,
 			);
 			path = HelperClasses;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				DEAC5BFC241155A6000703F6 /* MortgageView.swift in Sources */,
 				DED27DB92416E3B700E9EA71 /* HelpPageViewController.swift in Sources */,
 				DE06793124195F3F00E32BE5 /* Colors.swift in Sources */,
+				DE1FB81F241AB0B900EE247C /* HtmlToString.swift in Sources */,
 				DE1A0D9F240FDAAF00B3E8DE /* HomePageViewController.swift in Sources */,
 				DECCDAC42413D6CE00E0EC26 /* CompoundView.swift in Sources */,
 				DE0545E42401A03E008F824F /* MortgageHelper.swift in Sources */,

@@ -38,9 +38,10 @@ class HelpPageViewController: UIViewController {
         let boldAttribute: [NSAttributedString.Key: Any] = [
             .font: UIFont.systemFont(ofSize: 14, weight: .semibold)]
         
-        let newText: NSMutableAttributedString = NSMutableAttributedString(attributedString: NSAttributedString(string: helpText))
+        let newText: NSMutableAttributedString = NSMutableAttributedString(attributedString: helpText.htmlAttributed(family: "Arial", size: 12, color: "2c3e50")!)
+        //let newText: NSMutableAttributedString = NSMutableAttributedString(attributedString: NSAttributedString(string: helpText))
         
-        newText.addAttributes(commonAttribute, range: NSRange(location: 0, length: helpText.count))
+        //newText.addAttributes(commonAttribute, range: NSRange(location: 0, length: helpText.count))
         
         for helpAttribute in helpAttributes {
             let attribute: [NSAttributedString.Key: Any]
