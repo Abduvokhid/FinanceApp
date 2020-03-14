@@ -61,10 +61,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nKb-3b-53m">
-                    <rect key="frame" x="40" y="96" width="334" height="532.5"/>
+                    <rect key="frame" x="40" y="96" width="334" height="552.5"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1db-lZ-8nU">
-                            <rect key="frame" x="30" y="30" width="274" height="472.5"/>
+                            <rect key="frame" x="30" y="30" width="274" height="492.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" tag="-1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monthly Savings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tcu-Gm-u0o">
                                     <rect key="frame" x="0.0" y="0.0" width="274" height="31.5"/>
@@ -224,8 +224,17 @@
                                         <constraint firstAttribute="height" constant="10" id="qxT-GG-Qv1"/>
                                     </constraints>
                                 </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment period:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m7J-ar-HAY">
+                                    <rect key="frame" x="0.0" y="391.5" width="274" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="20" id="i4J-py-7ep"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nvw-M2-00G">
-                                    <rect key="frame" x="0.0" y="391.5" width="274" height="31"/>
+                                    <rect key="frame" x="0.0" y="411.5" width="274" height="31"/>
                                     <subviews>
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="left" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DJc-Pi-hIy">
                                             <rect key="frame" x="0.0" y="0.0" width="62" height="31"/>
@@ -246,14 +255,14 @@
                                     </subviews>
                                 </stackView>
                                 <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fDV-TN-lHR">
-                                    <rect key="frame" x="0.0" y="422.5" width="274" height="10"/>
+                                    <rect key="frame" x="0.0" y="442.5" width="274" height="10"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="10" id="nMm-Qm-E8i"/>
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="raF-i5-MNA">
-                                    <rect key="frame" x="0.0" y="432.5" width="274" height="40"/>
+                                    <rect key="frame" x="0.0" y="452.5" width="274" height="40"/>
                                     <color key="backgroundColor" red="0.23921568630000001" green="0.44705882349999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="gN8-cD-LTR"/>
