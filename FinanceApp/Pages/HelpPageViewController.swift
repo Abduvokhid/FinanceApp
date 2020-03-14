@@ -14,6 +14,7 @@ class HelpPageViewController: UIViewController {
     @IBOutlet weak var dismissButtonShadowView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var helpTextView: UITextView!
+    @IBOutlet weak var helpImageView: UIImageView!
     
     var titleText: String = ""
     var helpText: String = ""
@@ -30,6 +31,7 @@ class HelpPageViewController: UIViewController {
         dismissButtonShadowView.layer.shadowOpacity = 0.5
         
         titleLabel.text = titleText
+        helpImageView.image = helpFormula
         
         helpTextView.attributedText = helpText.htmlAttributed(family: "Arial", size: 12, color: "2c3e50")!
     }

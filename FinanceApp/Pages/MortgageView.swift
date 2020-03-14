@@ -259,9 +259,8 @@ class MortgageView: UIView, UITextFieldDelegate, Slide {
         let helpPage = HomePageViewController.parentController.storyboard?.instantiateViewController(withIdentifier: "HelpPageViewController") as! HelpPageViewController
         helpPage.titleText = "Mortgage help page"
         helpPage.helpText = "<b>Initial amount</b> (A) – This field it is required to insert the amount of money that the user currently is planning to take from the bank for the mortgage.</br><i>Please leave this field empty if you are looking for the Initial amount.</i></br></br><b>Payment amount</b> (PMT) – In this field, it is required to insert the amount of money the user is planning to pay back monthly.</br><i>Please leave this field empty if you are looking for the Payment amount.</i></br></br><b>Interest Rate</b> (r) - In this field, it’s required to insert the interest rate stablished for the mortgage.</br><i>This field cannot be empty.</i></br></br><b>Number of years</b> (t) - In this field, it’s required to insert the period of time (years) within what user expects to pay back the mortgage.</br><i>Please leave this field empty if you are looking for Number of years.</i></br></br><b>Calculate</b> – press Calculate button to get the desired result.</br><i>Please leave empty the text field you are expecting to get the result for.</i></br></br><b>Calculations are done based on the current formula:</b>"
-        helpPage.helpAttributes = [
-            //AttributeInfo(type: .Bold, start: 0, length: 13)
-        ]
+        helpPage.helpFormula = UIImage(named: "mortgageFormula")
+        
         HomePageViewController.parentController.present(helpPage, animated: true, completion: nil)
         
     }

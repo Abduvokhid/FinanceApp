@@ -123,6 +123,7 @@
                     <connections>
                         <outlet property="dismissButton" destination="keS-mc-e2i" id="vs9-JF-HvK"/>
                         <outlet property="dismissButtonShadowView" destination="e2o-X8-rya" id="7Xc-lp-1W8"/>
+                        <outlet property="helpImageView" destination="wz7-Ci-k5F" id="wZ5-6T-xZe"/>
                         <outlet property="helpTextView" destination="x43-eR-y8b" id="0Vo-M5-qKr"/>
                         <outlet property="titleLabel" destination="uMF-TY-inH" id="NCb-UC-ukq"/>
                     </connections>
