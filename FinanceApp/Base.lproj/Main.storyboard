@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fXt-dC-imu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zGK-Ll-j6d">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -132,10 +132,10 @@
             </objects>
             <point key="canvasLocation" x="-1623.2" y="1534.729064039409"/>
         </scene>
-        <!--Home Page View Controller-->
+        <!--HomePageViewController-->
         <scene sceneID="n8e-bR-wAB">
             <objects>
-                <viewController id="fXt-dC-imu" customClass="HomePageViewController" customModule="FinanceApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomePageViewController" title="HomePageViewController" modalTransitionStyle="crossDissolve" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fXt-dC-imu" customClass="HomePageViewController" customModule="FinanceApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gcx-8S-O54">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -339,30 +339,9 @@
                     <view key="view" contentMode="scaleToFill" id="wFq-1w-WJt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mqr-f3-tvQ">
-                                <rect key="frame" x="159" y="648" width="57" height="30"/>
-                                <state key="normal" title="Animate"/>
-                                <connections>
-                                    <action selector="animateButtonPressed:" destination="zGK-Ll-j6d" eventType="touchUpInside" id="g0X-V7-o0I"/>
-                                </connections>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Emp-dZ-CAh">
-                                <rect key="frame" x="-64" y="258" width="64" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="T0E-cm-FkQ" firstAttribute="bottom" secondItem="Mqr-f3-tvQ" secondAttribute="bottom" constant="100" id="Dle-41-A7W"/>
-                            <constraint firstItem="Mqr-f3-tvQ" firstAttribute="centerX" secondItem="T0E-cm-FkQ" secondAttribute="centerX" id="GZd-C3-gRs"/>
-                        </constraints>
+                        <color key="backgroundColor" red="0.94509803921568625" green="0.96078431372549022" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="T0E-cm-FkQ"/>
                     </view>
-                    <connections>
-                        <outlet property="animateButton" destination="Mqr-f3-tvQ" id="WwP-WH-Mat"/>
-                        <outlet property="logoView" destination="Emp-dZ-CAh" id="fQM-Cd-RUc"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dRl-vR-APe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -373,7 +352,6 @@
         <image name="close" width="128" height="128"/>
         <image name="compound" width="33.333332061767578" height="33.333332061767578"/>
         <image name="loan" width="33.333332061767578" height="33.333332061767578"/>
-        <image name="logo" width="32" height="32"/>
         <image name="mortgage" width="33.333332061767578" height="33.333332061767578"/>
         <image name="saving" width="33.333332061767578" height="33.333332061767578"/>
     </resources>

@@ -10,35 +10,121 @@ import UIKit
 
 class LaunchViewController: UIViewController {
 
-    @IBOutlet weak var logoView: UIImageView!
-    @IBOutlet weak var animateButton: UIButton!
+    let topWidth: CGFloat = 210
+    let middleWidth: CGFloat = 140
+    let partHeight: CGFloat = 70
+    let spaceHeight: CGFloat = 30
+    
+    var topLogo: UIImageView!
+    var topLogoExtra: UIImageView!
+    var middleLogo: UIImageView!
+    var middleLogoExtra: UIImageView!
+    var bottomLogo: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        logoView.layer.cornerRadius = 32
-        logoView.tintColor = .none
+        view.backgroundColor = .white
+        createImageViews()
+        showImageViews()
     }
     
-    @IBAction func animateButtonPressed(_ sender: UIButton) {
-        let bounds = logoView.frame
-        UIView.animate(withDuration: 0.8, animations: {
-            self.logoView.frame = CGRect(x: bounds.origin.x + 800, y: bounds.origin.y, width: bounds.size.width + 300, height: bounds.size.height)
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    func createImageViews() {
+        let boundsTop = CGRect(x: (self.view.frame.width / 2) - (self.topWidth / 2), y: (view.frame.height / 2) - ((partHeight * 1.5) + spaceHeight), width: partHeight, height: partHeight)
+        topLogo = UIImageView(frame: boundsTop)
+        topLogo.image = UIImage(named: "logo")
+        topLogo.layer.cornerRadius = partHeight / 2
+        topLogo.clipsToBounds = true
+        topLogo.tintColor = UIColor(red:0.83, green:0.83, blue:0.83, alpha:1.0)
+        topLogo.alpha = 0
+        view.addSubview(topLogo)
+        
+        let boundsTopExtra = CGRect(x: (self.view.frame.width / 2) - (self.topWidth / 2), y: (view.frame.height / 2) - ((partHeight * 1.5) + spaceHeight), width: partHeight, height: partHeight)
+        topLogoExtra = UIImageView(frame: boundsTopExtra)
+        topLogoExtra.image = UIImage(named: "logo")
+        topLogoExtra.layer.cornerRadius = partHeight / 2
+        topLogoExtra.clipsToBounds = true
+        topLogoExtra.tintColor = Colors.Blue
+        topLogoExtra.alpha = 0
+        view.addSubview(topLogoExtra)
+        
+        let boundsMiddle = CGRect(x: (self.view.frame.width / 2) - (self.topWidth / 2), y: (view.frame.height / 2) - (partHeight / 2), width: partHeight, height: partHeight)
+        middleLogo = UIImageView(frame: boundsMiddle)
+        middleLogo.image = UIImage(named: "logo")
+        middleLogo.layer.cornerRadius = partHeight / 2
+        middleLogo.clipsToBounds = true
+        middleLogo.tintColor = UIColor(red:0.83, green:0.83, blue:0.83, alpha:1.0)
+        middleLogo.alpha = 0
+        view.addSubview(middleLogo)
+        
+        let boundsMiddleExtra = CGRect(x: (self.view.frame.width / 2) - (self.topWidth / 2), y: (view.frame.height / 2) - (partHeight / 2), width: partHeight, height: partHeight)
+        middleLogoExtra = UIImageView(frame: boundsMiddleExtra)
+        middleLogoExtra.image = UIImage(named: "logo")
+        middleLogoExtra.layer.cornerRadius = partHeight / 2
+        middleLogoExtra.clipsToBounds = true
+        middleLogoExtra.tintColor = Colors.Blue
+        middleLogoExtra.alpha = 0
+        view.addSubview(middleLogoExtra)
+        
+        let boundsBottom = CGRect(x: (self.view.frame.width / 2) - (self.topWidth / 2), y: (view.frame.height / 2) + (partHeight / 2) + spaceHeight, width: partHeight, height: partHeight)
+        bottomLogo = UIImageView(frame: boundsBottom)
+        bottomLogo.image = UIImage(named: "logo")
+        bottomLogo.layer.cornerRadius = partHeight / 2
+        bottomLogo.clipsToBounds = true
+        bottomLogo.tintColor = Colors.Blue
+        bottomLogo.alpha = 0
+        view.addSubview(bottomLogo)
+    }
+    
+    func showImageViews() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.topLogo.alpha = 1
+            self.topLogoExtra.alpha = 1
         }, completion: { _ in
-            self.logoView.frame = CGRect(x: -100, y: bounds.origin.y, width: 50, height: bounds.size.height)
-            UIView.animate(withDuration: 0.3, animations: {
-                self.logoView.frame = CGRect(x: (self.view.frame.width / 2) - 50 , y: bounds.origin.y, width: 100, height: bounds.size.height)
+            UIView.animate(withDuration: 0.3, delay: 0.3, animations: {
+                self.middleLogo.alpha = 1
+                self.middleLogoExtra.alpha = 1
+            }, completion: { _ in
+                UIView.animate(withDuration: 0.3, delay: 0.3, animations: {
+                    self.bottomLogo.alpha = 1
+                }, completion: { _ in
+                    self.animateMiddle()
+                    let bounds = self.topLogo.frame
+                    let boundsExtra = self.topLogoExtra.frame
+                    UIView.animate(withDuration: 0.3, animations: {
+                        self.topLogo.frame = CGRect(x: bounds.origin.x, y: bounds.origin.y, width: self.topWidth, height: bounds.size.height)
+                        self.topLogoExtra.frame = CGRect(x: boundsExtra.origin.x + self.topWidth - self.partHeight, y: boundsExtra.origin.y, width: boundsExtra.size.width, height: boundsExtra.size.height)
+                    }, completion: nil)
+                })
             })
         })
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func animateMiddle() {
+        self.animateBottom()
+        let bounds = middleLogo.frame
+        let boundsExtra = middleLogoExtra.frame
+        UIView.animate(withDuration: 0.3, animations: {
+            self.middleLogo.frame = CGRect(x: bounds.origin.x, y: bounds.origin.y, width: self.middleWidth, height: bounds.size.height)
+            self.middleLogoExtra.frame = CGRect(x: boundsExtra.origin.x + self.middleWidth - self.partHeight, y: boundsExtra.origin.y, width: boundsExtra.size.width, height: boundsExtra.size.height)
+        }, completion: nil)
     }
-    */
+    
+    func animateBottom() {
+        let bounds = bottomLogo.frame
+        UIView.animate(withDuration: 0.3, animations: {
+            self.bottomLogo.frame = CGRect(x: bounds.origin.x, y: bounds.origin.y, width: self.partHeight, height: bounds.size.height)
+        }, completion: { _ in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                let homePage = self.storyboard?.instantiateViewController(withIdentifier: "HomePageViewController") as! HomePageViewController
+                homePage.modalPresentationStyle = .overCurrentContext
+                homePage.modalTransitionStyle = .crossDissolve
+                self.present(homePage, animated: true, completion: nil)
+            }
+        })
+    }
 
 }
