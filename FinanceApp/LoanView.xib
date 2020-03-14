@@ -98,6 +98,7 @@
                                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     <connections>
                                         <action selector="textFieldEditBegin:" destination="iN0-l3-epB" eventType="editingDidBegin" id="a1B-Ua-6I4"/>
+                                        <action selector="textFieldEditEnd:" destination="iN0-l3-epB" eventType="editingDidEnd" id="Owh-qg-VVC"/>
                                         <action selector="textFieldEdited:" destination="iN0-l3-epB" eventType="editingChanged" id="o2E-t2-F4Q"/>
                                     </connections>
                                 </textField>
@@ -127,6 +128,7 @@
                                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     <connections>
                                         <action selector="textFieldEditBegin:" destination="iN0-l3-epB" eventType="editingDidBegin" id="N4T-07-j92"/>
+                                        <action selector="textFieldEditEnd:" destination="iN0-l3-epB" eventType="editingDidEnd" id="Xf4-gj-VUw"/>
                                         <action selector="textFieldEdited:" destination="iN0-l3-epB" eventType="editingChanged" id="agP-eY-0Qr"/>
                                     </connections>
                                 </textField>
@@ -156,6 +158,7 @@
                                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     <connections>
                                         <action selector="textFieldEditBegin:" destination="iN0-l3-epB" eventType="editingDidBegin" id="iYZ-RC-ieo"/>
+                                        <action selector="textFieldEditEnd:" destination="iN0-l3-epB" eventType="editingDidEnd" id="w8S-dT-KKC"/>
                                         <action selector="textFieldEdited:" destination="iN0-l3-epB" eventType="editingChanged" id="9EY-Sp-HWa"/>
                                     </connections>
                                 </textField>
@@ -185,6 +188,7 @@
                                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     <connections>
                                         <action selector="textFieldEditBegin:" destination="iN0-l3-epB" eventType="editingDidBegin" id="hQS-Oe-BfD"/>
+                                        <action selector="textFieldEditEnd:" destination="iN0-l3-epB" eventType="editingDidEnd" id="afU-0X-BEk"/>
                                         <action selector="textFieldEdited:" destination="iN0-l3-epB" eventType="editingChanged" id="m0w-QE-8aV"/>
                                     </connections>
                                 </textField>
@@ -225,6 +229,12 @@
                         <constraint firstItem="JwX-46-fX5" firstAttribute="width" secondItem="930-vD-n8s" secondAttribute="width" constant="-60" id="xSV-ia-Bnl"/>
                     </constraints>
                 </view>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDN-jY-DNd">
+                    <rect key="frame" x="40" y="542.5" width="334" height="66.5"/>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" red="0.94509803920000002" green="0.96078431369999995" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
@@ -233,7 +243,10 @@
                 <constraint firstAttribute="top" secondItem="Wp9-AE-hHG" secondAttribute="top" id="C5d-Cm-FCi"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Wp9-AE-hHG" secondAttribute="trailing" id="Eve-Jm-kuI"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="930-vD-n8s" secondAttribute="trailing" constant="40" id="H5i-Da-yGz"/>
+                <constraint firstItem="sDN-jY-DNd" firstAttribute="top" secondItem="930-vD-n8s" secondAttribute="bottom" constant="15" id="XVW-6j-nIp"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="sDN-jY-DNd" secondAttribute="trailing" constant="40" id="Xrb-r5-jvK"/>
                 <constraint firstItem="K7S-3B-1g2" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="6" id="cRc-95-7Ah"/>
+                <constraint firstItem="sDN-jY-DNd" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="clQ-Rm-b0F"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="leading" secondItem="Wp9-AE-hHG" secondAttribute="leading" id="kMW-26-Pxw"/>
                 <constraint firstItem="I0p-p9-EmX" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="6" id="kuB-GG-rZ7"/>
                 <constraint firstItem="930-vD-n8s" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="xEO-dB-v8i"/>
@@ -244,6 +257,7 @@
                 <outlet property="cardView" destination="930-vD-n8s" id="qlk-sw-8pL"/>
                 <outlet property="cardViewTitle" destination="yrj-Q6-iyl" id="v3J-fP-Faq"/>
                 <outlet property="cardViewTitleSpace" destination="PeR-q3-3fE" id="WU1-YG-rvN"/>
+                <outlet property="errorTextView" destination="sDN-jY-DNd" id="afi-rC-3ED"/>
                 <outlet property="initialAmountTF" destination="Ld5-uq-Udb" id="uD9-vG-bqf"/>
                 <outlet property="interestRateTF" destination="WDd-4Y-b8O" id="5d8-2E-mvw"/>
                 <outlet property="numberOfMonthsTF" destination="9rC-J3-dUa" id="v1M-d7-HaH"/>

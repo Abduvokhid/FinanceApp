@@ -101,6 +101,7 @@
                                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     <connections>
                                         <action selector="textFieldEditBegin:" destination="iN0-l3-epB" eventType="editingDidBegin" id="3SE-8Z-iny"/>
+                                        <action selector="textFieldEditEnd:" destination="iN0-l3-epB" eventType="editingDidEnd" id="kHm-ka-wdG"/>
                                         <action selector="textFieldEdited:" destination="iN0-l3-epB" eventType="editingChanged" id="kJr-Ag-EDU"/>
                                     </connections>
                                 </textField>
@@ -130,6 +131,7 @@
                                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     <connections>
                                         <action selector="textFieldEditBegin:" destination="iN0-l3-epB" eventType="editingDidBegin" id="nuv-Hg-D8C"/>
+                                        <action selector="textFieldEditEnd:" destination="iN0-l3-epB" eventType="editingDidEnd" id="ZZT-pD-H6E"/>
                                         <action selector="textFieldEdited:" destination="iN0-l3-epB" eventType="editingChanged" id="LOu-w2-yxK"/>
                                     </connections>
                                 </textField>
@@ -159,6 +161,7 @@
                                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     <connections>
                                         <action selector="textFieldEditBegin:" destination="iN0-l3-epB" eventType="editingDidBegin" id="1oD-ME-CIo"/>
+                                        <action selector="textFieldEditEnd:" destination="iN0-l3-epB" eventType="editingDidEnd" id="OV8-6c-HME"/>
                                         <action selector="textFieldEdited:" destination="iN0-l3-epB" eventType="editingChanged" id="Fwr-FI-2cx"/>
                                     </connections>
                                 </textField>
@@ -188,6 +191,7 @@
                                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     <connections>
                                         <action selector="textFieldEditBegin:" destination="iN0-l3-epB" eventType="editingDidBegin" id="C3C-yQ-kvX"/>
+                                        <action selector="textFieldEditEnd:" destination="iN0-l3-epB" eventType="editingDidEnd" id="ZDr-5N-1Ce"/>
                                         <action selector="textFieldEdited:" destination="iN0-l3-epB" eventType="editingChanged" id="daw-e8-dd6"/>
                                     </connections>
                                 </textField>
@@ -228,12 +232,21 @@
                         <constraint firstItem="ju0-Na-lN0" firstAttribute="height" secondItem="eN2-f6-eZU" secondAttribute="height" constant="-60" id="gYk-f2-0rs"/>
                     </constraints>
                 </view>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tt9-kt-fbb">
+                    <rect key="frame" x="40" y="541" width="334" height="66.5"/>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" red="0.94509803921568625" green="0.96078431372549022" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <gestureRecognizers/>
             <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="tt9-kt-fbb" secondAttribute="trailing" constant="40" id="0Ka-ww-BgR"/>
+                <constraint firstItem="tt9-kt-fbb" firstAttribute="top" secondItem="eN2-f6-eZU" secondAttribute="bottom" constant="15" id="0NC-W2-ura"/>
                 <constraint firstItem="kiw-BE-ClW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="6" id="8Ip-oN-Sf2"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="NTa-Zc-OoS" secondAttribute="trailing" id="BlX-Ze-kqc"/>
+                <constraint firstItem="tt9-kt-fbb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="UAp-5K-x6z"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="eN2-f6-eZU" secondAttribute="trailing" constant="40" id="XWu-Tz-ECr"/>
                 <constraint firstItem="NTa-Zc-OoS" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="YPu-JD-0RP"/>
                 <constraint firstItem="eN2-f6-eZU" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="52" id="c8k-me-zcl"/>
@@ -248,6 +261,7 @@
                 <outlet property="cardView" destination="eN2-f6-eZU" id="u6w-XN-X7I"/>
                 <outlet property="cardViewTitle" destination="YGP-gt-ltM" id="lH8-RH-8wB"/>
                 <outlet property="cardViewTitleSpace" destination="xts-lW-dXQ" id="cDV-3z-Af4"/>
+                <outlet property="errorTextView" destination="tt9-kt-fbb" id="ZOE-3W-x58"/>
                 <outlet property="initialAmountTF" destination="rh7-9T-dj3" id="ZJR-xk-6cb"/>
                 <outlet property="interestRateTF" destination="T01-uR-PKk" id="hyB-W8-qEQ"/>
                 <outlet property="numberOfYearsTF" destination="hqu-1S-LuN" id="o7g-bz-hfi"/>

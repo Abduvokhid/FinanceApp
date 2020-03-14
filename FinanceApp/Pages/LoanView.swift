@@ -29,7 +29,9 @@ class LoanView: UIView, UITextFieldDelegate, Slide {
     
     @IBOutlet weak var cardViewTitle: UILabel!
     @IBOutlet weak var cardViewTitleSpace: UIView!
-
+    
+    @IBOutlet weak var errorTextView: UITextView!
+    
     var finding = LoanFinding.Empty
     let defaults = UserDefaults.standard
     
@@ -45,6 +47,9 @@ class LoanView: UIView, UITextFieldDelegate, Slide {
         paymentAmountTF.layer.cornerRadius = 5
         interestRateTF.layer.cornerRadius = 5
         numberOfMonthsTF.layer.cornerRadius = 5
+        
+        errorTextView.alpha = 0
+        errorTextView.textColor = Colors.Red
         
         let resignSelector = #selector(saveFields)
         NotificationCenter.default.addObserver(self, selector: resignSelector, name: UIApplication.willResignActiveNotification, object: nil)
@@ -135,15 +140,18 @@ class LoanView: UIView, UITextFieldDelegate, Slide {
                 return
             }
         } else {
+            errorTextView.text = validationError!
             let feedbackGenerator = UINotificationFeedbackGenerator()
             feedbackGenerator.notificationOccurred(.error)
             UIView.animate(withDuration: 0.2, animations: {
                 sender.backgroundColor = UIColor(red:0.75, green:0.22, blue:0.17, alpha:1.0)
                 self.topBarView.backgroundColor = UIColor(red:0.75, green:0.22, blue:0.17, alpha:1.0)
+                self.errorTextView.alpha = 1
             }, completion: {_ in
-                UIView.animate(withDuration: 0.5, delay: 0.3, animations: {
+                UIView.animate(withDuration: 0.5, delay: 2, animations: {
                     sender.backgroundColor = color
                     self.topBarView.backgroundColor = color
+                    self.errorTextView.alpha = 0
                 })
             })
         }
@@ -185,16 +193,16 @@ class LoanView: UIView, UITextFieldDelegate, Slide {
         
         if counter > 1 {
             finding = .Empty
-            return "Only one text field can be empty!\n\nPlease, read the help page to get more information!"
+            return "Only one text field can be empty!\nPlease, read the help page to get more information!"
         }
         
         if interestRate == nil {
-            return "Interest rate cannot be empty!\n\nPlease, read the help page to get more information!"
+            return "Interest rate cannot be empty!\nPlease, read the help page to get more information!"
         }
         
         if counter == 0 && finding == .Empty {
             finding = .Empty
-            return "At least one text field must be empty!\n\nPlease, read the help page to get more information!"
+            return "At least one text field must be empty!\nPlease, read the help page to get more information!"
         }
         
         if paymentAmount != nil && initialAmount != nil {
@@ -246,6 +254,7 @@ class LoanView: UIView, UITextFieldDelegate, Slide {
     }
     
     @IBAction func helpButtonPressed(_ sender: UIButton) {
+        HomePageViewController.parentController.closeKeyboard()
         sender.layer.cornerRadius = 5
         UIView.animate(withDuration: 0.2, animations: {() -> Void in
             sender.tintColor = .white
@@ -267,6 +276,23 @@ class LoanView: UIView, UITextFieldDelegate, Slide {
     
     @IBAction func textFieldEditBegin(_ sender: UITextField) {
         sender.delegate = self
+        sender.layer.borderWidth = 1
+        changeBorderColor(sender: sender, fromColor: Colors.Gray.cgColor, toColor: Colors.Blue.cgColor)
+    }
+    
+    @IBAction func textFieldEditEnd(_ sender: UITextField) {
+        changeBorderColor(sender: sender, fromColor: Colors.Blue.cgColor, toColor: Colors.Gray.cgColor)
+        sender.layer.borderWidth = 0
+    }
+    
+    func changeBorderColor(sender: UITextField, fromColor: CGColor, toColor: CGColor) {
+        let color = CABasicAnimation(keyPath: "borderColor");
+        color.fromValue = fromColor
+        color.toValue = toColor
+        color.duration = 0.3;
+        color.repeatCount = 1;
+        sender.layer.borderColor = toColor
+        sender.layer.add(color, forKey: "borderColor");
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
