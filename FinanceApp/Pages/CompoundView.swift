@@ -251,6 +251,26 @@ class CompoundView: UIView, UITextFieldDelegate, Slide {
             }, completion: nil)
     }
     
+    @IBAction func helpButtonPressed(_ sender: UIButton) {
+        sender.layer.cornerRadius = 5
+        UIView.animate(withDuration: 0.2, animations: {() -> Void in
+            sender.tintColor = .white
+            sender.backgroundColor = UIColor(red:0.27, green:0.41, blue:0.78, alpha:1.0)
+        }, completion: {_ in
+            UIView.animate(withDuration: 0.2, animations: {() -> Void in
+                sender.tintColor = UIColor(red:0.88, green:0.89, blue:0.90, alpha:1.0)
+                sender.backgroundColor = .none
+            })
+        })
+        
+        let helpPage = HomePageViewController.parentController.storyboard?.instantiateViewController(withIdentifier: "HelpPageViewController") as! HelpPageViewController
+        helpPage.titleText = "Lump Sum Savings help page"
+        helpPage.helpText = "<b>Future amount</b> (A) – In this box, it is required to insert the amount of money the user is planning to get back in a near future.</br><i>Please leave this box empty if you are looking for the Future amount.</i></br></br><b>Initial amount</b> (P) – In this box, it is required to insert the amount of money the user is currently planning to deposit.</br><i>Please leave this box empty if you are looking for the Initial amount.</i></br></br><b>Interest Rate</b> (r) - In this box, it is required to insert the interest rate user is expecting to have for the lump sum saving.</br><i>This box cannot be empty.</i></br></br><b>Number of years</b> (t) - In this box, it is required to insert the period of time (years) within what user expects to get back the deposit with it's interests.</br><i>Please leave this box empty if you are looking for Number of years.</i></br></br><b>Calculate</b> – press Calculate button to get the desired result.</br><i>Please leave empty the box you are expecting to get the result for.</i></br></br><b>Calculations are done based on the current formula:</b>"
+        helpPage.helpFormula = UIImage(named: "lumpsumFormula")
+        
+        HomePageViewController.parentController.present(helpPage, animated: true, completion: nil)
+    }
+    
     @IBAction func textFieldEditBegin(_ sender: UITextField) {
         sender.delegate = self
     }

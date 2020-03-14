@@ -47,6 +47,9 @@
                             <color key="tintColor" red="0.88235294119999996" green="0.89019607840000003" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <inset key="imageEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
                             <state key="normal" image="help"/>
+                            <connections>
+                                <action selector="helpButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="fSc-nM-3rm"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.29803921570000003" green="0.44705882349999998" blue="0.84313725490000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
