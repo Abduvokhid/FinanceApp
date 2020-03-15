@@ -21,7 +21,7 @@
 		DECCDAC22413D5C200E0EC26 /* CompoundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DECCDAC12413D5C200E0EC26 /* CompoundView.xib */; };
 		DECCDAC42413D6CE00E0EC26 /* LumpSumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECCDAC32413D6CE00E0EC26 /* LumpSumView.swift */; };
 		DECCDAC62413EABA00E0EC26 /* SavingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DECCDAC52413EABA00E0EC26 /* SavingView.xib */; };
-		DECCDAC82413EACF00E0EC26 /* SavingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECCDAC72413EACF00E0EC26 /* SavingView.swift */; };
+		DECCDAC82413EACF00E0EC26 /* MonthlySavingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECCDAC72413EACF00E0EC26 /* MonthlySavingView.swift */; };
 		DED2535A23FC4AE10066F48A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED2535923FC4AE10066F48A /* AppDelegate.swift */; };
 		DED2536123FC4AE10066F48A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DED2535F23FC4AE10066F48A /* Main.storyboard */; };
 		DED2536323FC4AE20066F48A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DED2536223FC4AE20066F48A /* Assets.xcassets */; };
@@ -45,7 +45,7 @@
 		DECCDAC12413D5C200E0EC26 /* CompoundView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompoundView.xib; sourceTree = "<group>"; };
 		DECCDAC32413D6CE00E0EC26 /* LumpSumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LumpSumView.swift; sourceTree = "<group>"; };
 		DECCDAC52413EABA00E0EC26 /* SavingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavingView.xib; sourceTree = "<group>"; };
-		DECCDAC72413EACF00E0EC26 /* SavingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingView.swift; sourceTree = "<group>"; };
+		DECCDAC72413EACF00E0EC26 /* MonthlySavingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlySavingView.swift; sourceTree = "<group>"; };
 		DED2535623FC4AE10066F48A /* FinanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DED2535923FC4AE10066F48A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DED2536023FC4AE10066F48A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -74,7 +74,7 @@
 				DE1A0DA0240FDB6100B3E8DE /* Slide.swift */,
 				DEAC5BFB241155A6000703F6 /* MortgageView.swift */,
 				DECCDAB82413C0A700E0EC26 /* LoanView.swift */,
-				DECCDAC72413EACF00E0EC26 /* SavingView.swift */,
+				DECCDAC72413EACF00E0EC26 /* MonthlySavingView.swift */,
 				DECCDAC32413D6CE00E0EC26 /* LumpSumView.swift */,
 				DED27DB82416E3B700E9EA71 /* HelpPageViewController.swift */,
 			);
@@ -204,7 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DED2536F23FC57150066F48A /* LumpSumSavingHelper.swift in Sources */,
-				DECCDAC82413EACF00E0EC26 /* SavingView.swift in Sources */,
+				DECCDAC82413EACF00E0EC26 /* MonthlySavingView.swift in Sources */,
 				DE1A0DA1240FDB6100B3E8DE /* Slide.swift in Sources */,
 				DEBFB6342412EC2E0012B0D5 /* LaunchViewController.swift in Sources */,
 				DED2535A23FC4AE10066F48A /* AppDelegate.swift in Sources */,

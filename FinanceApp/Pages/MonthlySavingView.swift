@@ -1,5 +1,5 @@
 //
-//  SavingView.swift
+//  MonthlySavingView.swift
 //  FinanceApp
 //
 //  Created by Abduvokhid Akhmedov on 07/03/2020.
@@ -13,7 +13,7 @@ import UIKit
 // Comments were written only for complex snippets of code as it is mentioned in Coursework description
 //
 
-class SavingView: UIView, UITextFieldDelegate, Slide {
+class MonthlySavingView: UIView, UITextFieldDelegate, Slide {
     
     // This enum is used to identify which text field must be calculated
     enum SavingFinding {
