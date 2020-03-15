@@ -1,5 +1,5 @@
 //
-//  CompoundHelper.swift
+//  LumpSumSavingHelper.swift
 //  FinanceApp
 //
 //  Created by Abduvokhid Akhmedov on 18/02/2020.
