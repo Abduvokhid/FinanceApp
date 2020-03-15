@@ -57,6 +57,7 @@ class MonthlySavingView: UIView, UITextFieldDelegate, Slide {
         calculateButton.layer.cornerRadius = 5
         futureAmountTF.layer.cornerRadius = 5
         initialAmountTF.layer.cornerRadius = 5
+        paymentAmountTF.layer.cornerRadius = 5
         interestRateTF.layer.cornerRadius = 5
         numberOfYearsTF.layer.cornerRadius = 5
         
