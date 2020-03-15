@@ -10,6 +10,7 @@ import UIKit
 
 class MortgageView: UIView, UITextFieldDelegate, Slide {
     
+    // This enum is used to identify which text field must be calculated
     enum MortgageFinding {
         case Empty
         case InitialAmount
@@ -35,6 +36,7 @@ class MortgageView: UIView, UITextFieldDelegate, Slide {
     var finding = MortgageFinding.Empty
     let defaults = UserDefaults.standard
     
+    // This method is executed when current view is generated in a parent view
     override func awakeFromNib() {
         cardView.layer.cornerRadius = 20
         cardView.layer.shadowRadius = 10
@@ -50,12 +52,14 @@ class MortgageView: UIView, UITextFieldDelegate, Slide {
         errorTextView.textColor = Colors.Red
         errorTextView.alpha = 0
         
+        // This observer is created to save text field data when user closes the application
         let resignSelector = #selector(saveFields)
         NotificationCenter.default.addObserver(self, selector: resignSelector, name: UIApplication.willResignActiveNotification, object: nil)
         
         readFields()
     }
     
+    // This method animates the page accordingly when keyboard is opened
     func keyboardOpened() {
         UIView.transition(with: superview!,
                           duration: 0.25,
@@ -76,6 +80,7 @@ class MortgageView: UIView, UITextFieldDelegate, Slide {
         })
     }
     
+    // This method returns all views back to their default style when keyboard is closed
     func keyboardClosed() {
         UIView.transition(with: superview!,
                           duration: 0.25,
@@ -96,8 +101,10 @@ class MortgageView: UIView, UITextFieldDelegate, Slide {
         })
     }
     
+    // Here text fields are validated and necessary field is calculated
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
         
+        // Closing the keyboard when Calculate button is pressed
         HomePageViewController.parentController.closeKeyboard()
         
         let interestRate = interestRateTF.validatedDouble
@@ -105,10 +112,12 @@ class MortgageView: UIView, UITextFieldDelegate, Slide {
         let paymentAmount = paymentAmountTF.validatedDouble
         let numberOfYears = numberOfYearsTF.validatedDouble
         
+        // Passing current values of all textfields to validate them
         let validationError = validateInput(interestRate: interestRate, initialAmount: initialAmount, paymentAmount: paymentAmount, numberOfYears: numberOfYears)
         
         let color = sender.backgroundColor
         
+        // If validation is successfull, validationError will be nil and calculation will be done. But if it is not nil, it will store error text and text will be shown on a page
         if validationError == nil {
             UIView.animate(withDuration: 0.2, animations: {() -> Void in
                 self.calculateButton.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
@@ -125,6 +134,7 @@ class MortgageView: UIView, UITextFieldDelegate, Slide {
                 })
             })
             
+            // Depending on the field which must be calculated, necessary method will be called
             switch finding {
             case .InitialAmount:
                 let result = MortgageHelper.initialValue(paymentAmount: paymentAmount!, interestRate: interestRate!, numberOfYears: numberOfYears!)
@@ -157,6 +167,7 @@ class MortgageView: UIView, UITextFieldDelegate, Slide {
         
     }
     
+    // This method is adding necessary symbols to the textfield
     @IBAction func textFieldEdited(_ sender: UITextField) {
         if sender.filteredText == "" {
             sender.text = sender.filteredText
@@ -172,6 +183,7 @@ class MortgageView: UIView, UITextFieldDelegate, Slide {
         }
     }
     
+    // Current method is validating textfield data
     func validateInput(interestRate: Double!, initialAmount: Double!, paymentAmount: Double!, numberOfYears: Double!) -> String! {
         var counter = 0
         
@@ -229,6 +241,7 @@ class MortgageView: UIView, UITextFieldDelegate, Slide {
         return nil
     }
     
+    // When user presses the Clear button, current method is clearing text from all textfields with transition (smoothly)
     @IBAction func clearButtonPressed(_ sender: UIButton) {
         sender.layer.cornerRadius = 5
         UIView.animate(withDuration: 0.2, animations: {() -> Void in
@@ -252,6 +265,7 @@ class MortgageView: UIView, UITextFieldDelegate, Slide {
             }, completion: nil)
     }
     
+    // Current method is calling help page
     @IBAction func helpButtonPressed(_ sender: UIButton) {
         HomePageViewController.parentController.closeKeyboard()
         sender.layer.cornerRadius = 5
@@ -265,6 +279,7 @@ class MortgageView: UIView, UITextFieldDelegate, Slide {
             })
         })
         
+        // Creating instance of the help page controller and passing data to be shown in that page
         let helpPage = HomePageViewController.parentController.storyboard?.instantiateViewController(withIdentifier: "HelpPageViewController") as! HelpPageViewController
         helpPage.titleText = "Mortgage help page"
         helpPage.helpText = "<b>Initial amount</b> (A) – In this box, it is required to insert the amount of money that the user currently is planning to take from the bank for the mortgage.</br><i>Please leave this box empty if you are looking for the Initial amount.</i></br></br><b>Payment amount</b> (PMT) – In this box, it is required to insert the amount of money the user is planning to pay back monthly.</br><i>Please leave this box empty if you are looking for the Payment amount.</i></br></br><b>Interest Rate</b> (r) - In this box, it is required to insert the interest rate stablished for the mortgage.</br><i>This box cannot be empty.</i></br></br><b>Number of years</b> (t) - In this box, it is required to insert the period of time (years) within what user expects to pay back the mortgage.</br><i>Please leave this box empty if you are looking for Number of years.</i></br></br><b>Calculate</b> – press Calculate button to get the desired result.</br><i>Please leave empty the box you are expecting to get the result for.</i></br></br><b>Calculations are done based on the current formula:</b>"
@@ -273,17 +288,20 @@ class MortgageView: UIView, UITextFieldDelegate, Slide {
         HomePageViewController.parentController.present(helpPage, animated: true, completion: nil)
     }
     
+    // This method is changing border color of the textfield which user selected
     @IBAction func textFieldEditBegin(_ sender: UITextField) {
         sender.delegate = self
         sender.layer.borderWidth = 1
         changeBorderColor(sender: sender, fromColor: Colors.Gray.cgColor, toColor: Colors.Blue.cgColor)
     }
     
+    // This method is changing border color back to default color when user finishes editing the textfield
     @IBAction func textFieldEditEnd(_ sender: UITextField) {
         changeBorderColor(sender: sender, fromColor: Colors.Blue.cgColor, toColor: Colors.Gray.cgColor)
         sender.layer.borderWidth = 0
     }
     
+    // This is common method for changing border color of the textfield. Used both when user starts and ends textfield editing
     func changeBorderColor(sender: UITextField, fromColor: CGColor, toColor: CGColor) {
         let color = CABasicAnimation(keyPath: "borderColor");
         color.fromValue = fromColor
@@ -294,6 +312,8 @@ class MortgageView: UIView, UITextFieldDelegate, Slide {
         sender.layer.add(color, forKey: "borderColor");
     }
     
+    // This method is called whenever user presses any button on the keyboard when textfield is active. Last change will be canceled if false is returned from this method. Otherwise changes will be applied
+    // Current method is used to set some rules for textfields: only one decimal separator, only two decimal places etc
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let newText = textField.filteredText
         
@@ -326,6 +346,7 @@ class MortgageView: UIView, UITextFieldDelegate, Slide {
         return true
     }
     
+    // Saving textfield data to the user defaults
     @objc func saveFields() {
         defaults.set(initialAmountTF.text, forKey: "mortgageInitialAmount")
         defaults.set(paymentAmountTF.text, forKey: "mortgagePaymentAmount")
@@ -333,6 +354,7 @@ class MortgageView: UIView, UITextFieldDelegate, Slide {
         defaults.set(interestRateTF.text, forKey: "mortgageInterestRate")
     }
     
+    // Reading data from user defaults and setting it to textfields
     func readFields(){
         initialAmountTF.text = defaults.string(forKey: "mortgageInitialAmount")
         paymentAmountTF.text = defaults.string(forKey: "mortgagePaymentAmount")

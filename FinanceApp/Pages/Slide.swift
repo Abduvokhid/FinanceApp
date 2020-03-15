@@ -8,6 +8,7 @@
 
 import UIKit
 
+// This protocol is used to be able to controll all pages using Slide type
 protocol Slide: UIView {
     var cardView: UIView! {get set}
     func keyboardOpened()

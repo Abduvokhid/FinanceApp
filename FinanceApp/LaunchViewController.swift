@@ -23,20 +23,24 @@ class LaunchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = .white
         
+        // Creating tap gesture recognizer. It is used to skip launch screen animations
         let singleTapSelector = #selector(self.openHomePage)
         let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: singleTapSelector)
         view.addGestureRecognizer(singleTap)
         
+        // Starting launch screen animation
         createImageViews()
-        showImageViews()
     }
     
+    // Setting status bar to light (white) style
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
+    // Here necessary image views with custom frame settings have been created and added to the view
     func createImageViews() {
         let boundsTop = CGRect(x: (self.view.frame.width / 2) - (self.topWidth / 2), y: (view.frame.height / 2) - ((partHeight * 1.5) + spaceHeight), width: partHeight, height: partHeight)
         topLogo = UIImageView(frame: boundsTop)
@@ -82,8 +86,12 @@ class LaunchViewController: UIViewController {
         bottomLogo.tintColor = Colors.Blue
         bottomLogo.alpha = 0
         view.addSubview(bottomLogo)
+        
+        // After adding all image views to main view, they have been animated
+        showImageViews()
     }
     
+    // Image views have been shown and animated accordingly
     func showImageViews() {
         UIView.animate(withDuration: 0.3, animations: {
             self.topLogo.alpha = 1
@@ -108,6 +116,7 @@ class LaunchViewController: UIViewController {
         })
     }
     
+    // Animating middle line of the logo
     func animateMiddle() {
         self.animateBottom()
         let bounds = middleLogo.frame
@@ -118,17 +127,20 @@ class LaunchViewController: UIViewController {
         }, completion: nil)
     }
     
+    // Animating bottom part of the logo and calling openHomePage() method to open the main page
     func animateBottom() {
         let bounds = bottomLogo.frame
         UIView.animate(withDuration: 0.3, animations: {
             self.bottomLogo.frame = CGRect(x: bounds.origin.x, y: bounds.origin.y, width: self.partHeight, height: bounds.size.height)
         }, completion: { _ in
+            // This snippet of code is used to make application wait for 1 second
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.openHomePage()
             }
         })
     }
     
+    // This method is used to smoothly navigate from launch screen to main page. After smooth animation, home page is opened
     @objc func openHomePage() {
         let newViewFrame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         let newView = UIView(frame: newViewFrame)

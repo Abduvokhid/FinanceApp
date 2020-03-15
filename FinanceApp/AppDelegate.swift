@@ -44,12 +44,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+// Used to vibrate the phone on validation error
 extension UIDevice {
     static func vibrate() {
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
     }
 }
 
+// Used to get text of the textfield without any extra symbols (except 0-9 and .)
 extension UITextField {
     var filteredText: String {
         get {
