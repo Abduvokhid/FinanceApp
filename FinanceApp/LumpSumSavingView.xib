@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,13 +20,13 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Finance App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jX4-ch-cbL">
-                            <rect key="frame" x="50" y="36" width="99" height="20.5"/>
+                            <rect key="frame" x="50" y="60" width="99" height="20.5"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="93D-nl-ewc">
-                            <rect key="frame" x="324" y="26" width="40" height="40"/>
+                            <rect key="frame" x="324" y="50" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="D8x-s0-9Cm"/>
                                 <constraint firstAttribute="width" constant="40" id="dOO-fg-di1"/>
@@ -35,7 +39,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zQ-gc-HB6">
-                            <rect key="frame" x="282" y="26" width="40" height="40"/>
+                            <rect key="frame" x="282" y="50" width="40" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="40" id="YLV-Ge-Agz"/>
                                 <constraint firstAttribute="height" constant="40" id="nyR-gF-JYs"/>
@@ -57,7 +61,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fs0-ue-4bT">
-                    <rect key="frame" x="40" y="72" width="334" height="431.5"/>
+                    <rect key="frame" x="40" y="96" width="334" height="431.5"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="iZl-Ee-bg1">
                             <rect key="frame" x="30" y="30" width="274" height="371.5"/>
@@ -226,7 +230,7 @@
                     </constraints>
                 </view>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Yj-O2-o7B">
-                    <rect key="frame" x="40" y="518.5" width="334" height="66.5"/>
+                    <rect key="frame" x="40" y="542.5" width="334" height="66.5"/>
                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
