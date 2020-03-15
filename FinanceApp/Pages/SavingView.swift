@@ -8,8 +8,14 @@
 
 import UIKit
 
+//
+// As all 4 slides (views) have same methods and implementation, more detailed comments were written in MortgageView.swift file
+// Comments were written only for complex snippets of code as it is mentioned in Coursework description
+//
+
 class SavingView: UIView, UITextFieldDelegate, Slide {
     
+    // This enum is used to identify which text field must be calculated
     enum SavingFinding {
         case Empty
         case FutureAmount
@@ -40,6 +46,7 @@ class SavingView: UIView, UITextFieldDelegate, Slide {
     var finding = SavingFinding.Empty
     let defaults = UserDefaults.standard
     
+    // This method is executed when current view is generated in a parent view
     override func awakeFromNib() {
         cardView.layer.cornerRadius = 20
         //cardView.layer.shadowPath = UIBezierPath(rect: cardView.bounds).cgPath
@@ -66,6 +73,7 @@ class SavingView: UIView, UITextFieldDelegate, Slide {
         readFields()
     }
     
+    // This method animates the page accordingly when keyboard is opened
     func keyboardOpened() {
         UIView.transition(with: superview!,
                           duration: 0.25,
@@ -104,6 +112,7 @@ class SavingView: UIView, UITextFieldDelegate, Slide {
         
     }
     
+    // This method returns all views back to their default style when keyboard is closed
     func keyboardClosed() {
         UIView.transition(with: superview!,
                           duration: 0.25,
@@ -141,8 +150,10 @@ class SavingView: UIView, UITextFieldDelegate, Slide {
         })
     }
     
+    // Here text fields are validated and necessary field is calculated
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
         
+        // Closing the keyboard when Calculate button is pressed
         HomePageViewController.parentController.closeKeyboard()
         
         let interestRate = interestRateTF.validatedDouble
@@ -218,6 +229,7 @@ class SavingView: UIView, UITextFieldDelegate, Slide {
         
     }
     
+    // This method is adding necessary symbols to the textfield
     @IBAction func textFieldEdited(_ sender: UITextField) {
         if sender.filteredText == "" {
             sender.text = sender.filteredText
@@ -233,6 +245,7 @@ class SavingView: UIView, UITextFieldDelegate, Slide {
         }
     }
     
+    // Current method is validating textfield data
     func validateInput(interestRate: Double!, futureAmount: Double!, initialAmount: Double!, numberOfYears: Double!, paymentAmount: Double!) -> String! {
         var counter = 0
         
@@ -296,6 +309,7 @@ class SavingView: UIView, UITextFieldDelegate, Slide {
         return nil
     }
     
+    // When user presses the Clear button, current method is clearing text from all textfields with transition (smoothly)
     @IBAction func clearButtonPressed(_ sender: UIButton) {
         sender.layer.cornerRadius = 5
         UIView.animate(withDuration: 0.2, animations: {() -> Void in
@@ -320,6 +334,7 @@ class SavingView: UIView, UITextFieldDelegate, Slide {
             }, completion: nil)
     }
     
+    // Current method is calling help page
     @IBAction func helpButtonPressed(_ sender: UIButton) {
         HomePageViewController.parentController.closeKeyboard()
         sender.layer.cornerRadius = 5
@@ -333,6 +348,7 @@ class SavingView: UIView, UITextFieldDelegate, Slide {
             })
         })
         
+        // Creating instance of the help page controller and passing data to be shown in that page
         let helpPage = HomePageViewController.parentController.storyboard?.instantiateViewController(withIdentifier: "HelpPageViewController") as! HelpPageViewController
         helpPage.titleText = "Monthly Savings help page"
         helpPage.helpText = "<b>Future amount</b> (A) – In this box, it is required to insert the amount of money the user is planning to get back in a near future.</br><i>Please leave this box empty if you are looking for the Future amount.</i></br></br><b>Initial amount</b> (P) – In this box, it is required to insert the amount of money that the user currently is planning to deposit.</br><i>This box cannot be empty.</i></br></br><b>Payment amount</b> (PMT) - In this box, it is required to insert the amount of saving that the user is planning to deposit every month.</br><i>Please leave this box empty if you are looking for the Payment amount.</i></br></br><b>Interest rate</b> (r) - In this box, it is required to insert the interest rate user is expecting to have for the monthly saving.</br><i>This box cannot be empty.</i></br></br><b>Number of years</b> (t) - In this box, it is required to insert the period of time (years) within what user expects to get back the deposit with it's interests.</br><i>Please leave this box empty if you are looking for Number of years.</i></br></br><b>Payment period</b> - Please set the period of monthly contribution/payment you want to deposit every month. Future amount will be calculated depending on the period of payment. </br></br><b>Calculate</b> – press Calculate button to get the desired result.</br><i>Please leave empty the box you are expecting to get the result for.</i></br></br><b>Calculations are done based on the current formula:</b>"
@@ -341,17 +357,20 @@ class SavingView: UIView, UITextFieldDelegate, Slide {
         HomePageViewController.parentController.present(helpPage, animated: true, completion: nil)
     }
     
+    // This method is changing border color of the textfield which user selected
     @IBAction func textFieldEditBegin(_ sender: UITextField) {
         sender.delegate = self
         sender.layer.borderWidth = 1
         changeBorderColor(sender: sender, fromColor: Colors.Gray.cgColor, toColor: Colors.Blue.cgColor)
     }
     
+    // This method is changing border color back to default color when user finishes editing the textfield
     @IBAction func textFieldEditEnd(_ sender: UITextField) {
         changeBorderColor(sender: sender, fromColor: Colors.Blue.cgColor, toColor: Colors.Gray.cgColor)
         sender.layer.borderWidth = 0
     }
     
+    // This is common method for changing border color of the textfield. Used both when user starts and ends textfield editing
     func changeBorderColor(sender: UITextField, fromColor: CGColor, toColor: CGColor) {
         let color = CABasicAnimation(keyPath: "borderColor");
         color.fromValue = fromColor
@@ -362,6 +381,8 @@ class SavingView: UIView, UITextFieldDelegate, Slide {
         sender.layer.add(color, forKey: "borderColor");
     }
     
+    // This method is called whenever user presses any button on the keyboard when textfield is active. Last change will be canceled if false is returned from this method. Otherwise changes will be applied
+    // Current method is used to set some rules for textfields: only one decimal separator, only two decimal places etc
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let newText = textField.filteredText
         
@@ -394,11 +415,13 @@ class SavingView: UIView, UITextFieldDelegate, Slide {
         return true
     }
     
+    // This method is changing switch status when user presses switch label
     @objc func switchLabelTapped(sender:UITapGestureRecognizer) {
         periodSwitch.setOn(!periodSwitch.isOn, animated: true)
         changeSwitchLabel()
     }
     
+    // This method is chaning label text when switch status changed
     func changeSwitchLabel(){
         if periodSwitch.isOn {
             switchLabel.text = "Pay at the beginning of month"
@@ -407,10 +430,12 @@ class SavingView: UIView, UITextFieldDelegate, Slide {
         }
     }
     
+    // Calling changeSwitchLabel() when user changed toggle status
     @IBAction func switchValueChanged(_ sender: UISwitch) {
         changeSwitchLabel()
     }
     
+    // Saving textfield and switch data to the user defaults
     @objc func saveFields() {
         defaults.set(futureAmountTF.text, forKey: "savingFutureAmount")
         defaults.set(initialAmountTF.text, forKey: "savingInitialAmount")
@@ -420,6 +445,7 @@ class SavingView: UIView, UITextFieldDelegate, Slide {
         defaults.set(periodSwitch.isOn, forKey: "savingPeriod")
     }
     
+    // Reading data from user defaults and setting it to textfields and switch
     func readFields(){
         futureAmountTF.text = defaults.string(forKey: "savingFutureAmount")
         initialAmountTF.text = defaults.string(forKey: "savingInitialAmount")

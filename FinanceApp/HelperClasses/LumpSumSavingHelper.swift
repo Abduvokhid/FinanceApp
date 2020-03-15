@@ -8,7 +8,8 @@
 
 import Foundation
 
-class CompoundHelper {
+// This class is used to calculate Lump Sum saving values
+class LumpSumSavingHelper {
     
     static func CalculateInterestRate(futureValue: Double, initialAmount: Double, numberOfYears: Double) -> Double {
         var calculation = futureValue / initialAmount

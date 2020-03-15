@@ -8,6 +8,11 @@
 
 import UIKit
 
+//
+// As all 4 slides (views) have same methods and implementation, more detailed comments were written in MortgageView.swift file
+// Comments were written only for complex snippets of code as it is mentioned in Coursework description
+//
+
 class CompoundView: UIView, UITextFieldDelegate, Slide {
     
     enum CompoundFinding{
@@ -36,6 +41,7 @@ class CompoundView: UIView, UITextFieldDelegate, Slide {
     var finding = CompoundFinding.Empty
     let defaults = UserDefaults.standard
     
+    // This method is executed when current view is generated in a parent view
     override func awakeFromNib() {
         cardView.layer.cornerRadius = 20
         //cardView.layer.shadowPath = UIBezierPath(rect: cardView.bounds).cgPath
@@ -58,6 +64,7 @@ class CompoundView: UIView, UITextFieldDelegate, Slide {
         readFields()
     }
     
+    // This method animates the page accordingly when keyboard is opened
     func keyboardOpened() {
         UIView.transition(with: superview!,
                           duration: 0.25,
@@ -78,6 +85,7 @@ class CompoundView: UIView, UITextFieldDelegate, Slide {
         })
     }
     
+    // This method returns all views back to their default style when keyboard is closed
     func keyboardClosed() {
         UIView.transition(with: superview!,
                           duration: 0.25,
@@ -98,8 +106,10 @@ class CompoundView: UIView, UITextFieldDelegate, Slide {
         })
     }
     
+    // Here text fields are validated and necessary field is calculated
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
         
+        // Closing the keyboard when Calculate button is pressed
         HomePageViewController.parentController.closeKeyboard()
         
         let interestRate = interestRateTF.validatedDouble
@@ -129,16 +139,16 @@ class CompoundView: UIView, UITextFieldDelegate, Slide {
             
             switch finding {
             case .InitialAmount:
-                let result = CompoundHelper.CalculateInitialAmount(interestRate: interestRate!, futureValue: futureAmount!, numberOfYears: numberOfYears!)
+                let result = LumpSumSavingHelper.CalculateInitialAmount(interestRate: interestRate!, futureValue: futureAmount!, numberOfYears: numberOfYears!)
                 initialAmountTF.text = "£ " + String(format: "%.2f", result)
             case .NumberOfYears:
-                let result = CompoundHelper.CalculateNumberOfYears(interestRate: interestRate!, futureValue: futureAmount!, initialAmount: initialAmount!)
+                let result = LumpSumSavingHelper.CalculateNumberOfYears(interestRate: interestRate!, futureValue: futureAmount!, initialAmount: initialAmount!)
                 numberOfYearsTF.text = String(format: "%.2f", result)
             case .FutureValue:
-                let result = CompoundHelper.CalculateFutureValue(interestRate: interestRate!, initialAmount: initialAmount!, numberOfYears: numberOfYears!)
+                let result = LumpSumSavingHelper.CalculateFutureValue(interestRate: interestRate!, initialAmount: initialAmount!, numberOfYears: numberOfYears!)
                 futureAmountTF.text = "£ " + String(format: "%.2f", result)
             case .InterestRate:
-                let result = CompoundHelper.CalculateInterestRate(futureValue: futureAmount!, initialAmount: initialAmount!, numberOfYears: numberOfYears!)
+                let result = LumpSumSavingHelper.CalculateInterestRate(futureValue: futureAmount!, initialAmount: initialAmount!, numberOfYears: numberOfYears!)
                 interestRateTF.text = String(format: "%.2f", result) + " %"
             default:
                 return
@@ -162,6 +172,7 @@ class CompoundView: UIView, UITextFieldDelegate, Slide {
         
     }
     
+    // This method is adding necessary symbols to the textfield
     @IBAction func textFieldEdited(_ sender: UITextField) {
         if sender.filteredText == "" {
             sender.text = sender.filteredText
@@ -177,6 +188,7 @@ class CompoundView: UIView, UITextFieldDelegate, Slide {
         }
     }
     
+    // Current method is validating textfield data
     func validateInput(interestRate: Double!, futureAmount: Double!, initialAmount: Double!, numberOfYears: Double!) -> String! {
         var counter = 0
         
@@ -236,6 +248,7 @@ class CompoundView: UIView, UITextFieldDelegate, Slide {
         return nil
     }
     
+    // When user presses the Clear button, current method is clearing text from all textfields with transition (smoothly)
     @IBAction func clearButtonPressed(_ sender: UIButton) {
         sender.layer.cornerRadius = 5
         UIView.animate(withDuration: 0.2, animations: {() -> Void in
@@ -259,6 +272,7 @@ class CompoundView: UIView, UITextFieldDelegate, Slide {
             }, completion: nil)
     }
     
+    // Current method is calling help page
     @IBAction func helpButtonPressed(_ sender: UIButton) {
         HomePageViewController.parentController.closeKeyboard()
         sender.layer.cornerRadius = 5
@@ -272,6 +286,7 @@ class CompoundView: UIView, UITextFieldDelegate, Slide {
             })
         })
         
+        // Creating instance of the help page controller and passing data to be shown in that page
         let helpPage = HomePageViewController.parentController.storyboard?.instantiateViewController(withIdentifier: "HelpPageViewController") as! HelpPageViewController
         helpPage.titleText = "Lump Sum Savings help page"
         helpPage.helpText = "<b>Future amount</b> (A) – In this box, it is required to insert the amount of money the user is planning to get back in a near future.</br><i>Please leave this box empty if you are looking for the Future amount.</i></br></br><b>Initial amount</b> (P) – In this box, it is required to insert the amount of money the user is currently planning to deposit.</br><i>Please leave this box empty if you are looking for the Initial amount.</i></br></br><b>Interest Rate</b> (r) - In this box, it is required to insert the interest rate user is expecting to have for the lump sum saving.</br><i>This box cannot be empty.</i></br></br><b>Number of years</b> (t) - In this box, it is required to insert the period of time (years) within what user expects to get back the deposit with it's interests.</br><i>Please leave this box empty if you are looking for Number of years.</i></br></br><b>Calculate</b> – press Calculate button to get the desired result.</br><i>Please leave empty the box you are expecting to get the result for.</i></br></br><b>Calculations are done based on the current formula:</b>"
@@ -280,17 +295,20 @@ class CompoundView: UIView, UITextFieldDelegate, Slide {
         HomePageViewController.parentController.present(helpPage, animated: true, completion: nil)
     }
     
+    // This method is changing border color of the textfield which user selected
     @IBAction func textFieldEditBegin(_ sender: UITextField) {
         sender.delegate = self
         sender.layer.borderWidth = 1
         changeBorderColor(sender: sender, fromColor: Colors.Gray.cgColor, toColor: Colors.Blue.cgColor)
     }
     
+    // This method is changing border color back to default color when user finishes editing the textfield
     @IBAction func textFieldEditEnd(_ sender: UITextField) {
         changeBorderColor(sender: sender, fromColor: Colors.Blue.cgColor, toColor: Colors.Gray.cgColor)
         sender.layer.borderWidth = 0
     }
     
+    // This is common method for changing border color of the textfield. Used both when user starts and ends textfield editing
     func changeBorderColor(sender: UITextField, fromColor: CGColor, toColor: CGColor) {
         let color = CABasicAnimation(keyPath: "borderColor");
         color.fromValue = fromColor
@@ -301,6 +319,8 @@ class CompoundView: UIView, UITextFieldDelegate, Slide {
         sender.layer.add(color, forKey: "borderColor");
     }
     
+    // This method is called whenever user presses any button on the keyboard when textfield is active. Last change will be canceled if false is returned from this method. Otherwise changes will be applied
+    // Current method is used to set some rules for textfields: only one decimal separator, only two decimal places etc
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let newText = textField.filteredText
         
@@ -333,6 +353,7 @@ class CompoundView: UIView, UITextFieldDelegate, Slide {
         return true
     }
     
+    // Saving textfield data to the user defaults
     @objc func saveFields() {
         defaults.set(futureAmountTF.text, forKey: "compoundFutureAmount")
         defaults.set(initialAmountTF.text, forKey: "compoundInitialAmount")
@@ -340,6 +361,7 @@ class CompoundView: UIView, UITextFieldDelegate, Slide {
         defaults.set(interestRateTF.text, forKey: "compoundInterestRate")
     }
     
+    // Reading data from user defaults and setting it to textfields
     func readFields(){
         futureAmountTF.text = defaults.string(forKey: "compoundFutureAmount")
         initialAmountTF.text = defaults.string(forKey: "compoundInitialAmount")

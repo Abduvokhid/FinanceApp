@@ -8,6 +8,10 @@
 
 import UIKit
 
+//
+// Comments were written only for complex snippets of code as it is mentioned in Coursework description
+//
+
 class MortgageView: UIView, UITextFieldDelegate, Slide {
     
     // This enum is used to identify which text field must be calculated

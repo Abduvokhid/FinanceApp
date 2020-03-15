@@ -9,6 +9,12 @@
 import UIKit
 import Foundation
 
+//
+// Current file have been created by following the online tutorial as it is not required/necessary part of the Coursework.
+// This file is used to convert html formatted text to attributed string.
+// Source: https://medium.com/@valv0/a-swift-extension-for-string-and-html-8cfb7477a510
+//
+
 extension UIColor {
     var hexString:String? {
         if let components = self.cgColor.components {

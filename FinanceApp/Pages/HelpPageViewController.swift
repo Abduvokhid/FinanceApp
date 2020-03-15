@@ -33,18 +33,13 @@ class HelpPageViewController: UIViewController {
         titleLabel.text = titleText
         helpImageView.image = helpFormula
         
+        // Creating attributed string from html formatted text and setting it to help TextView
         helpTextView.attributedText = helpText.htmlAttributed(family: "Arial", size: 12, color: "2c3e50")!
     }
     
+    // This method is closing help page when user presses Close button
     @IBAction func dismissSecondVC(_ sender: AnyObject) {
-        
         self.dismiss(animated: true, completion: nil)
-        
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 }
