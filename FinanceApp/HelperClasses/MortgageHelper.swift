@@ -8,6 +8,10 @@
 
 import Foundation
 
+//
+// This class is used to calculate Mortgage values. As method names are self explanatory comments have not been added for each method
+//
+
 class MortgageHelper {
     static func paymentAmount(initialAmount: Double, interestRate: Double, numberOfYears: Double) -> Double{
         if (interestRate == 0) {return initialAmount / numberOfYears / 12}

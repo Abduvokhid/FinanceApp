@@ -8,7 +8,11 @@
 
 import Foundation
 
-class SavingsHelper {
+//
+// This class is used to calculate Monthly saving values. As method names are self explanatory comments have not been added for each method
+//
+
+class MonthlySavingHelper {
     static func futureValueEnd(initialAmount: Double, paymentAmount: Double, interestRate: Double, numberOfYears: Double) -> Double{
         if interestRate == 0 {
             return initialAmount + (numberOfYears * paymentAmount * 12)

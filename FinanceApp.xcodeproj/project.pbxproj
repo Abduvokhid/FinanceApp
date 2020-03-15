@@ -12,7 +12,7 @@
 		DE1A0D9F240FDAAF00B3E8DE /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1A0D9E240FDAAF00B3E8DE /* HomePageViewController.swift */; };
 		DE1A0DA1240FDB6100B3E8DE /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1A0DA0240FDB6100B3E8DE /* Slide.swift */; };
 		DE1FB81F241AB0B900EE247C /* HtmlToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1FB81E241AB0B900EE247C /* HtmlToString.swift */; };
-		DE3F8DB624045D5F00DF2525 /* SavingsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3F8DB524045D5F00DF2525 /* SavingsHelper.swift */; };
+		DE3F8DB624045D5F00DF2525 /* MonthlySavingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3F8DB524045D5F00DF2525 /* MonthlySavingHelper.swift */; };
 		DEAC5BFC241155A6000703F6 /* MortgageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAC5BFB241155A6000703F6 /* MortgageView.swift */; };
 		DEAC5C00241156FC000703F6 /* MortgageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEAC5BFF241156FC000703F6 /* MortgageView.xib */; };
 		DEBFB6342412EC2E0012B0D5 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBFB6332412EC2E0012B0D5 /* LaunchViewController.swift */; };
@@ -36,7 +36,7 @@
 		DE1A0D9E240FDAAF00B3E8DE /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		DE1A0DA0240FDB6100B3E8DE /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
 		DE1FB81E241AB0B900EE247C /* HtmlToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HtmlToString.swift; sourceTree = "<group>"; };
-		DE3F8DB524045D5F00DF2525 /* SavingsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsHelper.swift; sourceTree = "<group>"; };
+		DE3F8DB524045D5F00DF2525 /* MonthlySavingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlySavingHelper.swift; sourceTree = "<group>"; };
 		DEAC5BFB241155A6000703F6 /* MortgageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MortgageView.swift; sourceTree = "<group>"; };
 		DEAC5BFF241156FC000703F6 /* MortgageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MortgageView.xib; sourceTree = "<group>"; };
 		DEBFB6332412EC2E0012B0D5 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
@@ -121,7 +121,7 @@
 			children = (
 				DED2536E23FC57150066F48A /* LumpSumSavingHelper.swift */,
 				DE0545E32401A03E008F824F /* MortgageHelper.swift */,
-				DE3F8DB524045D5F00DF2525 /* SavingsHelper.swift */,
+				DE3F8DB524045D5F00DF2525 /* MonthlySavingHelper.swift */,
 				DE06793024195F3F00E32BE5 /* Colors.swift */,
 				DE1FB81E241AB0B900EE247C /* HtmlToString.swift */,
 			);
@@ -204,7 +204,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DED2536F23FC57150066F48A /* LumpSumSavingHelper.swift in Sources */,
-				DE3F8DB624045D5F00DF2525 /* SavingsHelper.swift in Sources */,
+				DE3F8DB624045D5F00DF2525 /* MonthlySavingHelper.swift in Sources */,
 				DECCDAC82413EACF00E0EC26 /* SavingView.swift in Sources */,
 				DE1A0DA1240FDB6100B3E8DE /* Slide.swift in Sources */,
 				DEBFB6342412EC2E0012B0D5 /* LaunchViewController.swift in Sources */,

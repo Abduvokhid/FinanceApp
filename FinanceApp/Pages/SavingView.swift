@@ -186,25 +186,25 @@ class SavingView: UIView, UITextFieldDelegate, Slide {
             case .FutureAmount:
                 let result: Double
                 if (!periodSwitch.isOn) {
-                    result = SavingsHelper.futureValueEnd(initialAmount: initialAmount!, paymentAmount: paymentAmount!, interestRate: interestRate!, numberOfYears: numberOfYears!)
+                    result = MonthlySavingHelper.futureValueEnd(initialAmount: initialAmount!, paymentAmount: paymentAmount!, interestRate: interestRate!, numberOfYears: numberOfYears!)
                 } else {
-                    result = SavingsHelper.futureValueBegin(initialAmount: initialAmount!, paymentAmount: paymentAmount!, interestRate: interestRate!, numberOfYears: numberOfYears!)
+                    result = MonthlySavingHelper.futureValueBegin(initialAmount: initialAmount!, paymentAmount: paymentAmount!, interestRate: interestRate!, numberOfYears: numberOfYears!)
                 }
                 futureAmountTF.text = "£ " + String(format: "%.2f", result)
             case .NumberOfYears:
                 let result: Double
                 if (!periodSwitch.isOn) {
-                    result = SavingsHelper.numberOfYearsEnd(initialAmount: initialAmount!, futureAmount: futureAmount!, interestRate: interestRate!, paymentAmount: paymentAmount!)
+                    result = MonthlySavingHelper.numberOfYearsEnd(initialAmount: initialAmount!, futureAmount: futureAmount!, interestRate: interestRate!, paymentAmount: paymentAmount!)
                 } else {
-                    result = SavingsHelper.numberOfYearsBegin(initialAmount: initialAmount!, futureAmount: futureAmount!, interestRate: interestRate!, paymentAmount: paymentAmount!)
+                    result = MonthlySavingHelper.numberOfYearsBegin(initialAmount: initialAmount!, futureAmount: futureAmount!, interestRate: interestRate!, paymentAmount: paymentAmount!)
                 }
                 numberOfYearsTF.text = String(format: "%.2f", result)
             case .PaymentAmount:
                 let result: Double
                 if (!periodSwitch.isOn) {
-                    result = SavingsHelper.paymentAmountEnd(initialAmount: initialAmount!, futureAmount: futureAmount!, interestRate: interestRate!, numberOfYears: numberOfYears!)
+                    result = MonthlySavingHelper.paymentAmountEnd(initialAmount: initialAmount!, futureAmount: futureAmount!, interestRate: interestRate!, numberOfYears: numberOfYears!)
                 } else {
-                    result = SavingsHelper.paymentAmountBegin(initialAmount: initialAmount!, futureAmount: futureAmount!, interestRate: interestRate!, numberOfYears: numberOfYears!)
+                    result = MonthlySavingHelper.paymentAmountBegin(initialAmount: initialAmount!, futureAmount: futureAmount!, interestRate: interestRate!, numberOfYears: numberOfYears!)
                 }
                 paymentAmountTF.text = "£ " + String(format: "%.2f", result)
             default:

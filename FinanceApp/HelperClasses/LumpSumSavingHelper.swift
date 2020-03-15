@@ -8,9 +8,11 @@
 
 import Foundation
 
-// This class is used to calculate Lump Sum saving values
+//
+// This class is used to calculate Lump Sum saving values. As method names are self explanatory comments have not been added for each method
+//
+
 class LumpSumSavingHelper {
-    
     static func CalculateInterestRate(futureValue: Double, initialAmount: Double, numberOfYears: Double) -> Double {
         var calculation = futureValue / initialAmount
         calculation = pow(calculation, ( 1 / ( 12 * numberOfYears ) ) )
