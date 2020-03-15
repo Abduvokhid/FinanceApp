@@ -19,7 +19,7 @@
 		DECCDAB92413C0A700E0EC26 /* LoanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECCDAB82413C0A700E0EC26 /* LoanView.swift */; };
 		DECCDABC2413C1BC00E0EC26 /* LoanView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DECCDABB2413C1BC00E0EC26 /* LoanView.xib */; };
 		DECCDAC22413D5C200E0EC26 /* LumpSumSavingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DECCDAC12413D5C200E0EC26 /* LumpSumSavingView.xib */; };
-		DECCDAC42413D6CE00E0EC26 /* LumpSumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECCDAC32413D6CE00E0EC26 /* LumpSumView.swift */; };
+		DECCDAC42413D6CE00E0EC26 /* LumpSumSavingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECCDAC32413D6CE00E0EC26 /* LumpSumSavingView.swift */; };
 		DECCDAC62413EABA00E0EC26 /* MonthlySavingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DECCDAC52413EABA00E0EC26 /* MonthlySavingView.xib */; };
 		DECCDAC82413EACF00E0EC26 /* MonthlySavingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECCDAC72413EACF00E0EC26 /* MonthlySavingView.swift */; };
 		DED2535A23FC4AE10066F48A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DED2535923FC4AE10066F48A /* AppDelegate.swift */; };
@@ -43,7 +43,7 @@
 		DECCDAB82413C0A700E0EC26 /* LoanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanView.swift; sourceTree = "<group>"; };
 		DECCDABB2413C1BC00E0EC26 /* LoanView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoanView.xib; sourceTree = "<group>"; };
 		DECCDAC12413D5C200E0EC26 /* LumpSumSavingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LumpSumSavingView.xib; sourceTree = "<group>"; };
-		DECCDAC32413D6CE00E0EC26 /* LumpSumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LumpSumView.swift; sourceTree = "<group>"; };
+		DECCDAC32413D6CE00E0EC26 /* LumpSumSavingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LumpSumSavingView.swift; sourceTree = "<group>"; };
 		DECCDAC52413EABA00E0EC26 /* MonthlySavingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MonthlySavingView.xib; sourceTree = "<group>"; };
 		DECCDAC72413EACF00E0EC26 /* MonthlySavingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlySavingView.swift; sourceTree = "<group>"; };
 		DED2535623FC4AE10066F48A /* FinanceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinanceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,7 +75,7 @@
 				DEAC5BFB241155A6000703F6 /* MortgageView.swift */,
 				DECCDAB82413C0A700E0EC26 /* LoanView.swift */,
 				DECCDAC72413EACF00E0EC26 /* MonthlySavingView.swift */,
-				DECCDAC32413D6CE00E0EC26 /* LumpSumView.swift */,
+				DECCDAC32413D6CE00E0EC26 /* LumpSumSavingView.swift */,
 				DED27DB82416E3B700E9EA71 /* HelpPageViewController.swift */,
 			);
 			path = Pages;
@@ -214,7 +214,7 @@
 				DE06793124195F3F00E32BE5 /* Colors.swift in Sources */,
 				DE1FB81F241AB0B900EE247C /* HtmlToString.swift in Sources */,
 				DE1A0D9F240FDAAF00B3E8DE /* HomePageViewController.swift in Sources */,
-				DECCDAC42413D6CE00E0EC26 /* LumpSumView.swift in Sources */,
+				DECCDAC42413D6CE00E0EC26 /* LumpSumSavingView.swift in Sources */,
 				DE0545E42401A03E008F824F /* MortgageHelper.swift in Sources */,
 				DECCDAB92413C0A700E0EC26 /* LoanView.swift in Sources */,
 			);

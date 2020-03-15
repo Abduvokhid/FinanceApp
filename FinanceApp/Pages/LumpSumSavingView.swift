@@ -1,5 +1,5 @@
 //
-//  LumpSumView.swift
+//  LumpSumSavingView.swift
 //  FinanceApp
 //
 //  Created by Abduvokhid Akhmedov on 07/03/2020.
@@ -13,7 +13,7 @@ import UIKit
 // Comments were written only for complex snippets of code as it is mentioned in Coursework description
 //
 
-class LumpSumView: UIView, UITextFieldDelegate, Slide {
+class LumpSumSavingView: UIView, UITextFieldDelegate, Slide {
     
     enum CompoundFinding{
         case Empty
