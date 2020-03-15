@@ -24,6 +24,11 @@ class LaunchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
+        let singleTapSelector = #selector(self.openHomePage)
+        let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: singleTapSelector)
+        view.addGestureRecognizer(singleTap)
+        
         createImageViews()
         showImageViews()
     }
@@ -119,11 +124,24 @@ class LaunchViewController: UIViewController {
             self.bottomLogo.frame = CGRect(x: bounds.origin.x, y: bounds.origin.y, width: self.partHeight, height: bounds.size.height)
         }, completion: { _ in
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                let homePage = self.storyboard?.instantiateViewController(withIdentifier: "HomePageViewController") as! HomePageViewController
-                homePage.modalPresentationStyle = .overCurrentContext
-                homePage.modalTransitionStyle = .crossDissolve
-                self.present(homePage, animated: true, completion: nil)
+                self.openHomePage()
             }
+        })
+    }
+    
+    @objc func openHomePage() {
+        let newViewFrame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        let newView = UIView(frame: newViewFrame)
+        newView.backgroundColor = .white
+        newView.alpha = 0
+        self.view.addSubview(newView)
+        UIView.animate(withDuration: 0.1, animations: {
+            newView.alpha = 1
+        }, completion: {_ in
+            let homePage = self.storyboard?.instantiateViewController(withIdentifier: "HomePageViewController") as! HomePageViewController
+            homePage.modalPresentationStyle = .overCurrentContext
+            homePage.modalTransitionStyle = .crossDissolve
+            self.present(homePage, animated: true, completion: nil)
         })
     }
 

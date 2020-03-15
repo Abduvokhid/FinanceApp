@@ -75,6 +75,22 @@ class HomePageViewController: UIViewController, UIScrollViewDelegate {
         tabBar.layer.shadowRadius = 5
         tabBar.layer.shadowOffset = CGSize(width: 0, height: 0)
         tabBar.layer.shadowOpacity = 0.3
+        
+        openTransition()
+    }
+    
+    func openTransition(){
+        let newViewFrame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        let newView = UIView(frame: newViewFrame)
+        newView.backgroundColor = .white
+        newView.alpha = 1
+        self.view.addSubview(newView)
+        UIView.animate(withDuration: 0.1, animations: {
+            newView.alpha = 0
+        }, completion: {_ in
+            newView.isHidden = true
+            newView.removeFromSuperview()
+        })
     }
     
     func setMenuSize(){
