@@ -9,6 +9,8 @@
   <p align="center">
     Finance App - simple financial calculator for Mobile Application Development module
     <br />
+    <br />
+    <br />
     <strong>Screenshots</strong>
     <br />
     <a href="https://github.com/Abduvokhid/FinanceApp">
